@@ -2,6 +2,10 @@ body {
 	font-family: sans-serif;
 }
 
+img {
+	margin-top: 8px;
+	margin-bottom: 8px;
+}
 .content{
 	margin-left: 10px;
 }
@@ -31,6 +35,7 @@ a {
 a:visited {
 	color:#590d56;
 }
+
 
 .blog_box{
   	max-width: 768px;
