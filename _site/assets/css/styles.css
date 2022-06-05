@@ -1,12 +1,33 @@
 body {
 	font-family: sans-serif;
 }
-a:link {
-  text-decoration: none;
-  color: black;
+
+.content{
+	margin-left: 10px;
+}
+.nav{
+	display: flex;
+	text-align: center;
+	justify-content: center;
+	gap: 10px;
+	font-size: 20px;
+	margin-bottom: 30px;
+	margin-left: auto;
+}
+.nav_links:visited{
+	color:black;
+}
+.nav_links{
+	color:black;
+	text-decoration: none;
 }
 
+a {
+	color: #ff94fa;
+}
+#current_page{
+	color:#d000ff;
+}
 a:visited {
-  text-decoration: none;
-  color: black;
+	color:#590d56;
 }

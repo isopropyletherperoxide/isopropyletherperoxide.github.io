@@ -1,11 +1,11 @@
-<nav>
-  <a href="/" {% if page.url == "/" %}style="color: red;"{% endif %}>
+<nav class="nav" align="center">
+  <a class="nav_links" href="/" {% if page.url == "/" %}id="current_page"{% endif %}>
     Home
   </a>
-  <a href="/blog" {% if page.url == "/blog.html" %}style="color: red;"{% endif %}>
+  <a class="nav_links" href="/blog" {% if page.url == "/blog.html" %}id="current_page"{% endif %}>
     Blog
   </a>
-  <a href="/about" {% if page.url == "/about.html" %}style="color: red;"{% endif %}>
+  <a class="nav_links" href="/about" {% if page.url == "/about.html" %}id="current_page"{% endif %}>
     About
   </a>
 </nav>
