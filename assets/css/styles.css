@@ -31,3 +31,9 @@ a {
 a:visited {
 	color:#590d56;
 }
+
+.blog_box{
+  	max-width: 768px;
+	text-overflow:word-break;
+}
+
