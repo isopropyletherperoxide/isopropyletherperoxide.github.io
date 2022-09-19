@@ -1,7 +1,7 @@
 ---
 title: Soviet Voltage Multiplier Shenanigans
 author: me again :3
-image: 
+image: "https://cdn.discordapp.com/attachments/588995523113910272/1021532619734781992/unknown.png" 
 layout: post
 subtitle: "A cheap and simple high voltage power supply"
 
