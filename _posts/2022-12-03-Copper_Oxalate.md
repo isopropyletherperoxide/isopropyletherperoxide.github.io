@@ -8,7 +8,6 @@ subtitle: "Here's a simple prep that I managed to screw up *twice*"
 ---
 
 After a while of not posting, here's a simple prep that I managed to screw up *twice*.
-:q
 At first I have attempted to replicate a <a href="https://www.sciencemadness.org/whisper/viewthread.php?tid=30660">synthesis</a> found on sciencemadness.org, as it seemed simple enough. 2.49 grams of copper (II) sulfate were added to 60 degree C water and stirred until dissolved. After, 3.68 grams of potassium oxalate monohydrate were added to the solution, and a murky cloud of copper (II) oxalate were formed. At that point, I was screwed. Some of the complex *has* formed, indicated by a darker colour solution, but a mass of insoluble copper oxalate settled on the bottom. It didn't seem eager to redissolve. 
 <br> 
 <img src="https://cdn.discordapp.com/attachments/456866473290498048/1048553051352469575/IMG20221203125032.jpg" width="320">
