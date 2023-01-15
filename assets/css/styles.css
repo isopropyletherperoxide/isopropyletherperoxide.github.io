@@ -34,7 +34,7 @@
         }
 
         .nav_links {
-                color: black;
+                color: var(--main-color);
                 text-decoration: none;
         }
 
