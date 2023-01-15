@@ -1,9 +1,9 @@
-:root {
-        --main-color: #d958ff;
-        --secondary-color: #953790; 
-}
-
 @media (prefers-color-scheme: light) {
+        :root {
+                --main-color: #c605ff;
+                --secondary-color: #91298b;
+        }
+
         body {
                 background: #FFFFFF;
                 color: black;
@@ -24,17 +24,21 @@
 }
 
 @media (prefers-color-scheme: dark) {
+:root {
+        --main-color: #d958ff;
+        --secondary-color: #953790; 
+}
         body {
                 background: #000000;
                 color: white;
         }
 
         .nav_links:visited {
-                color: var(--main-color);
+                color: white;
         }
 
         .nav_links {
-                color: var(--main-color);
+                color: white;
                 text-decoration: none;
         }
 
@@ -81,7 +85,7 @@ a {
 }
 
 #current_page {
-        color: #f8daff;
+        color: var(--main-color);
 }
 
 a:visited {
