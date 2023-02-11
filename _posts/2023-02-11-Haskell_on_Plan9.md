@@ -59,3 +59,5 @@ hugs-9p/src/hugs
 ```
 
 Now you're in! Have fun Hasking on your Plan9 system.
+
+<img src="https://cdn.discordapp.com/attachments/383712504251023360/1074031669444608010/plan9_haskell.png">
