@@ -3,7 +3,7 @@ title: Rosetta Lisp
 author: me :3
 image: 
 layout: post
-subtitle: 
+subtitle: Comparing the syntax of Lisp-family languages 
 
 ---
 
