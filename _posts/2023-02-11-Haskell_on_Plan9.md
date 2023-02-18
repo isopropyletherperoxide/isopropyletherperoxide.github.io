@@ -4,6 +4,7 @@ author: meee :3
 image: https://cdn.discordapp.com/attachments/383712504251023360/1074031669444608010/plan9_haskell.png
 layout: post 
 subtitle: "Fighting through bad documentation and running Haskell on Plan9"
+twittercard: summary_large_image
 
 ---
 

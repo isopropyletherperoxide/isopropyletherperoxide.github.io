@@ -4,6 +4,7 @@ author: me again :3
 image: "https://cdn.discordapp.com/attachments/588995523113910272/1021532619734781992/unknown.png" 
 layout: post
 subtitle: "Messing about with an old TV part"
+twittercard: summary_large_image
 
 --- 
 

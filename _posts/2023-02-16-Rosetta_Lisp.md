@@ -4,6 +4,7 @@ author: me :3
 image: 
 layout: post
 subtitle: Comparing the syntax of Lisp-family languages 
+twittercard: summary_large_image
 
 ---
 

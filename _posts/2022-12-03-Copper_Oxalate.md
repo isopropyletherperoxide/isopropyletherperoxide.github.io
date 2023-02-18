@@ -4,6 +4,7 @@ author: me :3
 image: https://cdn.discordapp.com/attachments/470237554092802049/1049722953824219146/IMG20221206133103.jpg 
 layout: post 
 subtitle: "Here's a simple prep that I managed to screw up *twice*" 
+twittercard: summary_large_image
 
 ---
 
