@@ -1,7 +1,7 @@
 ---
 title: Synthesis of Potassium Hexanitrocobaltate 
 author: me :3 
-image: https://cdn.discordapp.com/attachments/456866473290498048/1102503025328799836/IMG20230501105159.jpg 
+image: https://cdn.discordapp.com/attachments/456866473290498048/1102563213607981106/IMG20230501144349.jpg
 layout: post 
 subtitle: "A very neat yellow complex" 
 twittercard: summary_large_image
@@ -35,6 +35,6 @@ A solution of ~5 grams of potassium chloride was prepared in warm distilled wate
 
 The solid was allowed to dry in a desiccator overnight, and then in hot air, to speed up the drying process (I am very impatient).
 
-The final yield is 4.52 grams, which is 46% of theoretical.
+The final yield as 4.52 grams, which is 46% of theoretical.
 
 <img  height="500" src="https://cdn.discordapp.com/attachments/456866473290498048/1102562912486297692/IMG20230501145045.jpg">
