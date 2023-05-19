@@ -12,7 +12,7 @@ This complex has been of my interest for quite a long while now, but I couldn't 
 Now, that I'm generally better at inorganic chemistry, I've managed to adapt an old preparation of it for the modern (home) chemist. (I'm **not** using lead as an oxidizer) 
 
 ## Sodium Cobalt Nitrite
-1.54 grams of cobalt (II) sulfate hexahydrate (0.01M) were dissolved in 7.5 ml of water with the help of strong stirring and heating. A similar solution of 13.6 grams (0.2M) of sodium nitrite in 7.5 ml was also prepared with the help of strong heating and stirring. 
+1.54 grams of cobalt (II) sulfate hexahydrate (0.01 mol) were dissolved in 7.5 ml of water with the help of strong stirring and heating. A similar solution of 13.6 grams (0.2 mol) of sodium nitrite in 7.5 ml was also prepared with the help of strong heating and stirring. 
 
 
 The nitrite solution was placed on a stirring hotplate, and the cobalt sulfate solution was added to it at once with no visible colour change. 
