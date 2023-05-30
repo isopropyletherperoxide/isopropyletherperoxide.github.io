@@ -1,7 +1,7 @@
 ---
 title: Synthesis of Copper Phthalocyanine 
 author: me :3
-image: https://cdn.discordapp.com/attachments/450917584171302912/982229842995069008/IMG20220603133022.jpg
+image: https://cdn.discordapp.com/attachments/470237554092802049/1113019311636889620/IMG20230530111656.jpg 
 layout: post
 subtitle: "I sacrifice a flask for a blue dye" 
 twittercard: summary_large_image
