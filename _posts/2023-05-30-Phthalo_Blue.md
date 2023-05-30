@@ -16,6 +16,8 @@ Most preparations of it call for Ammonium Molybdate as a catalyst, but that is p
 Also, my phthalimide is probably of lower quality than desirable, as I made it in 20 minutes on a gas stove 2 years ago and never recrystallised it.
 
 ## Preparation
+(This procedure is based on a [video](https://www.youtube.com/watch?v=Mnx6PBFBGik) by Sciencemadness forum member/admin Texium)
+
 The following amounts of reagents were weighed out and ground in a mortar and pestle: 
 
 - 0.027 mol urea (1.62 grams)
