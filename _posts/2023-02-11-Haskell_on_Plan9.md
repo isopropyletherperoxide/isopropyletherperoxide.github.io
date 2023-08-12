@@ -1,7 +1,7 @@
 --- 
 title: Running Haskell on Plan9
 author: meee :3 
-image: https://cdn.discordapp.com/attachments/383712504251023360/1074031669444608010/plan9_haskell.png
+image: /assets/images/plan9_haskell.png 
 layout: post 
 subtitle: "Fighting through bad documentation and running Haskell on Plan9"
 twittercard: summary_large_image
@@ -50,7 +50,7 @@ cd
 
 Now your interpreter is ready! You can run it with ``hugs``.
 
-<img src="https://cdn.discordapp.com/attachments/383712504251023360/1074031683445215372/hugs_plan9.png" width="800">
+<img src="/assets/images/hugs_plan9.png" width="800">
 
 If you chose not to do ``make install`` for some reason, you'll also need to declare ``HUGSDIR`` before running your ``hugs`` binary and set it to your sourcecode root dir:  
 
@@ -61,4 +61,4 @@ hugs-9p/src/hugs
 
 Now you're in! Have fun Hasking on your Plan9 system.
 
-<img src="https://cdn.discordapp.com/attachments/383712504251023360/1074031669444608010/plan9_haskell.png">
+<img src="/assets/images/plan9_haskell.png">
