@@ -1,7 +1,7 @@
 ---
 title: Synthesis of Fluorescent Vanillin-Azine
 author: me :3
-image: /assets/images/ddnp2.jpg 
+image: /assets/images/va_vial.jpg 
 layout: post
 subtitle: "A simple synthesis of an interesting chemical"
 twittercard: summary_large_image
