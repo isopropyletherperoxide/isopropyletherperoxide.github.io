@@ -26,6 +26,8 @@ After drying, the azine was placed in an erlenmeyer flask and an excess of 15% h
 
 The resulting orange product was gravity filtered and a yellow solid was obtained. The yellow solid was ground in a mortar and pestle and bits of filter paper stuck to it were removed with a metal sieve. Resulting vanillin azine was placed into a vial.
 
+<img src="/assets/images/va_vial.jpg" width="600" alt="Erlenmeyer flask on a stir plate with a yellow solid in suspesion" title="Azine in water"><br>
+
 ### Further Reading and Applications
 Besides having a fluorescent hydrochloride salt, vanillin-azine also can exhibit weak chemiluminescence in a DMSO-NaClO bleach system. I was not able to achieve it, however adding an oxidiser to a solution of vanillin-azine in DMSO has yielded a very fluorescent solution. 
 
