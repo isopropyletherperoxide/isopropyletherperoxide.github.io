@@ -16,6 +16,8 @@ The procedure is taken from a <a href="http://dx.doi.org/10.22146/ijc.71569">pap
 
 0.02 mol of vanillin (3.04 grams) were placed in a erlenmeyer flask with 50 ml of technical grade ethanol and stirred until dissolved. To the resulting vanillin solution a few drops of Hydrazine Hydrate were added and stirring was continued for the 30 minutes. 
 
+<img src="/assets/images/va_synth.png" width="600" alt="Erlenmeyer flask on a stir plate with a yellow solid in suspesion" title="Azine in water"><br>
+
 The vanillin azine was precipitated via addition of cold water, and filtered on a sintered glass funnel. 
 
 <img src="/assets/images/Vanillin-Azine_1.jpg" width="320" alt="Erlenmeyer flask on a stir plate with a yellow solid in suspesion" title="Azine in water"><br>
