@@ -20,4 +20,5 @@ This solution was slowly boiled down on a hotplate, with colour of the solution 
 
 ### Extra Results
 Now, let's focus on the extra solution that we set aside to evaporate. After a while, what we got is a mix of green crystals on the edges, yellow crystals in the middle of the dish, with some brown solid in-between them. These are actually different compounds! According to Riley (1992), the green (pipzH2)2[CuCl4]Cl2 * 3H2O compound actually has extra non-bonded chloride ions, and adopts a different geometry from the yellow (pipzH2)[CuCl4] * 2H2O compound. 
-<br><img src="/assets/images/piperazine_tetrachlorocuprate_polymorphs.jpg" width="520" alt="Yellow and Green Crystals on a Dish" title="Yellow and Green Crystals"><br>
+
+<img src="/assets/images/piperazine_tetrachlorocuprate_polymorphs.jpg" width="520" alt="Yellow and Green Crystals on a Dish" title="Yellow and Green Crystals"><br>
