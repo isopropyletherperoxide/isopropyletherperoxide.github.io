@@ -1,7 +1,7 @@
 ---
 title: Extraction of Piperazine from Dog Dewormer 
 author: me :3
-image: https://cdn.discordapp.com/attachments/470237554092802049/1113019311636889620/IMG20230530111656.jpg 
+image: /assets/images/piperazine.png 
 layout: post
 subtitle: "How bad is this stuff for me, anyways?" 
 twittercard: summary_large_image
