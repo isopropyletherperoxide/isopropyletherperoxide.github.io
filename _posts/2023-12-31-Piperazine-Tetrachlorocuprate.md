@@ -16,7 +16,7 @@ In a 100 ml beaker 0.86 grams of piperazine (0.01 mol) were dissolved in 15 ml o
 
 This solution was slowly boiled down on a hotplate, with colour of the solution changing to a darker green. When the solution was reduced to around 8 ml, it was removed from heat and placed in the freezer. The resulting yellow-green crystals were filtered off and dried on a schott funnel. The resulting solution was put aside and slowly evaporated at room temp. 
 
-<br><img src="/assets/images/piperazine_tetrachlorocuprate_solution.jpg" width="520" alt="Yellow-Green Crystals on a Dish" title="Yellow-Green Crystals"><br>
+<br><img src="/assets/images/piperazine_tetrachlorocuprate.jpg" width="520" alt="Yellow-Green Crystals on a Dish" title="Yellow-Green Crystals"><br>
 
 ### Extra Results
 Now, let's focus on the extra solution that we set aside to evaporate. After a while, what we got is a mix of green crystals on the edges, yellow crystals in the middle of the dish, with some brown solid in-between them. These are actually different compounds! According to Riley (1992), the green (pipzH2)2[CuCl4]Cl2 * 3H2O compound actually has extra non-bonded chloride ions, and adopts a different geometry from the yellow (pipzH2)[CuCl4] * 2H2O compound. 
