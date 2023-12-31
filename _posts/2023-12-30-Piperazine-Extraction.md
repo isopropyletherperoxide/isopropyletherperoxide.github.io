@@ -1,7 +1,7 @@
 ---
 title: Extraction of Piperazine from Dog Dewormer 
 author: me :3
-image: /assets/images/piperazine.png 
+image: "https://isopropyletherperoxide.github.io/assets/images/piperazine.png" 
 layout: post
 subtitle: "How bad is this stuff for me, anyways?" 
 twittercard: summary_large_image
