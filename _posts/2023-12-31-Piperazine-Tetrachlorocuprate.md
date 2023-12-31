@@ -8,7 +8,7 @@ twittercard: summary_large_image
 
 ---
 
-This is a quick one although some things went weird during the synthesis. Supposedly this compound is thermochromic but this demands further testing! 
+This is a quick one although some things went weird during the synthesis. Supposedly this compound is thermochromic but this demands further testing! The procedure is based on a <a href="https://pubs.acs.org/doi/10.1021/ic971612w">1992 paper by Riley et al</a>.   
 
 In a 100 ml beaker 0.86 grams of piperazine (0.01 mol) were dissolved in 15 ml of distilled water acidifed with 6 ml of 15% hydrochloric acid. 1.07 grams of Copper (II) Chloride Dihydrate were added to the resulting solution of piperazinium dichloride, at which point a precipitate formed and an attempt was made at dissolving it by adding extra hydrochloric acid and distilled water up to 50 ml (most likely detrimental and annoying to remove, will be skipped next time). The precipitate did not dissolve in the extra HCl and was filtered off, and a green solution free of any cloudiness was acquried. 
 
