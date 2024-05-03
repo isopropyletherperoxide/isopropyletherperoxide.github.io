@@ -1,7 +1,7 @@
 ---
 title: Solving a Cobalt Mystery (An Attempt at Ethylenediammonium Tetrachlorocobaltate)
 author: me :3 
-image: content="https://isopropyletherperoxide.github.io/assets/images/praseocobalt_filter.jpg" 
+image: "https://isopropyletherperoxide.github.io/assets/images/praseocobalt_filter.jpg" 
 layout: post 
 subtitle: "Attempt at making (enH2)[CoCl4] gone slightly awry?" 
 twittercard: summary_large_image
