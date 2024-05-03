@@ -45,5 +45,5 @@ The mystery has been solved! The product is trans-Dichlorobis(ethylenediamine)co
 What went wrong is the wrong stoichiometry in the start, where 2 times the needed molar amount of ethylenediamine and not enough hydrochloric acid has been used. 
 
 ### Conclusions
-While the original synthesis plan has failed, we have still ended up with an aesthetically pleasing end product, and in pretty high amounts. The synthesis of the ethylenediammonium tetrachlocobaltate will be reattempted at some point to see whether if it exists at all. 
+While the original synthesis plan has failed, we still have ended up with an aesthetically pleasing end product, and in pretty high amounts. The synthesis of the ethylenediammonium tetrachlocobaltate will be reattempted at some point to see whether if it exists at all. 
 
