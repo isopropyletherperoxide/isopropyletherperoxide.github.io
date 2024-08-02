@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+        <script>
+                hljs.initHighlightingOnLoad();
+        </script>
+        <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FPTWFRVMWJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FPTWFRVMWJ');
+</script>
+
+        <meta charset="utf-8">
+        <meta content="Running Haskell on Plan9" property="og:title" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta content="Fighting through bad documentation and running Haskell on Plan9" property="og:description" />
+        <meta content="#d000ff" data-react-helmet="true" name="theme-color" />
+        <meta name="twitter:image" content="/assets/images/plan9_haskell.png" />
+        <meta content="/assets/images/plan9_haskell.png" property="og:image" />
+        <title>Running Haskell on Plan9</title>
+        <link rel="stylesheet" href="/assets/css/styles.css">
+        <link rel="stylesheet" href="/assets/css/qtcreator-dark.css">
+        <link rel="icon" href="/assets/images/icon.png">
+</head>
+
+<body class="content">
+        <nav class="nav" align="center">
+        <a class="nav_links" href="/" >
+                Home
+        </a>
+        <a class="nav_links" href="/blog" id="current_page" >
+                Blog
+        </a>
+        <a class="nav_links" href="/faq" >
+                Faq
+        </a>
+</nav>
+
+        <h1>Running Haskell on Plan9</h1>
+<p>11 Feb 2023 - meee :3</p>
+<div class="blog_box">
+<p><strong>Disclaimer: I have not done the bulk of the work porting HUGS to Plan9, this blogpost is only about building and running it (as I found the process oddly non-trivial)</strong></p>
+
+<p>As I have nothing useful or more interesting to do, I’ve spent the last week exploring and playing around with Plan9 (mostly 9front).</p>
+
+<p>This article details on how I managed to fight through the ancient documentation and to actually run Haskell on my install.</p>
+
+<h3 id="setup">Setup:</h3>
+<p>I’m running 9front and 9legacy through QEMU/KVM with the help of <code class="language-plaintext highlighter-rouge">virt-manager</code>, with the VMs on mostly default settings with the exception of the display running through virtio instead of the default protocol. In this article I’m using 9front, but it works for 9legacy about the same.</p>
+
+<p>I don’t recommend using VirtualBox as it tends to break with updates.</p>
+
+<h3 id="fetching-the-files-and-building">Fetching the files and building</h3>
+<p>First, we need to get a source tarball with HUGS from <a href="https://9p.io/wiki/plan9/Contrib/">contrib</a> and extract it:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>9fs sources 
+<span class="nb">cp</span> /n/sources/contrib/andrey/hugs.tgz /usr/glenda/
+<span class="nb">tar</span> <span class="nt">-xvf</span> hugs.tgz
+</code></pre></div></div>
+
+<p>Then, we <code class="language-plaintext highlighter-rouge">cd</code> into <code class="language-plaintext highlighter-rouge">/usr/glenda/hugs-9p/src/</code> and enter a POSIX shell emulator through <code class="language-plaintext highlighter-rouge">ape/psh</code> (<strong>NOT</strong> <code class="language-plaintext highlighter-rouge">ape/sh</code>):</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd </span>hugs-p9/src/
+ape/psh 
+</code></pre></div></div>
+
+<p>Now, as we’re in the POSIX shell, we run <code class="language-plaintext highlighter-rouge">make</code> and actually build our interpreter:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>make &amp;&amp; make install
+</code></pre></div></div>
+
+<p>After the build is done, exit the POSIX shell and go back to our “home” folder.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">exit 
+cd</span> 
+</code></pre></div></div>
+
+<p>Now your interpreter is ready! You can run it with <code class="language-plaintext highlighter-rouge">hugs</code>.</p>
+
+<p><img src="/assets/images/hugs_plan9.png" width="800" /></p>
+
+<p>If you chose not to do <code class="language-plaintext highlighter-rouge">make install</code> for some reason, you’ll also need to declare <code class="language-plaintext highlighter-rouge">HUGSDIR</code> before running your <code class="language-plaintext highlighter-rouge">hugs</code> binary and set it to your sourcecode root dir:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HUGSDIR <span class="o">=</span> /usr/glenda/hugs-9p
+hugs-9p/src/hugs 
+</code></pre></div></div>
+
+<p>Now you’re in! Have fun Hasking on your Plan9 system.</p>
+
+<p><img src="/assets/images/plan9_haskell.png" /></p>
+
+</div>
+
+</body>
+
+</html>

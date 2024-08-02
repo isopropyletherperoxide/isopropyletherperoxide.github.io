@@ -1,0 +1,6 @@
+url: "https://isopropyletherperoxide.github.io"
+plugins:
+  - jekyll-sitemap
+
+exclude: 
+  - shell.nix

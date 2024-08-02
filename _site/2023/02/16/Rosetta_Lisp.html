@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+        <script>
+                hljs.initHighlightingOnLoad();
+        </script>
+        <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FPTWFRVMWJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FPTWFRVMWJ');
+</script>
+
+        <meta charset="utf-8">
+        <meta content="Rosetta Lisp" property="og:title" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta content="Comparing the syntax of Lisp-family languages" property="og:description" />
+        <meta content="#d000ff" data-react-helmet="true" name="theme-color" />
+        <meta name="twitter:image" content="" />
+        <meta content="" property="og:image" />
+        <title>Rosetta Lisp</title>
+        <link rel="stylesheet" href="/assets/css/styles.css">
+        <link rel="stylesheet" href="/assets/css/qtcreator-dark.css">
+        <link rel="icon" href="/assets/images/icon.png">
+</head>
+
+<body class="content">
+        <nav class="nav" align="center">
+        <a class="nav_links" href="/" >
+                Home
+        </a>
+        <a class="nav_links" href="/blog" id="current_page" >
+                Blog
+        </a>
+        <a class="nav_links" href="/faq" >
+                Faq
+        </a>
+</nav>
+
+        <h1>Rosetta Lisp</h1>
+<p>16 Feb 2023 - me :3</p>
+<div class="blog_box">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/clojure.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/scheme.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/lisp.min.js"></script>
+
+<p>This is a syntax comparison of Lisp-like languages (Clojure, Common Lisp, Scheme (Racket) and possibly more in the future)</p>
+
+<p><strong>VERY UNFINISHED, will be updated gradually as I go through learning Lisp and its derivatives</strong></p>
+
+<h3 id="defining-a-function">Defining a Function</h3>
+
+<div id="codeblock-table">
+<div class="codeblock-div">
+  <h4 class="header-in-codeblock">Clojure</h4>
+<pre class="codeblock">
+<code class="language-clojure">(defn double
+   [x]
+   (/ x 2)) 
+</code> 
+</pre> 
+</div>
+
+<div class="codeblock-div">
+  <h4 class="header-in-codeblock">Common Lisp</h4>
+<pre class="codeblock">
+<code class="language-lisp">(defun half (x)
+   (/ x 2))
+</code>
+</pre>
+</div>
+
+<div class="codeblock-div">
+  <h4 class="header-in-codeblock">Scheme</h4>
+<pre class="codeblock">
+<code class="language-scheme">(define (half x)
+   (/ x 2))
+</code>
+</pre>
+</div>
+</div>
+
+<h3 id="lambdas">Lambdas</h3>
+
+<div id="codeblock-table">
+<div class="codeblock-div">
+  <h4 class="header-in-codeblock">Clojure</h4>
+<pre class="codeblock">
+<code class="language-clojure">(fn [x]
+   (/ x 2)) 
+</code> 
+</pre> 
+</div>
+
+
+<div class="codeblock-div">
+  <h4 class="header-in-codeblock">Clojure (Alternative)</h4>
+<pre class="codeblock">
+<code class="language-clojure">#(/ % 2) 
+</code> 
+</pre> 
+</div>
+
+<div class="codeblock-div">
+  <h4 class="header-in-codeblock">Common Lisp</h4>
+<pre class="codeblock">
+<code class="language-lisp">(lambda (x)
+   (/ x 2))
+</code>
+</pre>
+</div>
+
+<div class="codeblock-div">
+  <h4 class="header-in-codeblock">Scheme</h4>
+<pre class="codeblock">
+<code class="language-scheme">(lambda (x)
+   (/ x 2))
+</code>
+</pre>
+</div>
+</div>
+
+</div>
+
+</body>
+
+</html>

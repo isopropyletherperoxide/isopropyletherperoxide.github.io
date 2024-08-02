@@ -1,0 +1,11 @@
+<nav class="nav" align="center">
+        <a class="nav_links" href="/" {% if page.url == "/" %}id="current_page" {% endif %}>
+                Home
+        </a>
+        <a class="nav_links" href="/blog" {% if page.url == "/blog.html" or page.layout == "post" %}id="current_page" {% endif %}>
+                Blog
+        </a>
+        <a class="nav_links" href="/faq" {% if page.url == "/faq.html" %}id="current_page" {% endif %}>
+                Faq
+        </a>
+</nav>

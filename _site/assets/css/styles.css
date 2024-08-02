@@ -1,0 +1,124 @@
+@media (prefers-color-scheme: light) {
+        :root {
+                --main-color: #c605ff;
+                --secondary-color: #91298b;
+        }
+
+        body {
+                background: #FFFFFF;
+                color: black;
+        }
+
+        .nav_links:visited {
+                color: black;
+        }
+
+        .nav_links {
+                color: black;
+                text-decoration: none;
+        }
+
+        a {
+                color: var(--main-color);
+        }
+}
+
+@media (prefers-color-scheme: dark) {
+:root {
+        --main-color: #d958ff;
+        --secondary-color: #953790; 
+}
+        body {
+                background: #000000;
+                color: white;
+        }
+
+        .nav_links:visited {
+                color: white;
+        }
+
+        .nav_links {
+                color: white;
+                text-decoration: none;
+        }
+
+        a {
+                color: var(--main-color);
+        }
+}
+
+body {
+        font-family: sans-serif;
+        line-height: 1.4;
+}
+
+img {
+        margin-top: 8px;
+        margin-bottom: 8px;
+        padding-left: 8px;
+}
+
+h2 {
+        margin: 0px 0px -15px 0px
+}
+
+ul {
+        margin: 10px 0px -10px 0px
+}
+
+.content {
+        margin-left: 10px;
+}
+
+.nav {
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        gap: 10px;
+        font-size: 20px;
+        margin-bottom: 30px;
+        margin-left: auto;
+}
+
+a {
+        color: var(--main-color);
+}
+
+#current_page {
+        color: var(--main-color);
+}
+
+a:visited {
+        color: var(--secondary-color);
+}
+
+
+.blog_box {
+        max-width: 768px;
+        text-overflow: word-break;
+}
+
+#codeblock-table {
+        display: flex
+}
+
+.codeblock-div {
+        padding-right: 20px;
+        padding-left: 20px;
+}
+
+.codeblock {
+        font-size: 15px;
+        margin-top: 0px;
+}
+
+.header-in-codeblock {
+        margin: 0px 0px 0px 0px;
+        text-align: center;
+}
+
+.gallery_image {
+        display: inline;
+        width: 300px;
+        padding: 0px 0px 0px 10px;
+}
