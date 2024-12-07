@@ -1,7 +1,8 @@
 ---
 title: Making a Copper-Hydrazine-Halide Complex  
 author: me :3
-image: https://cdn.discordapp.com/attachments/470237554092802049/991386075840905297/unknown.png
+image: "https://isopropyletherperoxide.github.io/assets/images/n2h4_cucl3_recryst.jpg" 
+
 layout: post
 subtitle: "Coordinating hydrazine to Copper without reducing it to the metal"
 twittercard: summary_large_image
