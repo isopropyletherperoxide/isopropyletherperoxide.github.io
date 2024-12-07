@@ -11,7 +11,7 @@ twittercard: summary_large_image
 
 This post is partially inspired by one of my first chemistry experiments, an attempt at making a Hydrazine Tetrachlorocuprate from a 1:1 ratio of Copper Chloride and Hydrazine Dihydrochloride that failed because of the complicated Redox Behaviour of Hydrazine - Copper systems.
 
-My preparation is based on a 1979 paper by , which details the synthesis of the trichlorocuprate and various other salts. I have picked the trichlorocuprate because of a reported bright green colour and an interesting mixed-ligand coordination sphere in its structure.  
+My preparation is based on a 1979 <a href="https://pubs.acs.org/doi/10.1021/ic50200a001">paper</a> by Brown et al., which details the synthesis of the trichlorocuprate and various other salts. I have picked the trichlorocuprate because of a reported bright green colour and an interesting mixed-ligand coordination sphere in its structure.  
 
 <img src="/assets/images/hydrazinium_chlorocuprate.png" width="600" alt="picture with structure of hydrazinium trichlorocuprate" title="Structure of the Complex"><br>
 
