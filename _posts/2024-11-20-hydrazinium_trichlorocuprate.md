@@ -16,11 +16,19 @@ My preparation is based on a 1979 paper by , which details the synthesis of the 
 
 ### Synthesis 
 #### Attempt 1 (successful, with some mistakes)
-On my first attempt I have prepared an acidified solution of Copper (II) chloride with hydrochloric acid. With strong stirring and heating, an amount of solid hydrazine Dihydrochloride was added to it, and a bright green precipitate reminiscent of Nickel Chloride Hexahydrate has appeared. The solution was hot filtered, and an amount of bright green impure mixed solid remained on the filter paper, with the dark green solution set aside. 
+On the first attempt a solution of 1.87 grams of Copper (II) Chloride and 7 ml of 15% hydrochloric acid in 10 ml of water were prepared. With strong stirring and heating, 1.15 grams of solid Hydrazinium Dihydrochloride were added to it, and a bright green precipitate reminiscent of Nickel Chloride Hexahydrate has appeared. The solution was hot filtered, and an amount of bright green impure mixed solid remained on the filter paper, with the dark green solution set aside. 
+
+IMAGE
 
 Initially this attempt was deemed as a failure, as the bright green precipitate had an amount of impurities, like undissolved crystals of hydrazinium dihydrochloride and blue crystals of unreacted Copper (II) Chloride, but on standing the dark green solution has formed needle-shaped crystals, which were filtered off and dried. 
+
+IMAGE
+
 #### Attempt 2 (failure)
 A second attempt was conducted, with the hydrazinium dihydrochloride finely divided in a mortar and pestle before the addition, with a smaller amount of copper chloride and water used. The solution ended up overheating, however this might've not influenced the end product. What doomed this attempt is my lack of attention, as by letting it evaporate I got some amount of impurity crystallize alongside it, and after a few attempts at recrystallization the complex has decomposed. 
 
+IMAGE 
+
 ### Results 
-The final result was a small amount of a dark green solid, notable for forming an odd white layer smelling strongly of hydrazine (!) on the display vial it was stored in. 
+The final result was a small amount of a green solid, notable for forming an odd white layer smelling strongly of hydrazine (!) on the display vial it was stored in.
+
