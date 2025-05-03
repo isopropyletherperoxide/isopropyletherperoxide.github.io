@@ -33,6 +33,7 @@ A solution of ~5 grams of potassium chloride was prepared in warm distilled wate
 <img width="500" src="/assets/images/IMG20230501105159.jpg">
 <img width="500" src="/assets/images/IMG20230501144349.jpg">
 
+
 The solid was allowed to dry in a desiccator overnight, and then in hot air, to speed up the drying process (I am very impatient).
 
 The final yield as 4.52 grams, which is 46% of theoretical.
