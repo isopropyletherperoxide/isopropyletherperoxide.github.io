@@ -20,8 +20,6 @@ This is the exact process I've used on my first run, so the molar proportions ar
 
 A hot solution of 15.75 grams of Barium Hydroxide Octahydrate in 800 ml of water *(perhaps too much)* was prepared, to which 13.31 grams of the piperazinium dioxalate were added in portions under vigorous stirring. The hot solution was left to stir for a while to ensure complete liberation of piperazine freebase. 
 
-<img src="/assets/images/barium_oxalate.jpg" width="600" alt="white suspension in a tall glass beaker on a hotplate" title="Suspension of the Oxalate in water"><br>
-
 The barium oxalate precipitate was filtered on a buchner funnel and washed **thoroughly** with hot distilled water to get every last bit of piperazine in it out. The resulting solution was evaporated on a hotplate over an entire day and white crystals of piperazine freebase were obtained after the 100 ml of remaining solution were placed in the freezer. 
 
 The resulting product is 6.7 grams of a white crystalline powder, which burns cleanly with little to no residue.

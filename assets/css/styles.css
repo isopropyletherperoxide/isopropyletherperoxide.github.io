@@ -45,6 +45,9 @@
         a {
                 color: var(--main-color);
         }
+         img.bw { 
+         filter: invert(1); 
+ } 
 }
 
 body {
@@ -122,3 +125,5 @@ a:visited {
         width: 300px;
         padding: 0px 0px 0px 10px;
 }
+
+
