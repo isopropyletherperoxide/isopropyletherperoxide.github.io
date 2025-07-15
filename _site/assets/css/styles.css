@@ -1,3 +1,6 @@
+.literata-bean {
+}
+
 @media (prefers-color-scheme: light) {
         :root {
                 --main-color: #c605ff;
@@ -5,8 +8,8 @@
         }
 
         body {
-                background: #FFFFFF;
-                color: black;
+                background: rgb(255, 252, 240);
+                color: rgb(16, 15, 15);
         }
 
         .nav_links:visited {
@@ -29,8 +32,8 @@
         --secondary-color: #953790; 
 }
         body {
-                background: #000000;
-                color: white;
+                background: rgb(16, 15, 15);
+                color: rgb(206, 205, 195);
         }
 
         .nav_links:visited {
@@ -51,8 +54,11 @@
 }
 
 body {
-        font-family: sans-serif;
-        line-height: 1.4;
+        font-family: "Literata", 'courier new';
+        line-height: 1.5;
+        letter-spacing: 0.6px;
+        font-optical-sizing: auto;
+        font-weight: 460;
 }
 
 img {
