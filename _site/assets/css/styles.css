@@ -65,6 +65,7 @@ img {
         margin-top: 8px;
         margin-bottom: 8px;
         padding-left: 8px;
+        max-width: 90%;
 }
 
 h2 {
