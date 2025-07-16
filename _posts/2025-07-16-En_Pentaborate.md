@@ -14,7 +14,7 @@ The chemistry of boric acids and boron is, for lack of better words, rather Unhi
 <script src="https://3Dmol.org/build/3Dmol-min.js"></script>     
 <script src="https://3Dmol.org/build/3Dmol.ui-min.js"></script>     
  
-<div style="height: 400px; width: 400px; position: relative;" class='viewer_3Dmoljs' data-href ='/assets/images/tetraborate.mol2' data-backgroundcolor='0xffffff' data-style='sphere:radius~0.5,colorscheme~Jmol;stick:colorscheme~Jmol' data-ui='true'></div>       
+<div style="height: 400px; width: 400px; max-width:100%; position: relative;" class='viewer_3Dmoljs' data-href ='/assets/images/tetraborate.mol2' data-backgroundcolor='0xffffff' data-style='sphere:radius~0.5,colorscheme~Jmol;stick:colorscheme~Jmol' data-ui='true'></div>       
 
 Reference: <a href="https://www.crystallography.net/cod/1534261.html">Crystallography Open Database</a> 
 
@@ -33,7 +33,7 @@ This work is based on a <a href="https://www.sciencedirect.com/science/article/a
 
 Thankfully, because this compound was synthesized and characterized before at a proper lab, with access to proper X-ray equipment, we can take a look at a a visualization of crystallographic data that was obtained in their work, and see up close the peculiar shape the spirocyclic pentaborate ion takes
 
-<div style="height: 400px; width: 400px; position: relative;" class='viewer_3Dmoljs' data-href ='/assets/images/mebqes.mol2' data-backgroundcolor='0xffffff' data-style='sphere:radius~0.5,colorscheme~Jmol;stick:colorscheme~Jmol' data-ui='true'></div>       
+<div style="height: 400px; width: 400px; max-width:100%; position: relative;" class='viewer_3Dmoljs' data-href ='/assets/images/mebqes.mol2' data-backgroundcolor='0xffffff' data-style='sphere:radius~0.5,colorscheme~Jmol;stick:colorscheme~Jmol' data-ui='true'></div>       
 
 Reference:  Mohammed A. Altahan, Michael A. Beckett, Simon J. Coles, Peter N. Horton CCDC 1534199: Experimental Crystal Structure Determination, 2017, DOI: <a href="https://doi.org/10.5517/ccdc.csd.cc1nhg9x">10.5517/ccdc.csd.cc1nhg9x</a> 
 
