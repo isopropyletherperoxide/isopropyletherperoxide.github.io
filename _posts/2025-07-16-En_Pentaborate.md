@@ -14,7 +14,7 @@ The chemistry of boric acids and boron is, for lack of better words, rather Unhi
 <script src="https://3Dmol.org/build/3Dmol-min.js"></script>     
 <script src="https://3Dmol.org/build/3Dmol.ui-min.js"></script>     
  
-<div style="height: 400px; width: 400px; max-width:100%; position: relative;" class='viewer_3Dmoljs' data-href ='/assets/images/tetraborate.mol2' data-backgroundcolor='0xffffff' data-style='sphere:radius~0.5,colorscheme~Jmol;stick:colorscheme~Jmol' data-ui='true'></div>       
+<div style="height: 400px; width: 400px; margin-left: 8px; max-width:100%; position: relative;" class='viewer_3Dmoljs' data-href ='/assets/images/tetraborate.mol2' data-backgroundcolor='0xffffff' data-style='sphere:radius~0.5,colorscheme~Jmol;stick:colorscheme~Jmol' data-ui='true'></div>       
 
 Reference: <a href="https://www.crystallography.net/cod/1534261.html">Crystallography Open Database</a> 
 
@@ -23,6 +23,10 @@ In certain conditions, and especially in melts, the reaction can be pushed furth
 Besides just making large polymeric networks, work has also been carried out in using various metal complexes as templates for assembling ions, allowing us to obtain ions of a well-defined size and structure, avoiding a polycondesation mess that is obtained via plain aqueous chemistry. 
 
 <img src="/assets/images/24borate.png" width="600"><br>
+
+<div style="height: 400px; width: 400px; margin-left: 8px; max-width:100%; position: relative;" class='viewer_3Dmoljs' data-href ='/assets/images/tetracosborate.mol2' data-backgroundcolor='0xffffff' data-style='sphere:radius~0.5,colorscheme~Jmol;stick:colorscheme~Jmol' data-ui='true'></div>       
+
+Reference: Mohammed A. Altahan, Michael A. Beckett, Simon J. Coles, Peter N. Horton CCDC 1858267: Experimental Crystal Structure Determination, 2018, DOI: <a href="https://doi.org/10.5517/ccdc.csd.cc20cp36">10.5517/ccdc.csd.cc20cp36</a>
 
 In this writeup, we are replicating the synthesis of a rather small ion, the pentaborate (seen below), although much larger assemblies have been detailed in literature (personally, the biggest I've seen was 24 (as seen above))[^1].
 
@@ -33,7 +37,7 @@ This work is based on a <a href="https://www.sciencedirect.com/science/article/a
 
 Thankfully, because this compound was synthesized and characterized before at a proper lab, with access to proper X-ray equipment, we can take a look at a a visualization of crystallographic data that was obtained in their work, and see up close the peculiar shape the spirocyclic pentaborate ion takes
 
-<div style="height: 400px; width: 400px; max-width:100%; position: relative;" class='viewer_3Dmoljs' data-href ='/assets/images/mebqes.mol2' data-backgroundcolor='0xffffff' data-style='sphere:radius~0.5,colorscheme~Jmol;stick:colorscheme~Jmol' data-ui='true'></div>       
+<div style="height: 400px; width: 400px; margin-left: 8px; max-width:100%; position: relative;" class='viewer_3Dmoljs' data-href ='/assets/images/mebqes.mol2' data-backgroundcolor='0xffffff' data-style='sphere:radius~0.5,colorscheme~Jmol;stick:colorscheme~Jmol' data-ui='true'></div>       
 
 Reference:  Mohammed A. Altahan, Michael A. Beckett, Simon J. Coles, Peter N. Horton CCDC 1534199: Experimental Crystal Structure Determination, 2017, DOI: <a href="https://doi.org/10.5517/ccdc.csd.cc1nhg9x">10.5517/ccdc.csd.cc1nhg9x</a> 
 
