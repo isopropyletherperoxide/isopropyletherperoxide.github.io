@@ -29,7 +29,7 @@ In this writeup, we are replicating the synthesis of a rather small ion, the pen
 <img src="/assets/images/5borate.png" width="600"><br>
 
 ### Ethylenediamine Copper Pentaborate
-This work is based on an <a href="https://www.sciencedirect.com/science/article/abs/pii/S0277538717304990?via%3Dihub">2017 article by Altahan et al</a>[^2], with no significant changes made outside of slightly scaling it up because I personally like working on a 0.01 mol scale. 
+This work is based on a <a href="https://www.sciencedirect.com/science/article/abs/pii/S0277538717304990?via%3Dihub">2017 article by Altahan et al</a>[^2], with no significant changes made outside of slightly scaling it up because I personally like working on a 0.01 mol scale. 
 
 Thankfully, because this compound was synthesized and characterized before at a proper lab, with access to proper X-ray equipment, we can take a look at a a visualization of crystallographic data that was obtained in their work, and see up close the peculiar shape the spirocyclic pentaborate ion takes
 
