@@ -63,7 +63,7 @@ Taking a picture that actually displayed the sparkliness of the target compound 
 <img src="/assets/images/2025_01_09_tungsten/w_shiny.jpg" width="600"><br>
 
 ### What does it do? 
-Subjecting it to different harsh reaction conditions (strong acid, strong base, seems to mostly just ruin the polytungstate and turn it into tungsten trioxide or back into tungstate. A more detailed writeup of its chemistry is available in the cited prep and the redox/acid-base chemistry of this complex will be looked at in more detail in another post where we prepare some derivatives of this complex.
+Subjecting it to different harsh reaction conditions (strong acid, strong base), seems to mostly just ruin the polytungstate and turn it into tungsten trioxide or back into tungstate. A more detailed writeup of its chemistry is available in the cited prep and the redox/acid-base chemistry of this complex will be looked at in more detail in another post where we prepare some derivatives of this complex.
 
 ### Sources 
 
