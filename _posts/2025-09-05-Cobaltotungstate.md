@@ -35,7 +35,7 @@ Another application of POMs is subjecting auto structure generators on supplier 
 ### Tungstodicobaltate 
 In this article we are preparing a heteropolymetalate consisting of tungsten and cobalt, in particular the 11-Tungstodicobaltate (II), which we picked solely because "emerald green" sounded very pleasing to our ears. 
 
-Figuring out the structure of this particular compound was a tad annoying, because the 1956 paper by Baker et al actually got it wrong. The formula provided is (NH4)8[Co2W12O42] (a "12-tungstodicobaltate"), which implies a cobalt atom "slotted in" between the tungsten polyhedra on the edges (???). However, this is wrong, and a more modern reference[^4] indicates that the dicobaltate has the formula of (NH4)8[Co2(H2O)W11O39], adopting a lacunary Keggin structure with one of the edge tetrahedra being replaced with Cobalt instead of tungsten. 
+Figuring out the structure of this particular compound was a tad annoying, because the 1956 paper by Baker et al[^4] actually got it wrong. The formula provided is (NH4)8[Co2W12O42] (a "12-tungstodicobaltate"), which implies a cobalt atom "slotted in" between the tungsten polyhedra on the edges (???). However, this is wrong, and a more modern reference[^5] indicates that the dicobaltate has the formula of (NH4)8[Co2(H2O)W11O39], adopting a lacunary Keggin structure with one of the edge tetrahedra being replaced with Cobalt instead of tungsten. 
 
 <div style="height: 400px; width: 400px; margin-left: 8px; max-width:100%; position: relative;" class='viewer_3Dmoljs' data-href ='/assets/images/dicobaltate.mol2' data-backgroundcolor='0xffffff' data-style='sphere:radius~0.5,colorscheme~Jmol;stick:colorscheme~Jmol' data-ui='true'></div>       
 
