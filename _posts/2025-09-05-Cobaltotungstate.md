@@ -50,7 +50,7 @@ The synthesis performed by us is based on the paper by Baker et al[^4], though w
 
 The tungstate solution was brought a boil and a warm solution of the cobalt acetate was slowly added, leading to a change in colour from clear to blue to deep emerald green. The resulting solution was boiled for 10 minutes and then gravity filtered while hot. 
 
-To the cooled down solution of the cobaltoditungstate was added a saturated solution of 6 grams of ammonium nitrate ( mol), leading to the precipitation of our ammonium product. The solution was left to stand overnight in the fridge and a large amount of a shiny green precipitate was obtained. The precipitate was gravity filtered and washed with a little methanol, yielding 4.633 grams of dry crystalline tungstate, corresponding to a yield of 52%. (Another 0.480 g were obtained from the remaining mother liquor, giving us a total yield of 57%). 
+To the cooled down solution of the cobaltoditungstate was added a saturated solution of 6 grams of ammonium nitrate (0.075 mol), leading to the precipitation of our ammonium product. The solution was left to stand overnight in the fridge and a large amount of a shiny green precipitate was obtained. The precipitate was gravity filtered and washed with a little methanol, yielding 4.633 grams of dry crystalline tungstate, corresponding to a yield of 52%. (Another 0.480 g were obtained from the remaining mother liquor, giving us a total yield of 57%). 
 
 <img src="/assets/images/2025_01_09_tungsten/w_schott.jpg" width="600"><br>
 
