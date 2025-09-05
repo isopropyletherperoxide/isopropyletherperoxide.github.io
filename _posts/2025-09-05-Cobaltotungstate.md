@@ -3,7 +3,7 @@ title: Making a Tungsten Heteropolymetalate
 author: me :3
 image: "https://isopropyletherperoxide.github.io/assets/images/2025_01_09_tungsten/w_shiny.jpg" 
 layout: post
-subtitle: "A synthesis of a 11-tungstodicobaltate and some basics of Heteropolymetalate Chemistry."
+subtitle: "A synthesis of an 11-tungstodicobaltate and some basics of Heteropolymetalate Chemistry."
 twittercard: summary_large_image
 
 --- 
