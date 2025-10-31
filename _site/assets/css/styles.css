@@ -65,7 +65,7 @@ img {
         margin-top: 8px;
         margin-bottom: 8px;
         padding-left: 8px;
-        max-width: 90%;
+        max-width: 95%;
 }
 
 h2 {
@@ -92,6 +92,11 @@ ul {
 
 a {
         color: var(--main-color);
+}
+
+#wider_image { 
+        width: 100%;
+        max-width: 200%
 }
 
 #current_page {
