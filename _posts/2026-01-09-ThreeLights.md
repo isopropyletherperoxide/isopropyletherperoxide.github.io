@@ -67,7 +67,7 @@ So far, publishing a nice spectral characteristic of such a noise source is not 
 
 <img src="/assets/images/2026_three_lights/noise2.webp"><br>
 
-Very sad, but this is being slowly worked on, low-noise high voltage sources are a niche product that can take up a whole room or cost more than whatever my life's worth. Or both. Not the last time you see this tube I hope. 
+Very sad, though this is being slowly worked on, low-noise high voltage sources are a niche product that can take up a whole room or cost more than whatever my life's worth. Or both. Not the last time you see this tube I hope. 
 
 Peace.
 
