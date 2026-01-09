@@ -4,6 +4,7 @@ author: arylia incandenza
 image: https://isopropyletherperoxide.github.io/assets/images/2026_three_lights/noise_diode_night.webp 
 layout: post
 subtitle: "💡 (lightbulb emoji)"
+twittercard: summary_large_image
 --- 
 
 <img src="/assets/images/2026_three_lights/danger.webp"><br>
