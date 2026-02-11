@@ -9,9 +9,10 @@ const phrases =
       "we need a new place",
       "nya,",
             "petroleum-derived",
-      "In a pronounced case of psychoneurosis we seldom find the development of one single perverted impulse;",
+            "for no one's amusement, but my own", // pynchon
+      "In a pronounced case of psychoneurosis we seldom find the development of one single perverted impulse;", // freud 
       "meow",
-
+     "'unreadable', 'turgid', 'overwritten', and in parts 'obscene'",
       "\"Up you get then, weakling,\" said the information-giver.", // kafka's
                                                                     // trial
       "The body's bad the body's not good... The body's bad the body's not goooood",
