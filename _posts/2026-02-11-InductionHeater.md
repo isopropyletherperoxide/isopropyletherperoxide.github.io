@@ -3,7 +3,7 @@ title: Using a 25€ Induction Heater
 author: me....
 image: https://isopropyletherperoxide.github.io/assets/images/2026_induction_heater_vol_1/success_heating.webp 
 layout: post
-subtitle: ""
+subtitle: "meandering and flopping into a molten glob of aluminium"
 twittercard: summary_large_image
 --- 
 
