@@ -1,0 +1,157 @@
+---
+title: "Violurates I Have Known And Loved Vol. 1: Ground Zeroes"
+author: Arylia Nervosa
+image: https://isopropyletherperoxide.github.io/assets/images/2026_induction_heater_vol_1/success_heating.webp 
+layout: post
+subtitle: "part 1/some"
+twittercard: summary_large_image
+--- 
+
+<audio id="audio" src="https://minecraft.wiki/images/Cave1.ogg?5b34f"></audio>
+
+<script>
+      function play() {
+        var audio = document.getElementById("audio");
+        audio.play();
+      }
+</script>
+
+
+Derived from the better-known-for-other-work barbituric acid, violuric acid is notable for exhibiting panchromaticity[^1][clarify] - the tendency to form brightly coloured salts with just about any cation you can find available. The chemistry of it is varied, complex and somewhat niche, with some reactions valiantly defying every attempt at comprehension. This is volume 1 of a set of articles documenting our experiments with it that were conducted over the last few years and continued right up until the present day. 
+
+Before starting, we would like to thank the Sciencemadness forum for being an utterly irreplaceable source, with it providing the bulk of references used in carrying these syntheses out. And we would also like to make a fair warning, that the quality of the photographs in this is sometimes suboptimal due to all of this being done ~3 years prior, by an earlier instance of Aryl with a poorly calibrated sense of aesthetics. 
+
+## the theory & introductions (pts. I-III)
+### (pt. 1) the structure of violuric acid 
+Despite it's name, violuric acid does not actually contain within itself a carboxylic acid group, instead being a triprotic oxime, with complex and somewhat nonstandard behaviour.
+
+STRUCTURE PICTURE 
+
+The oxime and the amine groups can also coordinate to transition metals, which will be elaborated on in later volumes of this. 
+
+### (pt. 2) the origins of the vivid colours 
+Usually, in chemistry the physical origin of colour is either an effect of the formation of a charge-transfer complex[^2], high levels of conjugation[^3] or the splitting of d orbitals[^4], which can explain things like Permanganate, carotenes or the varied colours of coordination complexes. d-d transitions *can* explain the colours violurates show when bonded to a transition metals, but we quickly run into a caveat here - the alkali metal salts are also vividly coloured, some even moreso than the coordination complexes. So why does this happen? 
+
+This was answered in 1991 by a paper by[^5], where the behaviour of violuric acid salts was studied using electronic spectroscopy. The active in the visible spectrum transition in this case was the n-pi* (non-bonding to pi antibonding) transition on the oxime group, with the major changes in colour happening due to the sensitivity of the "exposed" non-bonding orbital on the nitrogen to the environment, including solvents and counterions present.
+
+<img class="bw" src="/assets/images/2026_vihkal_vol_1/violurate_spectra.png">
+
+Another sign pointing to the origins of the vividness of violurates is that besides ion-colour relation, there is a strong solvent effect present which you can see in the figure above.
+
+### (pt. 3) why do we need violuric acid? 
+Personally, we just find vivid colours interesting and satisfying to optimize for. Violuric acid has some limited use in analytical chemistry[^1] for the colorimetric/gravimetric determination of certain ions like potassium in solution. With a good solvent system you probably could do some decent analysis of alkali salt solutions that you'd usually consult your local AES-AAS girl for. Most academic studies of violurate salts are mostly in the fields of crystallography/coordination chemistry, due to the curious character of the hydrogen bonding superstructures formed in such salts.
+
+## the experimental section (pts. IV - XI)
+
+### (pt. 4) the synthesis of violuric acid 
+(!) important note: be *sure* to wash all glassware used thoroughly with an acid and distilled water beforehand to remove any possible source of contamination, handling here was done with plastic spoons instead of metal, as violuric acid forms brightly coloured salts that will stick out like a sore thumb in your final product.
+
+All of the reagents with the exception of table salt and sodium acetate were obtained locally. Sodium chloride of abhorrent quality (we eat this shit????) was purified via a hot filtration and crystallization and sodium acetate buffer solution was prepared by the addition of a pinch of bicarb (~0.8 grams) to 7 ml of glacial acetic acid. 
+
+The synthesis itself is a 1:1 replication of the one at Lambdasyn.org[^3]. It is originally in German though, so good luck.
+
+<img class="bw" src="/assets/images/2026_vihkal_vol_1/violuric_synth.png">
+
+6.4 grams of barbituric acid (0.05 mol) were added to 100 ml of warm distilled water and stirred until full dissolution. A solution of 3.8 grams of sodium nitrite in 10 ml of water was added to it with stirring, causing the solution to undergo a change from yellow to deep permanganatesque purple. On cooling, a large amount of pink sodium violurate dihydrate precipitated out and solutions of 10 grams of sodium chloride and the aforementioned HOAc/NaOAc buffer were added to it. This serves to drive the reaction to completion and to maximize the yield, and the reaction was stirred for 2 more hours at room temp. This solution was then basified with 2.5 g of NaOH and set aside in the fridge for the final precipitation. The product was then vacuum filtered off and dried in a desiccator for a few days. We then forgot to measure the yield of sodium violurate dihydrate. 
+
+<img src="/assets/images/2026_vihkal_vol_1/na_violurate_dish.jpg">
+
+The next step was to obtain the free violuric acid, which was done simply by adding 35 ml of 13% HCl to the solution, stirring and vacuum filtering off tan-brown product.
+
+The final yield after all of this: 5.8 grams of Violuric Acid Monohydrate, corresponding to 89% of theoretical.
+
+<img src="/assets/images/2026_vihkal_vol_1/violuric_acid.jpg">
+
+### general violurate synthesis outline 
+The average synthesis was done according to these general guidelines: 
+
+for monobasic cations: 
+1.6 mmol (0.0016 mol) of violuric acid - 0.28 grams
+1.6 mmol of base
+
+for dibasic base:  
+1.6 mmol (0.0016 mol) of violuric acid - 0.28 grams
+0.8 mmol of base (0.0008 mol) 
+
+The reasoning for this scale being: the final amount can fill 1ml vials quite neatly.
+
+Solvent choice is a more interesting question. Preferably everything should be carried out in a volatile solvent like methanol or acetonitrile to avoid evaporating at a high temperature and decomposing your product into nothing. Foreshadowing is a narrative device in which suggestions or warnings about events to come are dropped or planted. But solubility can be rather painful, and you can still get a successful result with slowly evaporating water at 75 degrees C; a proper lab would do all of this under a reduced pressure but alas, the "meth corner" (affectionate) does not have such amenities.
+
+### potassium  
+Well behaved, precipitated out of aqueous solution with K2CO3 with a 1:0.5 ratio of H3Va to base (0.28g); a pleasant blue colour.
+
+<img src="/assets/images/2026_vihkal_vol_1/potassium_violurate.jpg">
+
+### barium
+
+Uneventful, 0.28 grams of violuric acid were added to 0.252 grams of barium hydroxide octahydrate, and a bright pink product was obtained from aqueous solution, which was promptly filtered off
+
+<img src="/assets/images/2026_vihkal_vol_1/barium_violurate.jpg">
+
+### ammonium
+Prepared by adding a few drops of concentrated ammonia to a solution of violuric acid in dH2O and evaporating it at low heat.
+
+<img src="/assets/images/2026_vihkal_vol_1/ammonium_violurate.jpg">
+
+### glycine 
+With Glycine, We managed to somehow obtain 2 distinct products alongside a bunch of [ch|t]ar.
+
+To 0.28 grams of violuric acid, an equivalent amount of glycine (0.12g) was added in distilled water, and the solution was stirred and slowly evaporated until a salmon-pink precipitate was obtained. This precipitate had a slightly uneven color from heating, so it was heated in an attempt to obtain the anhydrous (?) form of it. This led to the formation of a dark red-brown solution with a noticeable amount of carbon in it. The solution was hot filtered and a brown-red crystalline precipitate was obtained (?). Composition - unknown. On another attempt the salmon-pink precipitate was isolated instead and left unbothered after. 
+
+<div style="display: flex; gap: 2ch">
+<img src="/assets/images/2026_vihkal_vol_1/two_glycines.jpg">
+<div style="width: 10ch"><< <br>
+Figure 2. Ammonium (left) and Hydrazinium (right) Violurates </div>
+</div>
+
+<img src="/assets/images/2026_vihkal_vol_1/glycinium_tar.jpg">
+
+The glycine salt might've also decomposed in storage, turning into a more pale sand-like product. 
+
+<img src="/assets/images/2026_vihkal_vol_1/glycinium_violurate.jpg">
+
+### oxalyldihydrazide
+Oxalyldihydrazide was a little thingy we made a while back while playing with dimethyl oxalate. Ended up a disappointing ligand, but a fun counterion to use in violurate synth, loss and gain is the same. 
+
+<img class="bw" src="/assets/images/2026_vihkal_vol_1/odh_synthesis.png">
+
+For this we have heated 0.28 grams of violuric acid with 0.09 grams of Oxalyldihydrazide in a methanol-water system, yielding a very nice bright orange salt. 
+
+<img src="/assets/images/2026_vihkal_vol_1/odh_violurate.jpg">
+
+### hydrazinium 
+It is known that Hydrazinium is a perilous cation that wages hybrid warfare against everyone who tries working with it. It is not afraid to go down in the process of fucking with you. A few attempts were made at the synthesis of hydrazinium diviolurate, using hydrazinium hydrate in small amounts. The first attempt was done in an aqueous solution with a few drops of N2H4 * H2O, which when boiled dry formed a weird glassy orange substance of unknown composition. The others were carried out at a low temperature in a methanol-water system, which led to the formation of the actual salt, and on second attempt it was even isolated from solution (!). But the joy was as shortlived as always, the solid decomposed back into light brown coloured violuric acid after sitting in storage. Maybe it'll keep well inside of a fridge or something. 
+ 
+<div style="display: flex; gap: 2ch">
+<img style="cursor: pointer" onclick="play()" src="/assets/images/2026_vihkal_vol_1/hydrazinium_attempts.jpg">
+<div style="width: 10ch"><< <br>
+Figure 1. Decomposed Failed Attempts </div>
+</div>
+Failed Decomposed Attempts 
+
+<div style="display: flex; gap: 2ch">
+<img src="/assets/images/2026_vihkal_vol_1/hydrazine_and_ammonium.jpg">
+<div style="width: 10ch"><< <br>
+Figure 2. Ammonium (left) and Hydrazinium (right) Violurates </div>
+</div>
+
+<div style="display: flex; gap: 2ch">
+<img src="/assets/images/2026_vihkal_vol_1/hydrazine_tar.jpg">
+<div style="min-width: 15ch"><< <br>
+Figure 3. <br> The Tar Product</div>
+</div>
+
+### hexamine
+Hard to characterize due to both the instability of hexamine and the large amount of possible polymorphs and hydrates violurates form. Overheating it seems to produce a few colour changes before going back to violuric acid, while a careful synthesis in a methanol-water system with a 2:1 ratio of H3Va to hexamine at room temp seems to have yielded a grey powder which turned orange on contact with distilled water. In another attempt under the same conditions, a blue, stable on storage blue product was obtained. The notes here are sadly spotty and a more careful study might be needed.
+
+<img src="/assets/images/2026_vihkal_vol_1/hexamine_violurate.jpg">
+
+### purpald
+A pathetic failure. 0.28 grams of violuric acid were added to a solution of purpald in distilled water, yielding a blue solution at first and a grey precipitate. On stirring an awful stench of sulfur appeared, and was promptly disposed of due to presence of the grey sludge souring our mood.
+
+
+
+## volume 1 conclusions. 
+The field of violurate chemistry is very large in breadth and we really dont have much to say about it except for a vague expression of "hope that we do more work in this field in the near future". Donations for better cations (cesium and rubidium are expensive) and suggestions on the further course are welcome.
+
+## Footnotes 
