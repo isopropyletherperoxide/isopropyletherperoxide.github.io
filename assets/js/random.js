@@ -27,7 +27,7 @@ const phrases =
       "*purrs*",
       "this demands the gentle hand of a surgeon",  // pathologic
       "crushed into dust by my weak chemist hands", // paraphrased from nilered
-      "History might absolve me", "History will absolve me",
+      "History might absolve me", "History will absolve me", "All objects have some kind of inherent vice as a result of the baseline law of entropy.",
       "When Does the Last Angel Stop Dancing on a Speeding Pinhead?" // jim
                                                                      // williams,
                                                                      // linear

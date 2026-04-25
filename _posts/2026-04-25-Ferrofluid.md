@@ -1,0 +1,75 @@
+---
+title: "Making Ferrofluid (?) from OTC (?) Materials"
+author: arylia
+image: https://isopropyletherperoxide.github.io/assets/images/2026_ferrofluid/ferrofluid_thumbnail.webp 
+layout: post
+subtitle: "not everyone is a winner"
+twittercard: summary_large_image
+--- 
+
+A goal that we set for ourselves this year was to publish an article on here once or twice a month. Another one was "stop sitting on old science with the hopes of "you'll elaborate on this further and publish a bigger one instead"". A side effect of this policy is that, through gritted teeth, we have to publish some halfdone ambiguous semifailures. The academically-approved alternative to this is p-hacking[^1] and Lying but unlike a large chunk of academia, we have a vestigial moral compass and a friend or two that are going to snuff us out and possibly take this website over if we attempt that. This is an attempt at an OTC prep for ferrofluid.
+
+...As an aside: did you know that despite magnetite being an earnestly ferromagnetic material the ferrofluids made from it aren't actually ferromagnetic? When no magnetic field is present the thermal noise shuffles the tiny magnetite particles enough to randomize the magnetic field back into disorder, therefore making it "superparamagnetic" instead. We have only learned this at the end of writing this article.
+
+### The Chemistry 
+The synthesis entails a simple oxide precipitation of magnetite nanoparticles (Fe3O4/Iron (II, III) oxide) and the addition of a surfactant in the form of oleic acid to prevent the agglomeration of all the magnetite into one big ugly glob. 
+
+<img src="/assets/images/2026_ferrofluid/particle_larp.png"><br>
+
+This is not by any means an uncommon motif in nanoparticle chemistry and if you peruse the literature you will see this exact pattern being repeated ad nauseaum. The oleic acid is introduced to our solution as an ammonium salt and is deposited on the particles by the addition of a stronger acid. Various different surfactants can be used, with the most widespread being tetramethylammonium hydroxide (TMOH). The issue with TMOH is that it is pretty poisonous and an even bigger issue is that it's expensive and hard to buy. Locally, we cannot source it, which is a bit of a pain as tetraalkylammoniums are sort of ubiquitous as counterions in contemporary inorganic chemistry. But, oh well, regardless of that, we push forward.
+
+After coating, the nanoparticles are separated from the solvent in which they were suspended, dried and then dispersed in a carrier fluid of choice, in this case the wonderfully smelling and somewhat neurotoxic hexane. It's probably fine in these small amounts and the neurotoxicity isn't noticeable on bench scale anyways. Not like it would be noticeable in my case. The resulting suspension is the final ferrofluid. In this case you end up with an organic solvent based water-immiscible ferrofluid, which is preferrable as we wanted to keep it under water as a little desk toy.[^3] 
+
+### Equipment and Reagents
+As we often veer into "scrap science" as a topic, it is appropriate that the reagents here are all over-the-counter or even household chemical tier. Ferric chloride, ferrous sulfate, ammonia solution, oleic acid, and glacial acetic acid were all sourced from a local chemical supplier that ships to residential addresses but this was done purely out of convenience sake and all of these chemicals can be sourced either at the same concentrations and qualities or slightly more diluted from cleaning and electronics supplies stores. The oleic acid used here was pretty goddamn subpar as its sort of brown and goopy and disgusting compared to what the other suppliers were offering. Hexanes were used to suspend the magnetic particles and are somewhat less accessible than every other reagent but any other similar solvent like shellite, naphtha, lighter fluid or kerosene can work in its place if you cannot source it or are squeamish about neurotoxicity. 
+
+The equipment used consists of a 10$ kitchen hotplate, a restored Soviet magnetic stirrer and an overhead stirrer that skinwalks the corpse of a failed attempt at a drilling implement. The latter consists of a cheap brushed motor, a drill chuck and a teflon stirrer rod[^2] that is kept from wriggling out of place with a small part that we cut out of plywood back in middle school. It does its job. During the synthesis the small plywood holder fell out of the clamp and fell right into the reaction mix, which is something that ideally should not happen.
+
+### Experimental Section 
+The procedure here is taken right from a russian YouTube video we've seen a few years back[^4]. Though with some adjustments and dilutions made.
+
+Under overhead stirring using the aforementioned contraption, 10 grams of ferric chloride and 6 grams ferrous sulfate are dissolved in 300 ml of warm distilled water that was acidified prior by the addition of 0.5 ml of glacial acetic acid to prevent the hydrolysis of the iron salts. 
+
+<video controls style="height: 60svh">
+    <source src="/assets/images/2026_ferrofluid/stirring.webm">
+</video>
+
+To the red, particulate-free solution, 45 ml of ammonia solution diluted to 100 ml with distilled water are quickly added and the resulting solution is left to stir.
+
+<img style="height: 60vh" src="/assets/images/2026_ferrofluid/magnetite.webp"><br>
+
+The resulting nanoparticles are set on a magnet, washed 4 times with distilled water, and then set aside. An ammonium oleate solution is preparad by the addition of 1.3 ml of oleic acid to 8 ml of concentrated ammonia diluted up to 20 ml with distilled water. Alongside 200 ml of distilled water, the ammonium oleate soap is added to the nanoparticles and the resulting solution is set to stir in preparation for the coating step. To precipitate the oleic acid back out, 2 ml of glacial acetic acid diluted to 20 ml are slowly added under vigorous stirring. The resulting coated magnetite is then again collected on a magnet, washed a few times with distilled water and then a few times with methanol, and is then set to dry, preferably under vacuum or under mild heat (more on this later...). 
+
+<img src="/assets/images/2026_ferrofluid/ferrogoop.webp"><br>
+
+<img src="/assets/images/2026_ferrofluid/magnetite_dry.webp"><br>
+
+For the final ferrofluid, the nanoparticles are suspended in a carrier solvent. In this case, 5 ml of hexanes. 
+
+<video controls>
+    <source src="/assets/images/2026_ferrofluid/ferrofluid.mp4">
+</video>
+
+### Conclusions?
+We honestly cannot 100% confirm that what we have here is a true bona fide ferrofluid. 90% chance that it really is ferrofluid or that the issue here lies in the suspension step and its just too concentrated. The general properties and vibes are... a smidgeon off? Really mostly the thickness of it. A few steps in the synthesis are "questionable" and though we really did promise to ourselves that we'll redo it as soon as possible, that desire was swiftly dampened by the 3 day long cleanup process. Lo and behold we are approaching the 1 year anniversary of that synthesis and  we are as aware of the day when we finally have to go as ever. The property of timescales to stretch this far so quickly brings us zero joy.
+
+Now that "cleaning" is mentioned, we obviously we have to describe what that entails in painful detail. Iron salts are the absolute fucking worst when it comes to the mess they leave behind. The very thermodynamically favourable and stable brown-black-red oxide stains are an absolute bane of every inorganic chemists life second only to the idea of doing actual productive labour with our time. Cleaning was done mostly with a few tube cleaners, brushes and a heapful of oxalic acid. The more stubborn stains were removed with a mixture of concentrated peroxide and hydrochloric acid. At some point we have cleaned our hands by rubbing crystalline oxalic acid dihydrate into our skin and it was the best exfoliation we could've ever asked for. Though it left us wondering how much oxalic acid we would need to get a previously unheard of case of transdermal kidney stones. 
+
+On storage underwater the magnetite in the ferrofluid got slowly oxidized to an unpleasant brown maghemite, leading us to believe that it's probably best that we add some form of reducing agent like ascorbate to the water, degas it before use and maybe even keep it in a sealed ampoule instead of a screw top vial.
+
+### Where to go from here? 
+Really, the sky's the limit and thankfully still mostly within reach of an "amateur" lab. There are interesting options like whole alternative synthesis pathways like Thermal Decomposition[^5], alternative materials for the ferrofluid like Cobalt Ferrite[^6], optimizing the synthesis further with vacuum drying or ultrasonic dispersal or playing with carrier fluids to see what makes the ferrofluid the spikiest. Maybe there is even something interesting in the field of water-based ferrofluids[^7]. Fingers crossed, some more ferrofluid experiments are to come sometime soon.  
+
+Making this stuff really made us think of like... The old days of "science-adjacent" youtube content when ferrofluids were considered an Insane and Exotic substance and you could get a huge amount of views by just playing around with one for a while. Feel like consuming that particular type of Content set us up for the inane novelty-seeking behaviour we induldge in nowadays? They really should invent the research equivalent of short form content. Research Projects Proper turn into some form of a strenuous and drawn out Long March disproportionally quick and sometimes you just yearn for an instant dopamine hit of Publishable Data. It really should be as trivial as drinking a glass of water or watching a YouTube Short. Anyways, everyone in that space nowadays is either gone (either in spirit or physically) or bought out by private equity so really who cares. The rot consumes us all. 
+
+More reader-supported edutainment should come soon... Sincerest apologies for pushing this all the way into the end of april... Don't touch that dial
+
+### Footnotes 
+[^1]: <a href="https://en.wikipedia.org/wiki/Data_dredging">https://en.wikipedia.org/wiki/Data_dredging</a>
+[^2]: you (yes, the girl reading this) can find one filed under "Foldable Stirring Paddle PTFE" on aliexpress if thats what your soul desires. something like this  <a href="https://www.aliexpress.com/item/4001270896087.html">https://www.aliexpress.com/item/4001270896087.html</a>. They're around 12 euros and pretty good
+[^3]: ..wasn't succesful with that part, maybe next time! gotta degrease the glass real real good for it. probably going to use chromic acid or something
+[^4]: AlexGyver (2022). 🧲 Сделал ферромагнитную жидкость из хозтоваров! <a href="https://www.youtube.com/watch?v=yr3iXa3ciSU,">https://www.youtube.com/watch?v=yr3iXa3ciSU</a>, <a href="https://alexgyver.ru/ferrofluid/">https://alexgyver.ru/ferrofluid/</a>
+[^5]: Li, D., Jiang, D., Chen, M., Xie, J., Wu, Y., Dang, S., & Zhang, J. (2010). An easy fabrication of monodisperse oleic acid-coated Fe3O4 nanoparticles. Materials Letters, 64(22), 2462–2464.  <a href="https://doi.org/10.1016/j.matlet.2010.08.025">https://doi.org/10.1016/j.matlet.2010.08.025</a>
+[^6]: Ibiyemi, A. A., G. T. Yusuf, and Akinrinola Olusola. “Influence of Temperature and Magnetic Field on Rheological Behavior of Ultra-Sonicated and Oleic Acid Coated Cobalt Ferrite Ferrofluid.” Physica Scripta 96, no. 12 (2021): 125842. <a href="https://doi.org/10.1088/1402-4896/ac2ecb.">https://doi.org/10.1088/1402-4896/ac2ecb.</a>
+[^7]: Tetuko, A. P., Asri, N. S., Estellé, P., Fachredzy, A., Sebayang, A. M. S., Rinjani, D. F., Setiadi, E. A., Sari, A. Y., & Sebayang, P. (2024). Synthesis of ferrofluid using magnetite (Fe3O4), citric acid and deionized water and its characterizations for the application of a non-uniform magnetic thermosyphon. Nano-Structures &amp; Nano-Objects, 40, 101417. <a href="https://doi.org/10.1016/j.nanoso.2024.101417">https://doi.org/10.1016/j.nanoso.2024.101417</a>
+

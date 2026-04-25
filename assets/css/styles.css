@@ -87,7 +87,7 @@ img {
 
 video { 
         margin-top: 8px;
-        margin-bottom: 8px;
+        margin-bottom: -4px;
         padding-left: 8px;
         max-width: 95%;
 }
