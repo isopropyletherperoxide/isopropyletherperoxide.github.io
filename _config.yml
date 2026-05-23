@@ -4,3 +4,4 @@ plugins:
   - jekyll-feed
 exclude: 
   - shell.nix
+timezone: Europe/Kyiv
