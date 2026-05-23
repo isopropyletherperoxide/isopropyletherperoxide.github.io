@@ -69,6 +69,10 @@
 
 }
 
+.highlighter-rouge {
+        font-family: "Hack";
+}
+
 body {
         font-family: "Literata", 'courier new';
         line-height: 1.9;
