@@ -1,0 +1,1018 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-05-24T01:55:34+03:00</updated><id>http://localhost:4000/feed.xml</id><entry><title type="html">Exploring Interfaces Glasgowly</title><link href="http://localhost:4000/2026/05/24/glasgow.html" rel="alternate" type="text/html" title="Exploring Interfaces Glasgowly" /><published>2026-05-24T00:00:00+03:00</published><updated>2026-05-24T00:00:00+03:00</updated><id>http://localhost:4000/2026/05/24/glasgow</id><content type="html" xml:base="http://localhost:4000/2026/05/24/glasgow.html"><![CDATA[<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/atom-one-dark.css" />
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+
+<script>hljs.highlightAll();</script>
+
+<p>…the “Pivot to Hardware”. Now, that everyone feels the heat around the corner it is inevitable that everyone around you contracts a case of severe ROEED<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>, complete with all the symptoms such the diffusion model-generated breadboard picture posting or inane posturing about “hard tech” and “industrial capability”.</p>
+
+<p>This is a short introduction to 2 of the applets that are currently present on the Glasgow Interface Explorer and an Exploration of 2 peripherals that were collecting dust on our desk for the last couple years. We hope this can provide some sort of educational value for an aspiring embedded-girl and maybe show off the value of having one on your workbench.</p>
+
+<p><img src="/assets/images/2026_glasgow/glasgle.webp" /><br /></p>
+
+<h3 id="peer-review-panel">Peer Review Panel</h3>
+<p>This article was reviewed by 2 different catgirls both using the “it” pronoun in some shape or form respectfully. Deducing their identities from my social circle to mess with academic objectivity and to encourage academic misconduct is left as an exercise to the reader.</p>
+
+<p><strong>Reviewer 1:</strong> “writing style comes off a little unusual in comparison to the last few posts- […] …perhaps it’s because of the tutorial-esque goal, leading to little time spent discussing issues you’ve had - surprising, i thought you were unable to pass up an opportunity for self-deprecation.”</p>
+
+<p><strong>Reviewer 2:</strong> “Grebe out of 10; ship it”</p>
+
+<p>Reviewer 3 was out of budget and out of scope for this article.</p>
+
+<h2 id="what-is-a-glasgow">What is a Glasgow?</h2>
+<p>Referred to in the documentation as the “Swiss Army Knife of Electronics”, the <a href="https://glasgow-embedded.org/latest/intro.html">Glasgow Interface Explorer</a> is a tool that allows one to very quickly and efficiently communicate with a myriad (infinity) of interfaces. Unlike your standard fare Bus Pirates and whatnot the Glasgow is based around an FPGA, and switching applets entails a reconfiguration of it (made unnoticeably fast with the IceStorm toolchain). No bitbanging software crutches, everything is done in hardware. In a sense, the Glasgow is like a shapeshifter or a slimegirl that can morph to anything you can imagine. The complexity of this is greatly abstracted via Amaranth and a convenient architecture, so using it to communicate with peripherals ends up even easier than with an Arduino or similar. The CrowdSupply page for the Glasgow provides a nice comparison table between it and similar devices on the market</p>
+
+<p><img src="/assets/images/2026_glasgow/table.png" /><br /></p>
+
+<h2 id="scd-40--i2c-controller">SCD-40 // i2c-controller</h2>
+<p>We’ve been feeling really tired and dizzy and sleepy often. There’s a myriad of reasons for that but the CO2 levels give us an excuse to buy things so an SCD-40<sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">2</a></sup> sensor module was procured from AliExpress.</p>
+
+<p><img src="/assets/images/2026_glasgow/scd40_board.png" /><br /></p>
+
+<p>This sensor talks I2C, an interface we have fond middle school memories of. It goes into the <code class="language-plaintext highlighter-rouge">i2c-controller</code> shaped hole. Consulting the datasheet, we can see the two commands we care the most about, <code class="language-plaintext highlighter-rouge">start_periodic_measurement</code> and <code class="language-plaintext highlighter-rouge">read_measurement</code>, the documentation for which gives us instructions on how to decode the raw data into sensor readings</p>
+
+<p><img class="bw" src="/assets/images/2026_glasgow/scd_instructions.png" /><br /></p>
+
+<p>As a barebones example, here we simply write the startup sequence and call <code class="language-plaintext highlighter-rouge">read_measurement</code> in a loop, following the 5 second delay so that we don’t get NACKed<sup id="fnref:3" role="doc-noteref"><a href="#fn:3" class="footnote" rel="footnote">3</a></sup></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">time</span> 
+
+<span class="k">await</span> <span class="n">i2c_iface</span><span class="p">.</span><span class="n">scan</span><span class="p">()</span>
+<span class="k">await</span> <span class="n">i2c_iface</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="mi">98</span><span class="p">,</span> <span class="p">[</span> <span class="mh">0x21</span><span class="p">,</span> <span class="mh">0xb1</span> <span class="p">])</span>
+
+<span class="n">time</span><span class="p">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+ <span class="k">try</span><span class="p">:</span>
+    <span class="k">async</span> <span class="k">with</span> <span class="n">i2c_iface</span><span class="p">.</span><span class="n">transaction</span><span class="p">():</span>
+        <span class="k">await</span> <span class="n">i2c_iface</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="mi">98</span><span class="p">,</span> <span class="p">[</span><span class="mh">0xec</span><span class="p">,</span> <span class="mh">0x05</span><span class="p">])</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="k">await</span> <span class="n">i2c_iface</span><span class="p">.</span><span class="n">read</span><span class="p">(</span><span class="mi">98</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="nb">int</span><span class="p">.</span><span class="n">from_bytes</span><span class="p">(</span><span class="n">data</span><span class="p">[:</span><span class="mi">2</span><span class="p">]))</span>
+    <span class="n">time</span><span class="p">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>To check the CO2 sensor, it was precariously suspended above a beaker of sodium bicarb solution, into which dilute HCl was occasionally poured. This way of testing the sensor was referred to as “chemistbrained” by Catherine.</p>
+
+<p><img src="/assets/images/2026_glasgow/sensor_testing.webp" /><br /></p>
+
+<p>As a demo of what can be achieved, here’s a short script that spits the data into a csv, complete with the parsing of all the sensor data</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">csv</span>
+<span class="kn">import</span> <span class="nn">time</span> 
+<span class="kn">import</span> <span class="nn">datetime</span>
+
+<span class="k">def</span> <span class="nf">temp_calc</span><span class="p">(</span><span class="nb">input</span><span class="p">):</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="o">-</span><span class="mi">45</span> <span class="o">+</span> <span class="p">(</span><span class="mi">175</span> <span class="o">*</span> <span class="nb">int</span><span class="p">.</span><span class="n">from_bytes</span><span class="p">(</span><span class="nb">input</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">5</span><span class="p">])</span> <span class="o">/</span> <span class="mi">65536</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">output</span> 
+
+<span class="k">def</span> <span class="nf">rh_calc</span><span class="p">(</span><span class="nb">input</span><span class="p">):</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">*</span> <span class="p">(</span><span class="nb">int</span><span class="p">.</span><span class="n">from_bytes</span><span class="p">(</span><span class="nb">input</span><span class="p">[</span><span class="mi">6</span><span class="p">:</span><span class="mi">8</span><span class="p">])</span> <span class="o">/</span> <span class="mi">65536</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">output</span>
+
+<span class="k">def</span> <span class="nf">co2_calc</span><span class="p">(</span><span class="nb">input</span><span class="p">):</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="nb">int</span><span class="p">.</span><span class="n">from_bytes</span><span class="p">(</span><span class="nb">input</span><span class="p">[:</span><span class="mi">2</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">output</span> 
+
+<span class="k">await</span> <span class="n">i2c_iface</span><span class="p">.</span><span class="n">scan</span><span class="p">()</span>
+<span class="k">await</span> <span class="n">i2c_iface</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="mi">98</span><span class="p">,</span> <span class="p">[</span> <span class="mh">0x21</span><span class="p">,</span> <span class="mh">0xb1</span> <span class="p">])</span>
+
+<span class="n">time</span><span class="p">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+ <span class="k">try</span><span class="p">:</span>
+    <span class="k">async</span> <span class="k">with</span> <span class="n">i2c_iface</span><span class="p">.</span><span class="n">transaction</span><span class="p">():</span>
+        <span class="k">await</span> <span class="n">i2c_iface</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="mi">98</span><span class="p">,</span> <span class="p">[</span><span class="mh">0xec</span><span class="p">,</span> <span class="mh">0x05</span><span class="p">])</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="k">await</span> <span class="n">i2c_iface</span><span class="p">.</span><span class="n">read</span><span class="p">(</span><span class="mi">98</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">[:</span><span class="mi">2</span><span class="p">])</span>
+    <span class="k">print</span><span class="p">(</span><span class="nb">int</span><span class="p">.</span><span class="n">from_bytes</span><span class="p">(</span><span class="n">data</span><span class="p">[:</span><span class="mi">2</span><span class="p">]))</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">temp_calc</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">rh_calc</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">'out.csv'</span><span class="p">,</span> <span class="s">'a'</span><span class="p">,</span> <span class="n">newline</span> <span class="o">=</span> <span class="s">''</span><span class="p">)</span> <span class="k">as</span> <span class="n">csvfile</span><span class="p">:</span> 
+        <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="p">.</span><span class="n">writer</span><span class="p">(</span><span class="n">csvfile</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s">' '</span><span class="p">)</span>
+        <span class="n">writer</span><span class="p">.</span><span class="n">writerow</span><span class="p">([</span><span class="n">datetime</span><span class="p">.</span><span class="n">datetime</span><span class="p">.</span><span class="n">now</span><span class="p">(),</span> <span class="n">co2_calc</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">temp_calc</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">rh_calc</span><span class="p">(</span><span class="n">data</span><span class="p">)])</span>
+    <span class="n">time</span><span class="p">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+ <span class="k">except</span> <span class="nb">KeyboardInterrupt</span><span class="p">:</span>
+    <span class="k">await</span> <span class="n">device</span><span class="p">.</span><span class="n">set_voltage</span><span class="p">(</span><span class="s">"AB"</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="c1"># turn off the IO banks so we don't get NACKed on restart
+</span>    <span class="nb">exit</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>The csv then can be digested by the <a href="https://github.com/isopropyletherperoxide/glasgle-blogpost/blob/main/log.py">Fearsome and Horrible Python Leviathan</a> of pandas and matplotlib into a Plot. (writing the Plot was easily the most consuming and annoying part of this article…)</p>
+
+<p><img src="/assets/images/2026_glasgow/plots.png" /><br /></p>
+
+<p>There also <a href="https://glasgow-embedded.org/latest/applets/sensor/scd30.html">exists</a> an SCD30 applet that writes the results to InfluxDB, which can be read with Grafana but we felt that a csv example is a little more approachable and we also didn’t read the documentation past the “Interface” taxon.</p>
+
+<h2 id="ad9833--spi-controller">AD9833 // spi-controller</h2>
+<p>Using the spi-controller applet and a 8 euro AD9833 breakout board you can spin up a rudimentary waveform generator that effortlessly supports Python scripting within a few hours.</p>
+
+<video controls="">
+    <source src="/assets/images/2026_glasgow/glasgow_demo.webm" />
+</video>
+
+<p>Before starting on the actual SPI section - to set up a REPL with some predefined commands you can, in fact: open the REPL of the applet of your liking with <code class="language-plaintext highlighter-rouge">glasgow repl spi-controller</code> and then simply load your script by reading the file and executing it in the repl. (<strong>update:</strong> now you can use <code class="language-plaintext highlighter-rouge">--prelude</code>)<sup id="fnref:4" role="doc-noteref"><a href="#fn:4" class="footnote" rel="footnote">4</a></sup></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">"script.py"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span> <span class="k">exec</span><span class="p">(</span><span class="n">f</span><span class="p">.</span><span class="n">read</span><span class="p">())</span>
+</code></pre></div></div>
+
+<p>The AD9833<sup id="fnref:5" role="doc-noteref"><a href="#fn:5" class="footnote" rel="footnote">5</a></sup> is an digital direct synthesis signal generator. The way you communicate with it is the weird “3-wire bus SPI-Special-Princess-Interface, Microwire, “DSP” and more” that we will treat as plain Motorola SPI instead. The AD9833 decided to be slightly different, and arbitrarily decided to rename what would normally be called “CS/Chip Select/Slave Select” to “FSYNC” and “MISO” to “DAT”. This might make sense given a ~slight difference in how Chip Select is handled here, but it does not make the already bad SPI pin naming situation any better.</p>
+
+<p><img src="/assets/images/2026_glasgow/ad9833_board.png" /><br /></p>
+
+<p>There are three registers we care about in here. <code class="language-plaintext highlighter-rouge">CONTROL</code>, <code class="language-plaintext highlighter-rouge">FREQ0</code>, <code class="language-plaintext highlighter-rouge">PHASE0</code>. Control and Freq (““CONTROL FREAK””) being the most consequential ones to us.</p>
+
+<p><code class="language-plaintext highlighter-rouge">CONTROL</code> is a 16-bit register that, according to the datasheet looks like this:
+https://github.com/GlasgowEmbedded/glasgow/pull/1169
+<img class="bw" src="/assets/images/2026_glasgow/control.png" /><br /></p>
+
+<p>while <code class="language-plaintext highlighter-rouge">FREQ0</code> consists of 2 16 bit registers each filled with 14 LSBs and 14 MSBs of the frequency value respectively.</p>
+
+<p><img class="bw" src="/assets/images/2026_glasgow/freqreg.png" /><br /></p>
+
+<p><code class="language-plaintext highlighter-rouge">PHASE0</code> is simply one 16 bit register with 12 bits used for phase data</p>
+
+<p><img class="bw" src="/assets/images/2026_glasgow/phasereg.png" /><br /></p>
+
+<p>Weird acronyms aside (opbittern…?) the bits we want to change first are <code class="language-plaintext highlighter-rouge">RESET</code> and <code class="language-plaintext highlighter-rouge">DB28</code> in <code class="language-plaintext highlighter-rouge">CONTROL</code>. <code class="language-plaintext highlighter-rouge">RESET</code> clears the <em>internal</em> registers of our device and sets the output to a pleasant and wholly harmless midrange of 0.3V. This is to make sure that nothing inside of our device can get spooked by a register write and push the output away from predictable (<code class="language-plaintext highlighter-rouge">PHASE0</code> seems to do this…). <code class="language-plaintext highlighter-rouge">DB28</code> enables a double-dip write mode that lets us write the LSBs and MSBs of a FREQ register without bothering <code class="language-plaintext highlighter-rouge">CONTROL</code> too much. The rest (<code class="language-plaintext highlighter-rouge">FREQ1</code>, <code class="language-plaintext highlighter-rouge">PHASE1</code>) we don’t really care about as they’re for special-embedded-fruitcakes who design actual products and instrumentation… Aspirational, but outside the scope of this article.</p>
+
+<p>First, for the sake of ease of use, let’s write some helper functions. The function for <code class="language-plaintext highlighter-rouge">CONTROL</code> looks like this and consists of a set of very simple bit masks.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">async</span> <span class="k">def</span> <span class="nf">control_write</span><span class="p">(</span><span class="n">db28</span><span class="p">,</span> <span class="n">hlb</span><span class="p">,</span> <span class="n">reset</span><span class="p">,</span> <span class="n">opbiten</span><span class="p">,</span> <span class="n">mode</span><span class="p">):</span> 
+    <span class="n">reg</span> <span class="o">=</span> <span class="mh">0x00</span> 
+    <span class="n">reg</span> <span class="o">|=</span> <span class="n">db28</span> <span class="o">&lt;&lt;</span> <span class="mi">13</span> 
+    <span class="n">reg</span> <span class="o">|=</span> <span class="n">hlb</span> <span class="o">&lt;&lt;</span> <span class="mi">12</span>
+    <span class="n">reg</span> <span class="o">|=</span> <span class="n">reset</span> <span class="o">&lt;&lt;</span> <span class="mi">8</span> 
+    <span class="n">reg</span> <span class="o">|=</span> <span class="n">opbiten</span> <span class="o">&lt;&lt;</span> <span class="mi">5</span>
+    <span class="n">reg</span> <span class="o">|=</span> <span class="n">mode</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span> 
+    <span class="k">async</span> <span class="k">with</span> <span class="n">spi_iface</span><span class="p">.</span><span class="n">select</span><span class="p">():</span> 
+     <span class="k">await</span> <span class="n">spi_iface</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="n">reg</span><span class="p">.</span><span class="n">to_bytes</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">byteorder</span><span class="o">=</span><span class="s">"big"</span><span class="p">))</span>
+</code></pre></div></div>
+
+<p>The <code class="language-plaintext highlighter-rouge">FREQ0</code> function is a bit more complicated, as we have to make sure that we don’t overflow our 28 bit register size and prepend the 14 bit registers with 2 address bits each.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">freq_calc</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">f</span> <span class="o">*</span> <span class="mi">268435456</span><span class="p">)</span> <span class="o">/</span> <span class="mi">25000000</span>
+
+<span class="k">async</span> <span class="k">def</span> <span class="nf">b28_write</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="n">reg</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">freq_calc</span><span class="p">(</span><span class="n">f</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">reg</span> <span class="o">&gt;</span> <span class="mi">268435455</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="nb">Exception</span><span class="p">(</span><span class="s">"Value too big!"</span><span class="p">)</span>
+    <span class="c1"># split number into 2 14 bit blocks 
+</span>    <span class="n">low_val</span> <span class="o">=</span> <span class="n">reg</span> <span class="o">&amp;</span> <span class="mh">0x3FFF</span>
+    <span class="n">low_val</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">14</span><span class="p">)</span> <span class="o">|</span> <span class="n">low_val</span> 
+    <span class="n">high_val</span> <span class="o">=</span> <span class="p">(</span><span class="n">reg</span> <span class="o">&gt;&gt;</span> <span class="mi">14</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mh">0x3FFF</span>
+    <span class="n">high_val</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">14</span><span class="p">)</span> <span class="o">|</span> <span class="n">high_val</span> 
+    <span class="k">async</span> <span class="k">with</span> <span class="n">spi_iface</span><span class="p">.</span><span class="n">select</span><span class="p">():</span> 
+        <span class="k">await</span> <span class="n">spi_iface</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="n">low_val</span><span class="p">.</span><span class="n">to_bytes</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">byteorder</span><span class="o">=</span><span class="s">"big"</span><span class="p">))</span>    
+        <span class="k">await</span> <span class="n">spi_iface</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="n">high_val</span><span class="p">.</span><span class="n">to_bytes</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">byteorder</span><span class="o">=</span><span class="s">"big"</span><span class="p">))</span>  
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">PHASE0</code> is similar, the formulas for computing register values are provided in the diagram a little bit further down the page.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">phase_calc</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">p</span> <span class="o">/</span> <span class="mi">360</span><span class="p">)</span> <span class="o">*</span> <span class="mi">4096</span>
+
+<span class="k">async</span> <span class="k">def</span> <span class="nf">phase_write</span><span class="p">(</span><span class="n">p</span><span class="p">):</span> <span class="c1"># running this outside of reset seems to be scary. like a game of russian roulette
+</span>    <span class="n">reg</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">phase_calc</span><span class="p">(</span><span class="n">p</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">reg</span> <span class="o">&gt;</span> <span class="mi">4095</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="nb">Exception</span><span class="p">(</span><span class="s">"Value too big!"</span><span class="p">)</span>
+    <span class="n">val</span> <span class="o">=</span> <span class="p">(</span><span class="mi">12</span> <span class="o">&lt;&lt;</span> <span class="mi">12</span><span class="p">)</span> <span class="o">|</span> <span class="n">reg</span> <span class="c1"># prepend 1100 (12) to value
+</span>    <span class="k">print</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
+    <span class="k">async</span> <span class="k">with</span> <span class="n">spi_iface</span><span class="p">.</span><span class="n">select</span><span class="p">():</span> 
+        <span class="k">await</span> <span class="n">spi_iface</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="n">val</span><span class="p">.</span><span class="n">to_bytes</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">byteorder</span><span class="o">=</span><span class="s">"big"</span><span class="p">))</span> 
+</code></pre></div></div>
+
+<p>A diagram of an average write sequence (inspired by what is suggested in AN-1070<sup id="fnref:6" role="doc-noteref"><a href="#fn:6" class="footnote" rel="footnote">6</a></sup> provided below, in addition to the formulas used to provide the register values for FREQ0 and PHASE0</p>
+
+<p><img class="bw" src="/assets/images/2026_glasgow/glasgle_flowchart.png" /><br /></p>
+
+<h2 id="conclusions">Conclusions</h2>
+<p>This, in general was… a pretty enjoyable foray into Digital Electronics. Not our preferred field or even subfield but the Glasgow made it much more tolerable and even pleasant at times. Most of our time wasn’t even spent figuring out the digital electronics stuff, but instead on digging through the Python Ecosystem™®.Before this, we have avoided learning Python like the plague due to a general dislike of how it goes about its way, so this time we have sunk an immeasurable amount of labour into trivialities such as “getting matplotlib to work”. Writing code for it feels like slowly dying in a desert. The next article after this one (ahead of schedule) will be a weird experimental tangent and after that there should be some actual inorganic chemistry. No hardware pivots. No nanoparticles brainrot. Just a few compounds synthesized and documented. Fully self-contained.</p>
+
+<h3 id="supplementary-material">Supplementary Material</h3>
+<p>All the code (including Nix scripts, don’t ask me to write flakes, they’re not the kind of flake I want offered to me) is provided <a href="https://github.com/isopropyletherperoxide/glasgle-blogpost">here</a>. You can buy the Glasgow through <em>these</em> sources: <a href="https://glasgow-embedded.org/latest/purchase.html">link.</a> Or you can wait until the <a href="https://social.treehouse.systems/@whitequark/116612162817489546">RevD</a> CrowdSupply campaign if you want to support the release of the next Improved Revision of the Glasgow Interface Explorer.</p>
+
+<h3 id="conflicts-of-interest">Conflicts of Interest</h3>
+<p>The unit used in this article was provided courtesy of Catherine Whitequark alongside a small amount of technical support and proofreading on the article. This is not a paid review and is written entirely out of our own volition. Our hand is not being forced into anything. Catherine was mean to us once or twice during the past few months.</p>
+
+<h2 id="footnotes">Footnotes</h2>
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p>Rapid Onset Electrical Engineering Dysphoria, early draft pick for the DSM-6 <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:2" role="doc-endnote">
+      <p><a href="https://sensirion.com/media/documents/E0F04247/631EF271/CD_DS_SCD40_SCD41_Datasheet_D1.pdf">https://sensirion.com/media/documents/E0F04247/631EF271/CD_DS_SCD40_SCD41_Datasheet_D1.pdf</a> <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:3" role="doc-endnote">
+      <p>The I2C commands here are enclosed in transaction blocks but that’s an “in most cases” best practice. You can leave them out and sometimes you actually have to leave them out. Nothing good under the sun in the embedded world. <a href="#fnref:3" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:4" role="doc-endnote">
+      <p>in the middle of the peer review process this was <a href="https://github.com/GlasgowEmbedded/glasgow/pull/1169">added</a> so the oneliner is now unnecessary. but we are technically the reason why it’s there now so the section stays <a href="#fnref:4" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:5" role="doc-endnote">
+      <p><a href="https://www.analog.com/media/en/technical-documentation/data-sheets/ad9833.pdf">https://www.analog.com/media/en/technical-documentation/data-sheets/ad9833.pdf</a> <a href="#fnref:5" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:6" role="doc-endnote">
+      <p>Analog Devices. AN-1070: Programming the AD9833/AD9834. <a href="https://www.analog.com/en/resources/app-notes/an-1070.html">https://www.analog.com/en/resources/app-notes/an-1070.html</a> <a href="#fnref:6" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>]]></content><author><name>arylia</name></author><summary type="html"><![CDATA[]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://isopropyletherperoxide.github.io/assets/images/2026_glasgow/glasgle.webp" /><media:content medium="image" url="https://isopropyletherperoxide.github.io/assets/images/2026_glasgow/glasgle.webp" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Making Ferrofluid (?) from OTC (?) Materials</title><link href="http://localhost:4000/2026/04/25/Ferrofluid.html" rel="alternate" type="text/html" title="Making Ferrofluid (?) from OTC (?) Materials" /><published>2026-04-25T00:00:00+03:00</published><updated>2026-04-25T00:00:00+03:00</updated><id>http://localhost:4000/2026/04/25/Ferrofluid</id><content type="html" xml:base="http://localhost:4000/2026/04/25/Ferrofluid.html"><![CDATA[<p>A goal that we set for ourselves this year was to publish an article on here once or twice a month. Another one was “stop sitting on old science with the hopes of “you’ll elaborate on this further and publish a bigger one instead””. A side effect of this policy is that, through gritted teeth, we have to publish some halfdone ambiguous semifailures. The academically-approved alternative to this is p-hacking<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup> and Lying but unlike a large chunk of academia, we have a vestigial moral compass and a friend or two that are going to snuff us out and possibly take this website over if we attempt that. This is an attempt at an OTC prep for ferrofluid.</p>
+
+<p>…As an aside: did you know that despite magnetite being an earnestly ferromagnetic material the ferrofluids made from it aren’t actually ferromagnetic? When no magnetic field is present the thermal noise shuffles the tiny magnetite particles enough to randomize the magnetic field back into disorder, therefore making it “superparamagnetic” instead. We have only learned this at the end of writing this article.</p>
+
+<h3 id="the-chemistry">The Chemistry</h3>
+<p>The synthesis entails a simple oxide precipitation of magnetite nanoparticles (Fe3O4/Iron (II, III) oxide) and the addition of a surfactant in the form of oleic acid to prevent the agglomeration of all the magnetite into one big ugly glob.</p>
+
+<p><img src="/assets/images/2026_ferrofluid/particle_larp.png" /><br /></p>
+
+<p>This is not by any means an uncommon motif in nanoparticle chemistry and if you peruse the literature you will see this exact pattern being repeated ad nauseaum. The oleic acid is introduced to our solution as an ammonium salt and is deposited on the particles by the addition of a stronger acid. Various different surfactants can be used, with the most widespread being tetramethylammonium hydroxide (TMOH). The issue with TMOH is that it is pretty poisonous and an even bigger issue is that it’s expensive and hard to buy. Locally, we cannot source it, which is a bit of a pain as tetraalkylammoniums are sort of ubiquitous as counterions in contemporary inorganic chemistry. But, oh well, regardless of that, we push forward.</p>
+
+<p>After coating, the nanoparticles are separated from the solvent in which they were suspended, dried and then dispersed in a carrier fluid of choice, in this case the wonderfully smelling and somewhat neurotoxic hexane. It’s probably fine in these small amounts and the neurotoxicity isn’t noticeable on bench scale anyways. Not like it would be noticeable in my case. The resulting suspension is the final ferrofluid. In this case you end up with an organic solvent based water-immiscible ferrofluid, which is preferrable as we wanted to keep it under water as a little desk toy.<sup id="fnref:3" role="doc-noteref"><a href="#fn:3" class="footnote" rel="footnote">2</a></sup></p>
+
+<h3 id="equipment-and-reagents">Equipment and Reagents</h3>
+<p>As we often veer into “scrap science” as a topic, it is appropriate that the reagents here are all over-the-counter or even household chemical tier. Ferric chloride, ferrous sulfate, ammonia solution, oleic acid, and glacial acetic acid were all sourced from a local chemical supplier that ships to residential addresses but this was done purely out of convenience sake and all of these chemicals can be sourced either at the same concentrations and qualities or slightly more diluted from cleaning and electronics supplies stores. The oleic acid used here was pretty goddamn subpar as its sort of brown and goopy and disgusting compared to what the other suppliers were offering. Hexanes were used to suspend the magnetic particles and are somewhat less accessible than every other reagent but any other similar solvent like shellite, naphtha, lighter fluid or kerosene can work in its place if you cannot source it or are squeamish about neurotoxicity.</p>
+
+<p>The equipment used consists of a 10$ kitchen hotplate, a restored Soviet magnetic stirrer and an overhead stirrer that skinwalks the corpse of a failed attempt at a drilling implement. The latter consists of a cheap brushed motor, a drill chuck and a teflon stirrer rod<sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">3</a></sup> that is kept from wriggling out of place with a small part that we cut out of plywood back in middle school. It does its job. During the synthesis the small plywood holder fell out of the clamp and fell right into the reaction mix, which is something that ideally should not happen.</p>
+
+<h3 id="experimental-section">Experimental Section</h3>
+<p>The procedure here is taken right from a russian YouTube video we’ve seen a few years back<sup id="fnref:4" role="doc-noteref"><a href="#fn:4" class="footnote" rel="footnote">4</a></sup>. Though with some adjustments and dilutions made.</p>
+
+<p>Under overhead stirring using the aforementioned contraption, 10 grams of ferric chloride and 6 grams ferrous sulfate are dissolved in 300 ml of warm distilled water that was acidified prior by the addition of 0.5 ml of glacial acetic acid to prevent the hydrolysis of the iron salts.</p>
+
+<video controls="" style="height: 60svh">
+    <source src="/assets/images/2026_ferrofluid/stirring.webm" />
+</video>
+
+<p>To the red, particulate-free solution, 45 ml of ammonia solution diluted to 100 ml with distilled water are quickly added and the resulting solution is left to stir.</p>
+
+<p><img style="height: 60vh" src="/assets/images/2026_ferrofluid/magnetite.webp" /><br /></p>
+
+<p>The resulting nanoparticles are set on a magnet, washed 4 times with distilled water, and then set aside. An ammonium oleate solution is preparad by the addition of 1.3 ml of oleic acid to 8 ml of concentrated ammonia diluted up to 20 ml with distilled water. Alongside 200 ml of distilled water, the ammonium oleate soap is added to the nanoparticles and the resulting solution is set to stir in preparation for the coating step. To precipitate the oleic acid back out, 2 ml of glacial acetic acid diluted to 20 ml are slowly added under vigorous stirring. The resulting coated magnetite is then again collected on a magnet, washed a few times with distilled water and then a few times with methanol, and is then set to dry, preferably under vacuum or under mild heat (more on this later…).</p>
+
+<p><img src="/assets/images/2026_ferrofluid/ferrogoop.webp" /><br /></p>
+
+<p><img src="/assets/images/2026_ferrofluid/magnetite_dry.webp" /><br /></p>
+
+<p>For the final ferrofluid, the nanoparticles are suspended in a carrier solvent. In this case, 5 ml of hexanes.</p>
+
+<video controls="">
+    <source src="/assets/images/2026_ferrofluid/ferrofluid.mp4" />
+</video>
+
+<h3 id="conclusions">Conclusions?</h3>
+<p>We honestly cannot 100% confirm that what we have here is a true bona fide ferrofluid. 90% chance that it really is ferrofluid or that the issue here lies in the suspension step and its just too concentrated. The general properties and vibes are… a smidgeon off? Really mostly the thickness of it. A few steps in the synthesis are “questionable” and though we really did promise to ourselves that we’ll redo it as soon as possible, that desire was swiftly dampened by the 3 day long cleanup process. Lo and behold we are approaching the 1 year anniversary of that synthesis and  we are as aware of the day when we finally have to go as ever. The property of timescales to stretch this far so quickly brings us zero joy.</p>
+
+<p>Now that “cleaning” is mentioned, we obviously we have to describe what that entails in painful detail. Iron salts are the absolute fucking worst when it comes to the mess they leave behind. The very thermodynamically favourable and stable brown-black-red oxide stains are an absolute bane of every inorganic chemists life second only to the idea of doing actual productive labour with our time. Cleaning was done mostly with a few tube cleaners, brushes and a heapful of oxalic acid. The more stubborn stains were removed with a mixture of concentrated peroxide and hydrochloric acid. At some point we have cleaned our hands by rubbing crystalline oxalic acid dihydrate into our skin and it was the best exfoliation we could’ve ever asked for. Though it left us wondering how much oxalic acid we would need to get a previously unheard of case of transdermal kidney stones.</p>
+
+<p>On storage underwater the magnetite in the ferrofluid got slowly oxidized to an unpleasant brown maghemite, leading us to believe that it’s probably best that we add some form of reducing agent like ascorbate to the water, degas it before use and maybe even keep it in a sealed ampoule instead of a screw top vial.</p>
+
+<h3 id="where-to-go-from-here">Where to go from here?</h3>
+<p>Really, the sky’s the limit and thankfully still mostly within reach of an “amateur” lab. There are interesting options like whole alternative synthesis pathways like Thermal Decomposition<sup id="fnref:5" role="doc-noteref"><a href="#fn:5" class="footnote" rel="footnote">5</a></sup>, alternative materials for the ferrofluid like Cobalt Ferrite<sup id="fnref:6" role="doc-noteref"><a href="#fn:6" class="footnote" rel="footnote">6</a></sup>, optimizing the synthesis further with vacuum drying or ultrasonic dispersal or playing with carrier fluids to see what makes the ferrofluid the spikiest. Maybe there is even something interesting in the field of water-based ferrofluids<sup id="fnref:7" role="doc-noteref"><a href="#fn:7" class="footnote" rel="footnote">7</a></sup>. Fingers crossed, some more ferrofluid experiments are to come sometime soon.</p>
+
+<p>Making this stuff really made us think of like… The old days of “science-adjacent” youtube content when ferrofluids were considered an Insane and Exotic substance and you could get a huge amount of views by just playing around with one for a while. Feel like consuming that particular type of Content set us up for the inane novelty-seeking behaviour we induldge in nowadays? They really should invent the research equivalent of short form content. Research Projects Proper turn into some form of a strenuous and drawn out Long March disproportionally quick and sometimes you just yearn for an instant dopamine hit of Publishable Data. It really should be as trivial as drinking a glass of water or watching a YouTube Short. Anyways, everyone in that space nowadays is either gone (either in spirit or physically) or bought out by private equity so really who cares. The rot consumes us all.</p>
+
+<p>More reader-supported edutainment should come soon… Sincerest apologies for pushing this all the way into the end of april… Don’t touch that dial</p>
+
+<h3 id="footnotes">Footnotes</h3>
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p><a href="https://en.wikipedia.org/wiki/Data_dredging">https://en.wikipedia.org/wiki/Data_dredging</a> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:3" role="doc-endnote">
+      <p>..wasn’t succesful with that part, maybe next time! gotta degrease the glass real real good for it. probably going to use chromic acid or something <a href="#fnref:3" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:2" role="doc-endnote">
+      <p>you (yes, the girl reading this) can find one filed under “Foldable Stirring Paddle PTFE” on aliexpress if thats what your soul desires. something like this  <a href="https://www.aliexpress.com/item/4001270896087.html">https://www.aliexpress.com/item/4001270896087.html</a>. They’re around 12 euros and pretty good <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:4" role="doc-endnote">
+      <p>AlexGyver (2022). 🧲 Сделал ферромагнитную жидкость из хозтоваров! <a href="https://www.youtube.com/watch?v=yr3iXa3ciSU,">https://www.youtube.com/watch?v=yr3iXa3ciSU</a>, <a href="https://alexgyver.ru/ferrofluid/">https://alexgyver.ru/ferrofluid/</a> <a href="#fnref:4" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:5" role="doc-endnote">
+      <p>Li, D., Jiang, D., Chen, M., Xie, J., Wu, Y., Dang, S., &amp; Zhang, J. (2010). An easy fabrication of monodisperse oleic acid-coated Fe3O4 nanoparticles. Materials Letters, 64(22), 2462–2464.  <a href="https://doi.org/10.1016/j.matlet.2010.08.025">https://doi.org/10.1016/j.matlet.2010.08.025</a> <a href="#fnref:5" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:6" role="doc-endnote">
+      <p>Ibiyemi, A. A., G. T. Yusuf, and Akinrinola Olusola. “Influence of Temperature and Magnetic Field on Rheological Behavior of Ultra-Sonicated and Oleic Acid Coated Cobalt Ferrite Ferrofluid.” Physica Scripta 96, no. 12 (2021): 125842. <a href="https://doi.org/10.1088/1402-4896/ac2ecb.">https://doi.org/10.1088/1402-4896/ac2ecb.</a> <a href="#fnref:6" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:7" role="doc-endnote">
+      <p>Tetuko, A. P., Asri, N. S., Estellé, P., Fachredzy, A., Sebayang, A. M. S., Rinjani, D. F., Setiadi, E. A., Sari, A. Y., &amp; Sebayang, P. (2024). Synthesis of ferrofluid using magnetite (Fe3O4), citric acid and deionized water and its characterizations for the application of a non-uniform magnetic thermosyphon. Nano-Structures &amp; Nano-Objects, 40, 101417. <a href="https://doi.org/10.1016/j.nanoso.2024.101417">https://doi.org/10.1016/j.nanoso.2024.101417</a> <a href="#fnref:7" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>]]></content><author><name>arylia</name></author><summary type="html"><![CDATA[A goal that we set for ourselves this year was to publish an article on here once or twice a month. Another one was “stop sitting on old science with the hopes of “you’ll elaborate on this further and publish a bigger one instead””. A side effect of this policy is that, through gritted teeth, we have to publish some halfdone ambiguous semifailures. The academically-approved alternative to this is p-hacking1 and Lying but unlike a large chunk of academia, we have a vestigial moral compass and a friend or two that are going to snuff us out and possibly take this website over if we attempt that. This is an attempt at an OTC prep for ferrofluid. https://en.wikipedia.org/wiki/Data_dredging &#8617;]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://isopropyletherperoxide.github.io/assets/images/2026_ferrofluid/ferrofluid_thumbnail.webp" /><media:content medium="image" url="https://isopropyletherperoxide.github.io/assets/images/2026_ferrofluid/ferrofluid_thumbnail.webp" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Violurates I Have Known And Loved Vol. 1: Ground Zeroes</title><link href="http://localhost:4000/2026/03/17/ViHKAL.html" rel="alternate" type="text/html" title="Violurates I Have Known And Loved Vol. 1: Ground Zeroes" /><published>2026-03-17T00:00:00+02:00</published><updated>2026-03-17T00:00:00+02:00</updated><id>http://localhost:4000/2026/03/17/ViHKAL</id><content type="html" xml:base="http://localhost:4000/2026/03/17/ViHKAL.html"><![CDATA[<audio id="audio" src="https://minecraft.wiki/images/Cave1.ogg?5b34f"></audio>
+
+<script>
+      function play() {
+        var audio = document.getElementById("audio");
+        audio.play();
+      }
+</script>
+
+<p>Derived from the better-known-for-other-work barbituric acid, violuric acid is notable for exhibiting pantochromaticity<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup> - the tendency to form brightly coloured salts with just about any cation you can find available. The chemistry of it is varied, complex and somewhat niche, with some reactions valiantly defying every attempt at comprehension. This is volume 1 of a set of articles documenting our experiments with it that were conducted over the last few years and continued right up until the present day.</p>
+
+<p>Before starting, we would like to thank the Sciencemadness forum for being an utterly irreplaceable source<sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">2</a></sup>, with it providing the bulk of references used in carrying these syntheses out. And we would also like to make a fair warning, that the quality of the photographs in this is sometimes suboptimal due to all of this being done ~3 years prior, by an earlier instance of Aryl with a poorly calibrated sense of aesthetics.</p>
+
+<h2 id="the-theory--introductions-pts-i-iii">the theory &amp; introductions (pts. I-III)</h2>
+<h3 id="pt-1-the-structure-of-violuric-acid">(pt. 1) the structure of violuric acid</h3>
+<p>Despite it’s name, violuric acid does not actually contain within itself a carboxylic acid group, instead being a triprotic oxime, with complex and somewhat nonstandard behaviour.</p>
+
+<p><img class="bw" src="/assets/images/2026_vihkal_vol_1/va_structure.png" /></p>
+
+<p>The oxime and the amine groups can also coordinate to transition metals, which will be elaborated on in later volumes of this.</p>
+
+<h3 id="pt-2-the-origins-of-the-vivid-colours">(pt. 2) the origins of the vivid colours</h3>
+<p>Usually, in chemistry the physical origin of colour is either an effect of the formation of a charge-transfer complex<sup id="fnref:3" role="doc-noteref"><a href="#fn:3" class="footnote" rel="footnote">3</a></sup>, high levels of conjugation<sup id="fnref:4" role="doc-noteref"><a href="#fn:4" class="footnote" rel="footnote">4</a></sup> or the splitting of d orbitals<sup id="fnref:5" role="doc-noteref"><a href="#fn:5" class="footnote" rel="footnote">5</a></sup>, which can explain things like Permanganate, carotenes or the varied colours of coordination complexes. d-d transitions <em>can</em> explain the colours violurates show when bonded to a transition metals, but we quickly run into a caveat here - the alkali metal salts are also vividly coloured, some even moreso than the coordination complexes. So why does this happen?</p>
+
+<p>This was answered in 1991 by a paper by Awadallah et al.<sup id="fnref:6" role="doc-noteref"><a href="#fn:6" class="footnote" rel="footnote">6</a></sup>, where the behaviour of violuric acid salts was studied using electronic spectroscopy. The active in the visible spectrum transition in this case was the n-π* (non-bonding to pi antibonding) transition on the oxime group, with the major changes in colour happening due to the sensitivity of the “exposed” non-bonding orbital on the nitrogen to the environment, including solvents and counterions present.</p>
+
+<p><img class="bw" src="/assets/images/2026_vihkal_vol_1/violurate_spectra.png" /></p>
+
+<p>Another sign pointing to the origins of the vividness of violurates is that besides the ion-colour relation, there is also a strong solvent effect present which you can see in the figure above.</p>
+
+<h3 id="pt-3-why-do-we-need-violuric-acid">(pt. 3) why do we need violuric acid?</h3>
+<p>Personally, we just find vivid colours interesting and satisfying to optimize for. Violuric acid has some limited use in analytical chemistry<sup id="fnref:1:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup> for the colorimetric/gravimetric determination of certain ions like potassium in solution. With a good solvent system you probably could do some decent analysis of alkali salt solutions that you’d usually consult your local AES-AAS girl for. Most academic studies of violurate salts are mostly in the fields of crystallography/coordination chemistry, due to the curious character of the hydrogen bonding superstructures formed in such salts.</p>
+
+<h2 id="the-experimental-section-pts-iv---xiii">the experimental section (pts. IV - XIII)</h2>
+
+<h3 id="pt-4-the-synthesis-of-violuric-acid">(pt. 4) the synthesis of violuric acid</h3>
+<p>(!) important note: be <em>sure</em> to wash all glassware used thoroughly with an acid and distilled water beforehand to remove any possible source of contamination, handling here was done with plastic spoons instead of metal, as violuric acid forms brightly coloured salts that will stick out like a sore thumb in your final product.</p>
+
+<p>All of the reagents with the exception of table salt and sodium acetate were obtained locally. Sodium chloride of abhorrent quality (we eat this shit????) was purified via a hot filtration and crystallization and sodium acetate buffer solution was prepared by the addition of a pinch of bicarb (~0.8 grams) to 7 ml of glacial acetic acid.</p>
+
+<p>The synthesis itself is a 1:1 replication of the one at illumina-chemie.org<sup id="fnref:7" role="doc-noteref"><a href="#fn:7" class="footnote" rel="footnote">7</a></sup>. It is originally in German though, so good luck.</p>
+
+<p><img class="bw" src="/assets/images/2026_vihkal_vol_1/violuric_synth.png" /></p>
+
+<p>6.4 grams of barbituric acid (0.05 mol) were added to 100 ml of warm distilled water and stirred until full dissolution. A solution of 3.8 grams of sodium nitrite in 10 ml of water was added to it with stirring, causing the solution to undergo a change from yellow to deep permanganatesque purple. On cooling, a large amount of pink sodium violurate dihydrate precipitated out and solutions of 10 grams of sodium chloride and the aforementioned HOAc/NaOAc buffer were added to it. This serves to drive the reaction to completion and to maximize the yield, and the reaction was stirred for 2 more hours at room temp. This solution was then basified with 2.5 g of NaOH and set aside in the fridge for the final precipitation. The product was then vacuum filtered off and dried in a desiccator for a few days. We then forgot to measure the yield of sodium violurate dihydrate.</p>
+
+<p><img src="/assets/images/2026_vihkal_vol_1/na_violurate_dish.webp" /></p>
+
+<p>The next step was to obtain the free violuric acid, which was done simply by adding 35 ml of 13% HCl to the solution, stirring and vacuum filtering off tan-brown product.</p>
+
+<p>The final yield after all of this: 5.8 grams of Violuric Acid Monohydrate, corresponding to 89% of theoretical.</p>
+
+<p><img src="/assets/images/2026_vihkal_vol_1/violuric_acid.webp" /></p>
+
+<h3 id="general-violurate-synthesis-outline">general violurate synthesis outline</h3>
+<p>The average synthesis was done according to these general guidelines:</p>
+
+<p>for monobasic cations: 
+1.6 mmol (0.0016 mol) of violuric acid - 0.28 grams
+1.6 mmol of base</p>
+
+<p>for dibasic base:<br />
+1.6 mmol (0.0016 mol) of violuric acid - 0.28 grams
+0.8 mmol of base (0.0008 mol)</p>
+
+<p>The reasoning for this scale being: the final amount can fill 1ml vials quite neatly.</p>
+
+<p>Solvent choice is a more interesting question. Preferably everything should be carried out in a volatile solvent like methanol or acetonitrile to avoid evaporating at a high temperature and decomposing your product into nothing. Foreshadowing is a narrative device in which suggestions or warnings about events to come are dropped or planted. But solubility can be rather painful, and you can still get a successful result with slowly evaporating water at 75 degrees C; a proper lab would do all of this under a reduced pressure but alas, the “meth corner” (affectionate) does not have such amenities.</p>
+
+<h3 id="6-potassium">6. potassium</h3>
+<p>Well behaved, precipitated out of aqueous solution with K2CO3 with a 1:0.5 ratio of H3Va to base (0.28g); a pleasant blue colour.</p>
+
+<p><img src="/assets/images/2026_vihkal_vol_1/potassium_violurate.webp" /></p>
+
+<h3 id="7-barium">7. barium</h3>
+
+<p>Uneventful, 0.28 grams of violuric acid were added to 0.252 grams of barium hydroxide octahydrate, and a bright pink product was obtained from aqueous solution, which was promptly filtered off</p>
+
+<p><img src="/assets/images/2026_vihkal_vol_1/barium_violurate.webp" /></p>
+
+<h3 id="8-ammonium">8. ammonium</h3>
+<p>Prepared by adding a few drops of concentrated ammonia to a solution of violuric acid in dH2O and evaporating it at low heat.</p>
+
+<p><img src="/assets/images/2026_vihkal_vol_1/ammonium_violurate.webp" /></p>
+
+<h3 id="9-glycine">9. glycine</h3>
+<p>With Glycine, We managed to somehow obtain 2 distinct products alongside a bunch of [ch|t]ar.</p>
+
+<p>To 0.28 grams of violuric acid, an equivalent amount of glycine (0.12g) was added in distilled water, and the solution was stirred and slowly evaporated until a salmon-pink precipitate was obtained. This precipitate had a slightly uneven color from heating, so it was heated in an attempt to obtain the anhydrous (?) form of it. This led to the formation of a dark red-brown solution with a noticeable amount of carbon in it. The solution was hot filtered and a brown-red crystalline precipitate was obtained (?). Composition - unknown. On another attempt the salmon-pink precipitate was isolated instead and left unbothered after.</p>
+
+<div style="display: flex; gap: 2ch">
+<img src="/assets/images/2026_vihkal_vol_1/two_glycines.webp" />
+<div style="width: 10ch">&lt;&lt; <br />
+Figure 1. Hydrated and Anhydrous Glycinium Violurates </div>
+</div>
+
+<div style="display: flex; gap: 2ch">
+<img src="/assets/images/2026_vihkal_vol_1/glycinium_tar.webp" />
+<div style="width: 10ch">&lt;&lt; <br />
+Figure 2. The charred glycinium product </div>
+</div>
+
+<p>The glycine salt might’ve also decomposed in storage, turning into a more pale sand-like product.</p>
+
+<p><img src="/assets/images/2026_vihkal_vol_1/glycinium_violurate.webp" /></p>
+
+<h3 id="10-oxalyldihydrazide">10. oxalyldihydrazide</h3>
+<p>Oxalyldihydrazide was a little thingy we made a while back while playing with dimethyl oxalate. Ended up a disappointing ligand, but a fun counterion to use in violurate synth, loss and gain is the same.</p>
+
+<p><img class="bw" src="/assets/images/2026_vihkal_vol_1/odh_synthesis.png" /></p>
+
+<p>For this we have heated 0.28 grams of violuric acid with 0.09 grams of Oxalyldihydrazide in a methanol-water system, yielding a very nice bright orange salt.</p>
+
+<p><img src="/assets/images/2026_vihkal_vol_1/odh_violurate.webp" /></p>
+
+<h3 id="11-hydrazinium">11. hydrazinium</h3>
+<p>It is known that Hydrazinium is a perilous cation that wages hybrid warfare against everyone who tries working with it. It is not afraid to go down in the process of fucking with you. A few attempts were made at the synthesis of hydrazinium diviolurate, using hydrazinium hydrate in small amounts. The first attempt was done in an aqueous solution with a few drops of N2H4 * H2O, which when boiled dry formed a weird glassy orange substance of unknown composition. The others were carried out at room temperature in a methanol-water system, which led to the formation of the actual salt, and on second attempt it was even isolated from solution (!). But the joy was as shortlived as always, the solid decomposed back into light brown coloured violuric acid after sitting in storage. Maybe it’ll keep well inside of a fridge or something.</p>
+
+<div style="display: flex; gap: 2ch">
+<img style="cursor: pointer" onclick="play()" src="/assets/images/2026_vihkal_vol_1/hydrazinium_attempts.webp" />
+<div style="width: 10ch">&lt;&lt; <br />
+Figure 3. Decomposed Failed Attempts </div>
+</div>
+<p>Failed Decomposed Attempts</p>
+
+<div style="display: flex; gap: 2ch">
+<img src="/assets/images/2026_vihkal_vol_1/hydrazine_and_ammonium.webp" />
+<div style="width: 10ch">&lt;&lt; <br />
+Figure 4. Ammonium (left) and Hydrazinium (right) Violurates </div>
+</div>
+
+<div style="display: flex; gap: 2ch">
+<img src="/assets/images/2026_vihkal_vol_1/hydrazine_tar.webp" />
+<div style="min-width: 15ch">&lt;&lt; <br />
+Figure 5. <br /> The Tar Product</div>
+</div>
+
+<h3 id="12-hexamine">12. hexamine</h3>
+<p>Hard to characterize due to both the instability of hexamine and the large amount of possible polymorphs and hydrates violurates form. Overheating it seems to produce a few colour changes before going back to violuric acid, while a careful synthesis in a methanol-water system with a 2:1 ratio of H3Va to hexamine at room temp seems to have yielded a grey powder which turned orange on contact with distilled water. In another attempt under the same conditions, a blue, stable on storage product was obtained. The notes here are sadly spotty and a more careful study might be needed.</p>
+
+<p><img src="/assets/images/2026_vihkal_vol_1/hexamine_violurate.webp" /></p>
+
+<h3 id="13-purpald">13. purpald</h3>
+<p>A pathetic failure. 0.28 grams of violuric acid were added to a solution of an equimolar amount of <a href="https://aryl.org/2025/03/30/Purpald.html">purpald</a> in distilled water, yielding a blue solution at first and a grey precipitate. On stirring an awful stench of sulfur appeared, and was promptly disposed of due to presence of the grey sludge souring our mood.</p>
+
+<p><img src="/assets/images/2026_vihkal_vol_1/purpald_violurate.webp" /></p>
+
+<h2 id="volume-1-conclusions">volume 1 conclusions.</h2>
+<p>The field of violurate chemistry is very large in breadth and we really dont have much to say about it except for a vague expression of “hope that we do more work in this field in the near future”. Donations for better cations (cesium and rubidium are expensive) and suggestions on the further course are welcome.</p>
+
+<h2 id="footnotes">Footnotes</h2>
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p>Lorenz, V., Liebing, P., Engelhardt, F., Stein, F., Kühling, M., Schröder, L., &amp; Edelmann, F. T. (2019). Review: the multicolored coordination chemistry of violurate anions. Journal of Coordination Chemistry, 72(1), 1–34. <a href="https://doi.org/10.1080/00958972.2018.1560431">https://doi.org/10.1080/00958972.2018.1560431</a> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a> <a href="#fnref:1:1" class="reversefootnote" role="doc-backlink">&#8617;<sup>2</sup></a></p>
+    </li>
+    <li id="fn:2" role="doc-endnote">
+      <p><a href="http://www.sciencemadness.org/talk/viewthread.php?tid=156755">http://www.sciencemadness.org/talk/viewthread.php?tid=156755</a> <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:3" role="doc-endnote">
+      <p><a href="https://en.wikipedia.org/wiki/Charge-transfer_complex">https://en.wikipedia.org/wiki/Charge-transfer_complex</a> <a href="#fnref:3" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:4" role="doc-endnote">
+      <p><a href="https://en.wikipedia.org/wiki/Conjugated_system#In_pigments">https://en.wikipedia.org/wiki/Conjugated_system#In_pigments</a> <a href="#fnref:4" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:5" role="doc-endnote">
+      <p><a href="https://en.wikipedia.org/wiki/Coordination_complex#Color_of_transition_metal_complexes">https://en.wikipedia.org/wiki/Coordination_complex#Color_of_transition_metal_complexes</a> <a href="#fnref:5" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:6" role="doc-endnote">
+      <p>Awadallah, R. M., Belal, A. A. M., Issa, R. M., &amp; Peacock, R. D. (1991). The colours of simple salts of the violurate anion. Spectrochimica Acta Part A: Molecular Spectroscopy, 47(11), 1541–1546. <a href="https://doi.org/10.1016/0584-8539(91)80248-h">https://doi.org/10.1016/0584-8539(91)80248-h</a> <a href="#fnref:6" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:7" role="doc-endnote">
+      <p><a href="https://illumina-chemie.org/viewtopic.php?t=5502">https://illumina-chemie.org/viewtopic.php?t=5502</a> <a href="#fnref:7" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>]]></content><author><name>Arylia Nervosa</name></author><summary type="html"><![CDATA[]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://isopropyletherperoxide.github.io/assets/images/2026_vihkal_vol_1/na_violurate_dish.webp" /><media:content medium="image" url="https://isopropyletherperoxide.github.io/assets/images/2026_vihkal_vol_1/na_violurate_dish.webp" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Using a 25€ Induction Heater</title><link href="http://localhost:4000/2026/02/11/InductionHeater.html" rel="alternate" type="text/html" title="Using a 25€ Induction Heater" /><published>2026-02-11T00:00:00+02:00</published><updated>2026-02-11T00:00:00+02:00</updated><id>http://localhost:4000/2026/02/11/InductionHeater</id><content type="html" xml:base="http://localhost:4000/2026/02/11/InductionHeater.html"><![CDATA[<p>Sometime back in the Winter of 2025 I have ordered a 25€ 1kW induction heating board off Aliexpress and put myself up to the task of closing my teenage gestalt of High Temperature Chemistry.</p>
+
+<p><img src="/assets/images/2026_induction_heater_vol_1/induction_heater_listing.png" /><br /></p>
+
+<p>The state of documentation around the thing was quite pitiful and I made a large amount of costly mistakes while trying to get it to run. Herein is a more detailed look at the board and a compilation of some of the more notable failures and setbacks I have encountered over the last year of sporadically working on it whenever my situation has allowed me to. This is hopefully part one of a longer series of improving this induction heater and using it to carry out high temperature chemistry without resorting to using obscene amounts of gas or buying a bulky, expensive and prone to failure resistive furnace.</p>
+
+<h3 id="part-0-gathering-hardware-and-initial-setup">Part 0, Gathering Hardware and Initial Setup</h3>
+<p>In the really scuffed cardboard box (not the one pictured) there really wasn’t much included except the board itself, a cooling fan, some silicone tubing for watercooling, a copper work coil and some standoffs and washers for attaching the cooling fan and for the connection of the work coil to the actual board (more on that later).</p>
+
+<p><img src="/assets/images/2026_induction_heater_vol_1/box.webp" /><br /></p>
+
+<p>(it didn’t come preassembled, i just really couldn’t bother with taking it apart and the assembly is mostly trivial anyways.)</p>
+
+<p>The work coil is made out of 6 windings of copper tubing (ID/OD: 2mm/4mm) with the coil itself having the innner and outer diameter of 45mm and 53 mm respectively. Which is quite small for an induction furnace (most crucibles you can buy are bigger than this), and my uneducated guess would be that this is more aimed at annealing metal parts or heating seized steel nuts or bolts.</p>
+
+<p>The board itself is based on a quite simple ZVS topology<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup> and the most complex bit of silicon on it (aside from the fading RGB LED) is an op-amp used as a current comparator/soft starter (?) for the basic on-board overcurrent protection functionality. Which is nothing more than the comparator and a simple two-transistor latch, with a button to disengage it. The topology being as simple as this is quite convenient as unlike with the more complicated “proper” topologies it is self-tuning, and requires no adjustment from the end user. The downsides are decreased efficiency and the inability to tune the frequency or to easily turn the circuit on or off without a powerful switch.</p>
+
+<p>Now, one of the big catches is that powering this thing is really non-trivial unless your lab is already geared for power electronics. As it does draw well above 20A at 36V, getting away with a laptop wallwart is really not an option this time.</p>
+
+<p>An optimal solution for this is either a high power (36V, 1kW+) general purpose switching power supply (can be had on aliexpress for relatively cheap), or a used/surplus server power supply. My initial idea for powering it was to simply use a 1.8kW variac and a really big bridge rectifier, but this turned out to be horribly unsafe and very impractical and expensive for what it was. I went with option A and shelled out the 40 or so euros for a 1.2 kW switcher.</p>
+
+<p><img src="/assets/images/2026_induction_heater_vol_1/power_supply_listing.png" /><br /></p>
+
+<p>The connection between power supply and board was made with thick copper wire and XT60 connectors, which can handle these kinds of current quite well and are a much cheaper and convenient option than any other connector of this category (though I am open to suggestions if you have any). Screw terminals are the reason I have carpal tunnel syndrome and anger issues.</p>
+
+<p>Oh, and water cooling ended up mostly superfluous for short test runs or small scale metal melting, and will not be looked at in detail here, as for the time being the water cooling system is really nothing more than a pile of tubes and and a pump laying unused in a cardboard box.</p>
+
+<h3 id="part-1-misery-and-failure">Part 1, Misery and Failure</h3>
+<p>The first run, mostly due to operator mistake, proved to be a huge disaster. While there is built-in OC protection, it is mostly powerless against blatant abuse. In an attempt to get a stainless steel screwdriver red hot, the “unlatch” button was rapidly mashed in what can only be described as a moment of childish impatience and utter desperation. Obviously, such machinations combined with the 20 or so amps flowing through the circuitry will lead to destructive consequences. The casualty toll on that fateful day ended up being 3 power FETs, a trace on the board and a BJT used for the current protection latch.</p>
+
+<p><img height="500px" src="/assets/images/2026_induction_heater_vol_1/blown_trace.webp" /><br /></p>
+
+<p>The fan ceased to spin, and the overcurrent indicator LED was now stuck, taunting me with its rainbow shimmer. This set me back 10$ worth of parts and a whole evening worth of my time. The suspicious failed FETs were replaced by brand new IRFP250Ns, and the high current N-channel MOSFET was swapped out for a similar enough IRF3205P<sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">2</a></sup>.</p>
+
+<p>Now that the board was rejuvenated and probably better than ever, a succesful heat test was carried out, with the same screwdriver no longer causing the protection to trip, and the test pieces of various susceptible metals now easily getting up to red hot within the work coil. Now onto the crucibles.</p>
+
+<p><img height="500px" src="/assets/images/2026_induction_heater_vol_1/heat_test.webp" /><br /></p>
+
+<h3 id="part-2-crucible-woes">Part 2, Crucible Woes</h3>
+<p>Now, for most purposes, graphite crucibles work largely fine in induction furnaces. They are cheap, very susceptible to eddy currents, and are easily available on the internet. For my applications however, there was a slight problem. That being the relatively high reactivity of red hot graphite. The well behaved graphite is quite a strong reducer when heated to incandescence, and a major source of anxiety for me. Now, in metallurgy, this is actually beneficial, in that field, red hot carbon is a commonplace reducing agent, used in many industrial reduction pathways to metals and chemicals<sup id="fnref:3" role="doc-noteref"><a href="#fn:3" class="footnote" rel="footnote">3</a></sup>. This is highly concerning for someone who has a deep carnal urge to sinter and melt various reactive oxides.</p>
+
+<p>My first idea of a solution to this was to switch vessels to ones made of another material, namely to Silicon Carbide. Silicon Carbide is another viable material for such matters, and is commonly encountered in crucibles intended for microwave melting of glass and metals, which nowadays can be had online for relatively cheap. But there are some issues with this approach. SiC is usually mixed in with graphite in such crucibles, and not all such crucibles are born equal. The cheap, crude-looking vessel that I had ordered from Aliexpress was doing a terrible job as a susceptor. Barely heating up to 250 degrees C, it could boil water and fell just short of roasting ammonium metavanadate, requiring the placement of a screwdriver inside of the crucible for providing the extra heat. Though that did deposit a beautiful thin film of vanadium oxides on the screwdriver, this was not a viable option.</p>
+
+<p><img src="/assets/images/2026_induction_heater_vol_1/roasted_metavanadate.webp" /><br /></p>
+
+<p><img height="500px" src="/assets/images/2026_induction_heater_vol_1/v_screwdriver.webp" /><br /></p>
+
+<p>The attempts at using a conventional graphite crucible were also not without hangups, as the crucibles I got (40*40mm) were too big, and ended up being too strongly coupled<sup id="fnref:4" role="doc-noteref"><a href="#fn:4" class="footnote" rel="footnote">4</a></sup> to the work coil, causing the overcurrent protection to instantly trip, with nearly no heating happening in the process. In my final attempt to use this work coil, the standard-sized graphite vessel was replaced by a tiny one with the OD of 22mm, which thankfully easily got up to red hot within 30 seconds.</p>
+
+<p><img src="/assets/images/2026_induction_heater_vol_1/success_heating.webp" /><br /></p>
+
+<p>After rereading the listing page for this device, I have found out that they do actually recommend using a 30*30mm graphite crucible. My bad. Though in my defense, it is nearly impossible to find such a crucible either locally or on Aliexpress.</p>
+
+<h3 id="part-3-almost-as-good-as-tolerable">Part 3, Almost as Good as Tolerable</h3>
+<p>The first succesful metal melt test was carried out with some scrap aluminium pipe from another project and the tiny crucible. Succesfully melting the scrap into the puddle, we have confirmed that the crucible easily gets up to at least 600 degrees C in under a minute, and that basic melting/casting is in fact possible with such a heater.</p>
+
+<p><img height="500px" src="/assets/images/2026_induction_heater_vol_1/molten_alu.webp" /><br /></p>
+
+<p>The test also revealed another problem, namely the utterly horrible “connection system” the board uses. Instead of a screw fitting or a hose clamp style connection, it is “implemented” with 3 standoffs and 4 washers. There is nothing redeemable about it. During one of the experiments, the work coil was jostled slightly, leading to the coil slipping, causing the formation of a hotspot in a thermal runaway scenario where surface oxidation from heating increased the resistance, leading to an even larger, self-fueling increase in heating. Now some of the copper is delaminated from the board and everything looks really gross and also like total shit. A decision was made to machine a better connector out of copper.</p>
+
+<p><img src="/assets/images/2026_induction_heater_vol_1/gross_oxidation.webp" /><br /></p>
+
+<p>This is about where it ends for now. A new connector was designed but only half-finished. The power grid in the country collapsed yet again and I also ran out of sheet copper. Hopefully, the next installment of this series will not take a whole year to write.</p>
+<h3 id="conclusions">Conclusions:</h3>
+<p>Is this worth it? On this early stage, I’m not sure, but I am more or less optimistic. If you have the money and are impatient it’s better to buy a premade all-in-one induction furnace like this (~300-400 euro). I decided against it because I do not have the money nor the space for such a big device, and I was aiming more towards a portable benchtop induction heater more than a workshop-sized part annealer.</p>
+
+<p><img src="/assets/images/2026_induction_heater_vol_1/induction_furnace_listing.png" /><br /></p>
+
+<p>As of now, there seems to be a lack of literature on using induction heating for chemistry (seriously, if you have any literature on this please add me on discord <strong>@arylation</strong>, I really could not find any designs for such a device thats not aimed for alloy making and maybe at best glass.). There is really much to be done, starting from figuring out a good crucible material for sintering reactive materials to temperature insulation and automation for such a device. Please await the next installments patiently. Peace.</p>
+
+<h3 id="links">Links</h3>
+<p>Aliexpress loves deleting listings. Here’s a list of descriptions and keywords for you to try to find similar components for when it all eventually linkrots</p>
+
+<ul>
+  <li>Crucibles: <a href="https://www.aliexpress.com/item/1005004639272403.html">https://www.aliexpress.com/item/1005004639272403.html</a> “Slender 20x30mm graphite crucible”</li>
+  <li>Honeycomb heat insulator plate: [already linkrotten] “Honeycomb Ceramic Plate for Casting Square Large”</li>
+  <li>Induction Heater Board: <a href="https://www.aliexpress.com/item/1005003448464414.html">https://www.aliexpress.com/item/1005003448464414.html</a> “1000W ZVS Induction Heating Plate Kit”</li>
+  <li>Power supply (1.2kW, 36V 33.3A): <a href="https://www.aliexpress.com/item/1005005191633442.html">https://www.aliexpress.com/item/1005005191633442.html</a> “1200W Switching Power Supply DC 12V 18V 24V 36V 48V 60V 70V 72V AC 100-240V SMPS CNC Adjustable Voltage For LED Stirp Motor”</li>
+</ul>
+
+<h3 id="footnotes">Footnotes:</h3>
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p><a href="https://www.electroboom.com/?p=1198">https://www.electroboom.com/?p=1198</a> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:2" role="doc-endnote">
+      <p><a href="https://www.youtube.com/watch?v=Svual-PcOxE">https://www.youtube.com/watch?v=Svual-PcOxE</a> this was playing in the background while repairing the heater and it felt like im having a stroke for an hour <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:3" role="doc-endnote">
+      <p><a href="https://en.wikipedia.org/wiki/Carbothermic_reaction">https://en.wikipedia.org/wiki/Carbothermic_reaction</a> <a href="#fnref:3" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:4" role="doc-endnote">
+      <p><a href="https://spaco.org/Blacksmithing/ZVSInductionHeater/1000WattZVSInductionHeaterNotes.html">https://spaco.org/Blacksmithing/ZVSInductionHeater/1000WattZVSInductionHeaterNotes.html</a> re:coil size/coupling and also good resource in general <a href="#fnref:4" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>]]></content><author><name>me....</name></author><summary type="html"><![CDATA[Sometime back in the Winter of 2025 I have ordered a 25€ 1kW induction heating board off Aliexpress and put myself up to the task of closing my teenage gestalt of High Temperature Chemistry.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://isopropyletherperoxide.github.io/assets/images/2026_induction_heater_vol_1/success_heating.webp" /><media:content medium="image" url="https://isopropyletherperoxide.github.io/assets/images/2026_induction_heater_vol_1/success_heating.webp" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Favourite Light Sources of Yesteryear</title><link href="http://localhost:4000/2026/01/09/ThreeLights.html" rel="alternate" type="text/html" title="Favourite Light Sources of Yesteryear" /><published>2026-01-09T00:00:00+02:00</published><updated>2026-01-09T00:00:00+02:00</updated><id>http://localhost:4000/2026/01/09/ThreeLights</id><content type="html" xml:base="http://localhost:4000/2026/01/09/ThreeLights.html"><![CDATA[<p><img src="/assets/images/2026_three_lights/danger.webp" /><br /></p>
+
+<p>The emission of visible (and invisible) light is up there among the best pastimes available to a researcher/tinkerer/infantile individual. Light sources sit in a very pleasant area of “spectacle-danger”, making them a fun activity to engage in for children and developmentally stunted adults alike. Most of these were part of bigger projects, however due to technical difficulties or just general lack of skill, the bigger projects failed to materialize (for now!)… So I cut my losses and compiled 3 of them in a Post.</p>
+
+<h3 id="xenon-tube">Xenon Tube</h3>
+<p>This is the ИНП3-7/80A (INP3-7/80A)<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup> - a big xenon-filled tube that functions as the pump source for an old Nd:YAG laser. These ideally should live in a nice snug aluminium enclosure, complete with watercooling, hanging out in an undeniably sapphic way with a beautiful girly-pink neodymium-doped yttrium aluminium garnet rod; I do not have the funds to afford such a machine (anyone, please? BTC:bc1q93g87lf8akzsn8qr5dz30e32s6lh77raskx8hc). So I had to make do with a replacement tube that I scored for 8$ on the local marketplace. It is a beautiful long glass tube with two metal electrodes, destined to be tickled gently with a high voltage to make path for a violent discharge of a big (2160 uF at 500V) capacitor. In spirit, an oversized xenon camera flash. I got it for the purpose of putting really high voltage AC through it and watching the arcs twinkle inside.</p>
+
+<video controls="">
+<source src="/assets/images/2026_three_lights/xenon.webm" />
+</video>
+
+<p>For the power supply I am using an AC flyback from a Soviet black and white CRT television, greatly overdriven with a ZVS<sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">2</a></sup> driver, powered by a really big switching power supply<sup id="fnref:3" role="doc-noteref"><a href="#fn:3" class="footnote" rel="footnote">3</a></sup>. You can get away with a smaller 555 timer based power supply, but an AC flyback is preferable, as capacitive coupling is really fun.</p>
+
+<p><img src="/assets/images/2026_three_lights/zvs.webp" /><br /></p>
+
+<p>Really, though I’d love to see it in action, its most likely fate is a decorative piece somewhere in the lab, powered with maybe a smaller flyback based power supply. The current one, like a hermit crab - lives inside of a shell of a broken ATX power supply and draws close to a kilowatt, also just like a hermit crab. It scares me.</p>
+
+<video controls="">
+<source src="/assets/images/2026_three_lights/xenon_cap.webm" />
+</video>
+
+<h3 id="hollow-cathode-lamps">Hollow Cathode Lamps</h3>
+<p>HCLs<sup id="fnref:4" role="doc-noteref"><a href="#fn:4" class="footnote" rel="footnote">4</a></sup> are the overgrown cousin of the neon bulb family. Used in spectroscopy as a reference source, these lamps - just like their commonplace relatives consist mostly of a tube filled with low pressure neon and two electrodes connected inside for easy mode ionization (If you’re worth anything, do it capacitively). While the bulb itself is made from normal borosilicate glass, the front window is made out of fused quartz, hinting at what kinds of wavelengths we’re dealing with here. The main feature that differentiates them from normal neon bulbs (outside of their gargantuan size!) is the aforementioned hollow cathode. The hollow cathode has a thin layer of whatever element of interest applied to them during manufacture. In the appropriate mode of operation, the metal/whatever sputters off it, gets really excited in the atmosphere of ionized buffer gas and emits light radiation of desirable wavelengths.</p>
+
+<p><img src="/assets/images/2026_three_lights/HCL_light.webp" /><br /></p>
+
+<p>This is not the light source that I initially wanted to play with, but I managed to score a giant box of a dozen or so of different ЛТ-2 (LT-2) lamps for the price of lunch. After leak checking them with a small slayer-exciter coil, I took to designing a power supply for such endeavours. It ended up being a haphazardly crafted device consisting of a project box fitted with voltmeters and ammeters that I tried beating into shape (no, you cannot make a bipolar ammeter by just twisting the adjustment screw really hard), two pots for rough and fine adjustment and a YH1168A module. It is not a good power supply. The ripple on the output when unloaded is somewhere around a few volts (!! :( !!), but it is suitable for powering basic digital vacuum tube circuitry and gas discharge tubes. For experimentation, I have picked a boron-doped lamp, thinking it’d produce an interesting and distinct color.</p>
+
+<p><img src="/assets/images/2026_three_lights/hcl.webp" /><br /></p>
+
+<p>My procedure for powering such a light is: Connecting the anode via a ballast resistor (usually within the order of ~2Kohm) to the positive rail of the power supply, connecting the cathode to the ground rail and twiddling the knob until I reach striking voltage. Neon lights are negative resistance devices, so after striking, the current draw drastically increases and excess voltage is dropped on the ballast resistor and turned into scorching heat and flames whenever a clueless operator decides to use a 1W thin film resistor as the ballast. For best performance, you’re supposed to match the current with the current written in the documentation of the tube (~20mA for this fine specimen), as overcurrents can damage the thin sputtered layer of whatever element is on the cathode. The striking voltage is somewhere around 500V, though I could run such a bulb relatively fine at 360V.</p>
+
+<video controls="">
+<source src="/assets/images/2026_three_lights/HCL_powered.webm" />
+</video>
+
+<p>Sadly, as we cannot see into the best segment of the spectrum, the characteristic UV peaks of Boron are beyond our perception. These bulbs are not fit for our mediocre eyes. At the time of purchase I have naively thought that there will be a faint green line present alongside the invisible UV lines of boron. The “monochromator” that I have used to try to make this possible consisted of a magnifying lens I had lying around, tinfoil wrapped around the tube to prevent stray light from illuminating my bedroom and either an x-cube or a diffraction grating I got from China for a great price. The green line was not visible due to one of the following reasons or due to the combination thereof: my terrifying “spectroscopic equipment”, the green line not existing/being too faint for our eyes to see, the mode of operation being incorrect or the tubes being too busted. Point is, it scared the timid ghostly green glow that I so yearned for away. Too bad. On the bright side, it is a good and powerful neon light source, so the green and blue lines that neon has<sup id="fnref:5" role="doc-noteref"><a href="#fn:5" class="footnote" rel="footnote">5</a></sup> are much more visible… Not the worst ending… though it makes me yearn for a HeNe laser now…</p>
+
+<p><img src="/assets/images/2026_three_lights/hcl_xcube.webp" /><br /></p>
+
+<p><img src="/assets/images/2026_three_lights/hcl_diffract.webp" /><br /></p>
+
+<h3 id="helium-filled-noise-diode">Helium-Filled Noise Diode</h3>
+<p>These experiments stem from a brief obsession with tube technology that sort of died down because it all turned into a long tangentially related project that moves along at a glacial pace. What I did get from it are some nice frames of the kinds of glow discharge you don’t see every day. This is a ТГ1П (TG1P) helium-filled diode<sup id="fnref:6" role="doc-noteref"><a href="#fn:6" class="footnote" rel="footnote">6</a></sup>, used as a noise source for radio equipment. Usually, diodes are not filled with anything, only pumped down to a vacuum, except for the often used in the past high power mercury vapour rectifiers/ignitrons and some inert gas filled tubes. Oftenmost you can find such a gas filling inside of a thyratron, a modern precursor to the SCR (where did you think the word thyristor come from?). Unlike the aforementioned gas-filled thyratrons and mercury vapour filled diodes, these are very low power tubes, rated for less than 50 mA anode current.</p>
+
+<p><img src="/assets/images/2026_three_lights/noise_diode_night.webp" /><br /></p>
+
+<p>The working principle behind these is similar to the historically used arc converter<sup id="fnref:7" role="doc-noteref"><a href="#fn:7" class="footnote" rel="footnote">7</a></sup>. At certain potentials, the glow discharge of gas-filled lamp continously extinguishes and reignites. This effect can be exploited both to generate a low frequency sawtooth waveform, like the one observed in a neon tube blinky (Pearson-Anson oscillator) or, when placed in the field of a permanent magnet, used to generate a dense noise, stretching all the way out into the 10+ megahertz range.</p>
+
+<p><img src="/assets/images/2026_three_lights/noise_diode_zoom.webp" /><br /></p>
+
+<p>These ignite at somewhere around 80V, draw around 1-1.3 amps (standard 6.3V voltage) for the heater and 37.5mA for the anode, so it was powered via a YH1168A boost converter board through a ballast resistor. After a few minutes, the insides are hot enough and the tube starts to work in its normal mode of operation.</p>
+
+<p><img src="/assets/images/2026_three_lights/noise_diode_setup.webp" /><br /></p>
+
+<p>So far, publishing a nice spectral characteristic of such a noise source is not very possible, the power supply I used for this is incredibly noisy (look at those ugly bumps…), and whatever ripple produced by it undoubtedly adds a bunch of unnecessary bullshit to the spectral data. Also, my apartment is ungrounded, which is unsafe and makes using any appliance much more dangerous. Even worse, it makes all sorts of noise measurements much less precise. If you are interested in noise source design using similar tubes, check out the footnotes<sup id="fnref:8" role="doc-noteref"><a href="#fn:8" class="footnote" rel="footnote">8</a></sup> <sup id="fnref:9" role="doc-noteref"><a href="#fn:9" class="footnote" rel="footnote">9</a></sup>.</p>
+
+<p><img src="/assets/images/2026_three_lights/noise1.webp" /><br /></p>
+
+<p><img src="/assets/images/2026_three_lights/noise2.webp" /><br /></p>
+
+<p>Very sad, though this is being slowly worked on, low-noise high voltage sources are a niche product that can take up a whole room or cost more than whatever my life’s worth. Or both. Not the last time you see this tube I hope.</p>
+
+<p>Peace.</p>
+
+<h3 id="footnotes">Footnotes</h3>
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p><a href="https://donklipstein.com/inp3780a.pdf">https://donklipstein.com/inp3780a.pdf</a> INP3/7-80A datasheet <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:2" role="doc-endnote">
+      <p><a href="http://uzzors2k.com/index.php?page=flybacktransformerdrivers">“http://uzzors2k.com/index.php?page=flybacktransformerdrivers”</a> <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:3" role="doc-endnote">
+      <p><a href="https://www.aliexpress.com/item/1005005191633442.html">“https://www.aliexpress.com/item/1005005191633442.html”</a> switch mode power supply, 1.2kW, 33.3A @ 36V <a href="#fnref:3" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:4" role="doc-endnote">
+      <p><a href="https://en.wikipedia.org/wiki/Hollow-cathode_lamp">“https://en.wikipedia.org/wiki/Hollow-cathode_lamp”</a> <a href="#fnref:4" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:5" role="doc-endnote">
+      <p><a href="https://en.wikipedia.org/wiki/Neon#/media/File:10_(Ne_I)_NIST_ASD_emission_spectrum.png">“https://en.wikipedia.org/wiki/Neon#/media/File:10_(Ne_I)_NIST_ASD_emission_spectrum.png”</a> <a href="#fnref:5" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:6" role="doc-endnote">
+      <p><a href="https://web.archive.org/web/20191121064714/http://www.155la3.ru/tg1p.htm">“https://web.archive.org/web/20191121064714/http://www.155la3.ru/tg1p.htm”</a> russian page on the TG1P <a href="#fnref:6" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:7" role="doc-endnote">
+      <p><a href="https://en.wikipedia.org/wiki/Arc_converter">“https://en.wikipedia.org/wiki/Arc_converter”</a> <a href="#fnref:7" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:8" role="doc-endnote">
+      <p><a href="https://electronicprojectsforfun.wordpress.com/making-noise/noise-sources-i-have-built/a-tube-noise-source-using-the-2d3b-tube/">“https://electronicprojectsforfun.wordpress.com/making-noise/noise-sources-i-have-built/a-tube-noise-source-using-the-2d3b-tube/”</a> <a href="#fnref:8" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:9" role="doc-endnote">
+      <p><a href="https://pubs.aip.org/aapt/ajp/article-abstract/32/7/v/1047075/Noise-Generators">“https://pubs.aip.org/aapt/ajp/article-abstract/32/7/v/1047075/Noise-Generators”</a> <a href="#fnref:9" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>]]></content><author><name>arylia incandenza</name></author><summary type="html"><![CDATA[]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://isopropyletherperoxide.github.io/assets/images/2026_three_lights/noise_diode_night.webp" /><media:content medium="image" url="https://isopropyletherperoxide.github.io/assets/images/2026_three_lights/noise_diode_night.webp" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">What in the world is a Salen Ligand?</title><link href="http://localhost:4000/2025/10/31/Salen.html" rel="alternate" type="text/html" title="What in the world is a Salen Ligand?" /><published>2025-10-31T00:00:00+02:00</published><updated>2025-10-31T00:00:00+02:00</updated><id>http://localhost:4000/2025/10/31/Salen</id><content type="html" xml:base="http://localhost:4000/2025/10/31/Salen.html"><![CDATA[<script src="https://3Dmol.org/build/3Dmol-min.js" defer=""></script>
+
+<script src="https://3Dmol.org/build/3Dmol.ui-min.js" defer=""></script>
+
+<h3 id="what-is-salen">What is salen?</h3>
+<p><em>(don’t worry, this article starts off on a bit of a tangent on the background of salen complexes before we actually make some. this is still a synthesis writeup in the end and you will see these pretty coordination compounds just a few paragraphs away)</em></p>
+
+<p><img src="/assets/images/2025_salen/salen_complexes.jpg" /><br /></p>
+
+<p><strong>Salen</strong> is the contracted name of N,N′-bis(salicylidene)ethylenediamine, which is a compound made by condensation of <strong>sal</strong>icylaldehyde and <strong>e</strong>thylenediami<strong>n</strong>e (commonly shortened to <strong>en</strong>, don’t ask why). However, as of today, the original Salen ligand is much less relevant than the ligand class it shares its name with.</p>
+
+<p><img src="/assets/images/2025_salen/salen_colors.png" /><br /></p>
+
+<p>Really, nowadays you are more likely to encounter the terms “salen” or “salen-type” in the meaning that a compound either has the hydroxyaldehyde-diamine backbone or just the general <em>vibes</em> of a salen - a schiff base derived from some sort of carbonyl and a diamine, an example being the acacen subclass of salens derived from acetylacetone (abbreviated in coordination chemistry as <strong>acac</strong>) (though some like to treat them as a separate thing).</p>
+
+<p>Salen ligands are just one small part of a large family of ligands, coexisting in it with a large amount of other catchily-named ligand types which differ in saturation (salan, salalen), the character of the diamine component (salophens, salpns), or even some that distinguish themself by being made from something other than a diamine (salomens). This list is far from exhaustive, and the terminology of salens isn’t standardized by anyone like IUPAC either way so godspeed if you try to dig deeper.</p>
+
+<p><img id="wider_image" class="bw" src="/assets/images/2025_salen/not_salens.png" /><br /></p>
+
+<h3 id="why-is-salen">Why is salen?</h3>
+<p>Why bother? I ask myself that question far too much often to count. However unlike myself, salens have a quite wide range of uses<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>, both in and outside of research chemistry. In industry salen by itself is often used as a fuel additive to remove redox-active metal ions like copper out of solution. In chemistry, salen-type ligands are often used for catalysis, with the most prominent example being the chiral <a href="https://en.wikipedia.org/wiki/Jacobsen%27s_catalyst">Jacobsen’s Catalyst</a> used in the aptly named stereoselective <a href="https://en.wikipedia.org/wiki/Jacobsen_epoxidation">Jacobsen Epoxidation</a>. The preparation of the catalyst is simple enough to be part of the curriculum for undergraduate inorganic chemistry<sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">2</a></sup>, which leads us to the next point of why salens matter. And that being the fact that a lot of them are dead easy to make, making it a trivial task to derivatize them by varying substituents on the reagents and to tailor them to your needs (solubility, sterics, chirality etc), or to combinatorically make a giant library of them for whatever purposes people want giant chemical libraries (fancy linear algebra or some shit).</p>
+
+<p>Another quite interesting salen complex is <a href="https://en.wikipedia.org/wiki/Salcomine">salcomine</a>, derived from SalenH2 and a cobalt salt. Salcomine is (as far as I could gather)<sup id="fnref:3" role="doc-noteref"><a href="#fn:3" class="footnote" rel="footnote">3</a></sup> the first instance of a wholly synthetic complex that is able to bind dioxygen in a way somewhat similar to heme in hemoglobin. Though the coordination geometry differs, as unlike with heme, the dioxygen ligand bridges two molecules of salen instead of just being coordinated to one metal centre like in heme.</p>
+
+<div style="height: 400px; width: 400px; margin-left: 8px; max-width:100%; position: relative;" class="viewer_3Dmoljs" data-href="/assets/images/2025_salen/salcomine_o.mol2" data-backgroundcolor="0xffffff" data-style="sphere:radius~0.5,colorscheme~Jmol;stick:colorscheme~Jmol" data-ui="true"></div>
+
+<h3 id="how-is-salen-lets-make-some-and-find-out">How is salen? (Let’s make some and find out!)</h3>
+<p>To follow up on the last few paragraphs, lets actually make some salens! Herein we describe the synthesis of 2 (arguably) salens, the original SalenH2 and AcacenH2, a schiff base derived from Acetylacetone and Ethylenediamine.</p>
+
+<p><img src="/assets/images/2025_salen/salen_synth.png" /><br /></p>
+
+<h4 id="salen">Salen</h4>
+<p>This procedure is taken from some random undergrad practical we found on the internet, which we could not track down again. The practical itself cites H. Diehl, C. C. Bach, G. C. Harrison, L. M. Limmett, Iowa State Coll. J. Sci. 1947, 21, 278, however we couldn’t track a digitized copy of that paper down on the internet either.</p>
+
+<p>7.32 grams (60 mmol) of salicylaldehyde were dissolved in 60 ml of methanol and added to a solution of 1.8 grams (30 mmol) of ethylenediamine in 30 ml of methanol. The solution quickly becomes yellow and deposits a large amount of mildly fluorescent product of the same colour. The reaction mix is set in a fridge for a few hours and the product is later filtered off on a schott funnel.</p>
+
+<p>After drying in air, the final yield of the salen ligand is 7.13 g (88%, 8.04g theoretical)</p>
+
+<p><img src="/assets/images/2025_salen/salenH2.jpg" /><br /></p>
+
+<h4 id="acacen">Acacen</h4>
+<p>This one is taken from a paper by Ozkar et al.<sup id="fnref:4" role="doc-noteref"><a href="#fn:4" class="footnote" rel="footnote">4</a></sup>.</p>
+
+<p>1.8 grams of neat ethylenediamine were added to 6 grams of Acetylacetone leading to a considerable evolution of heat and a formation of a yellow melt. On it’s cooling, yellow crystals were obtained, which were recrystallized from a small amount of hot distilled water. After filtering, a yield of 3.88 grams of an off-white product smelling strongly of bread was obtained (57%, 6.72 g theoretical).</p>
+
+<p>The final ligand was a boring, sleep-inducing off-white powder, which however looked utterly stunning during crystallization</p>
+
+<p><img src="/assets/images/2025_salen/acacenH2.jpg" /><br /></p>
+
+<h3 id="when-is-salen-complex-formation">When is salen (complex formation)?</h3>
+<p>These are prepared in very similar ways from Copper (II) Acetate, with the workup differing slightly. Why acetates you may ask? In addition to acetate being a labile ligand, metal acetates provide a convenient pH buffer in reactions with acidic ligands, with the acetate ion acting as a base and shifting the equilibrium away from the salenH2 proligand towards a neutral [Cu(salen)] salt instead.</p>
+
+<h4 id="acacen-1">Acacen:</h4>
+<p>110 mg of Copper Acetate monohydrate were dissolved in methanol, to which a concentrated solution of 0.112 mg (0.5 mmol) of Acacen in the smallest possible amount of methanol was added. The color quickly changed to a deep purple and the solution was gently evaporated on a hotplate to near dryness. This product is strongly soluble in methanol and was crashed out by adding isopropanol and distilled water to the strongly concentrated solution in methanol (~2 ml). The resulting purple solid was filtered off on a schott funnel and dried on the pump and then in air. 90 mg of the complex were obtained, corresponding to a yield of 62% (143 mg theoretical)</p>
+
+<p><img src="/assets/images/2025_salen/cu_acacen.jpg" /><br /></p>
+
+<h4 id="salen-1">Salen:</h4>
+<p>110 mg (0.55 mmol) of Copper Acetate Monohydrate was dissolved in ~5 ml of hot methanol and warm a solution of 134 mg of Salen (0.5 mmol) in 5 ml of methanol was added to it in one portion. The solution quickly darkened and a black-green-gold precipitate of Cu(salen) was observed. This was filtered off on an itsy-bitsy tiny wittle schott funnel, washed with methanol and dried in air. 120 mg of a stunning sparkly powder were obtained, corresponding to a yield of 72% (165 mg theoretical)</p>
+
+<p><img src="/assets/images/2025_salen/cu_salen.jpg" /><br /></p>
+
+<h3 id="conclusions-and-what-now">Conclusions, and what now?</h3>
+<p>Two ligands and two complexes of them were prepared. We can say so ourselves that they do look quite pretty, which really is the main goal of inorganic chemistry. Next up - probably the syntheses of the complexes of other metals with these exact same ligands (Nickel is apparently a quite nice red), which we didn’t perform because we couldn’t be bothered to make the appropriate acetates. And also, at some point, probably salcomine - either when we get around to setting up a proper lab bench with equipment for air-free chemistry or maybe following some sketchy old prep that claims to make it in your normal oxygenated atmosphere. Either way, we’re honestly just glad to get Acacen out the way, as a failed attempt at making this exact complex was performed last summer and it kept weighing on my psyche like a rather hefty axe above my head, waiting for the opportunity to finally sever our head from our torso.</p>
+
+<h3 id="sources">Sources</h3>
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p><a href="https://www.sigmaaldrich.com/US/en/technical-documents/technical-article/chemistry-and-synthesis/cross-coupling/salen-ligands">https://www.sigmaaldrich.com/US/en/technical-documents/technical-article/chemistry-and-synthesis/cross-coupling/salen-ligands</a> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:2" role="doc-endnote">
+      <p>knew a mate who did it at oxford in undergrad <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:3" role="doc-endnote">
+      <p>Tokuichi Tsumaki (1938). “Nebenvalenzringverbindungen. IV. Über einige innerkomplexe Kobaltsalze der Oxyaldimine”. Bulletin of the Chemical Society of Japan. 13 (2): 252–260. <a href="https://doi.org/10.1246/bcsj.13.252">https://doi.org/10.1246/bcsj.13.252</a> <a href="#fnref:3" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:4" role="doc-endnote">
+      <p>Özkar, S., Ülkü, D., Yıldırım, L. T., Biricik, N. &amp; Gümgüm, B. Crystal and molecular structure of bis(acetylacetone)ethylenediimine: intramolecular ionic hydrogen bonding in solid state. Journal of Molecular Structure 688, 207–211 (2004). <a href="https://doi.org/10.1016/j.molstruc.2003.10.016">https://doi.org/10.1016/j.molstruc.2003.10.016</a> <a href="#fnref:4" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>]]></content><author><name>arylia h.</name></author><summary type="html"><![CDATA[]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://isopropyletherperoxide.github.io/assets/images/2025_salen/cu_salen.jpg" /><media:content medium="image" url="https://isopropyletherperoxide.github.io/assets/images/2025_salen/cu_salen.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Making a Tungsten Heteropolymetalate</title><link href="http://localhost:4000/2025/09/05/Cobaltotungstate.html" rel="alternate" type="text/html" title="Making a Tungsten Heteropolymetalate" /><published>2025-09-05T00:00:00+03:00</published><updated>2025-09-05T00:00:00+03:00</updated><id>http://localhost:4000/2025/09/05/Cobaltotungstate</id><content type="html" xml:base="http://localhost:4000/2025/09/05/Cobaltotungstate.html"><![CDATA[<script src="https://3Dmol.org/build/3Dmol-min.js"></script>
+
+<script src="https://3Dmol.org/build/3Dmol.ui-min.js"></script>
+
+<p>In the year of 1783, Juan Jose and Fausto Elhayar were able to prepare from tungsten-containing starting material a salt that they described as bitter, spicy and yellow (<em>que tenian un sabor picante y amargo</em>)<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup> <sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">2</a></sup>, finally separating tungsten as a separate element after it’s discovery in 1781 and starting the field of polyoxometalate chemistry in the process. After a while of mucking about with silicates and phosphates and molybdenum, modern polyoxometalate chemistry was started for real this time by Joseph Keggin<sup id="fnref:3" role="doc-noteref"><a href="#fn:3" class="footnote" rel="footnote">3</a></sup>, with him finally discovering the appropriately named Keggin structure (alpha-Keggin to be precise) via X-ray diffraction of the aforementioned tungstophosphoric acid, finally making inorganic chemists care about more complex shapes other than the usual octahedrons and tetrahedrons.</p>
+
+<p><img src="/assets/images/2025_01_09_tungsten/heteropolymetalates.png" width="600" /><br /></p>
+<div style="font-size: smaller"> 
+Source: Wikipedia User Rtomsa, https://en.wikipedia.org/wiki/Heteropolymetalate
+</div>
+
+<p>Polyoxometalates are a fascinating and somewhat niche (outside of research) field of inorganic chemistry study. Continuing on from my <a href="https://isopropyletherperoxide.github.io/2025/07/16/En_Pentaborate.html">previous tangent</a>, group 5 and 6 metals can due to their large atomic radii, high oxidation states and high charge also assemble into large complex structures in a way that is somewhat reminiscent of boron chemistry. Here’s the phosphotungstate ion provided as an example.</p>
+
+<div style="height: 400px; width: 400px; margin-left: 8px; max-width:100%; position: relative;" class="viewer_3Dmoljs" data-href="/assets/images/phosphotungstate.mol2" data-backgroundcolor="0xffffff" data-style="sphere:radius~0.5,colorscheme~Jmol;stick:colorscheme~Jmol" data-ui="true"></div>
+
+<div style="font-size: smaller; margin-top: 1%">
+Reference: Heylen, S., Joos, L., Parac-Vogt, T.N., Van Speybroeck, V., Kirschhock, C.E.A. and Martens, J.A. (2012), Entropy-Driven Chemisorption of NOx on Phosphotungstic Acid†. Angew. Chem. Int. Ed., 51: 11010-11013. https://doi.org/10.1002/anie.201205636 **(EDITED)** 
+</div>
+
+<p>The chemistry of POMs is relevant in all the same ways as inorganic chemistry research is in general, with the most prominent role given to their usage in catalysis. By incorporating catalytically active metals into the structure of your POM, you are provided an ability to adjust sterics and other properties to your liking akin to modifying an organic ligand in a “classic” coordination complex.</p>
+
+<p>Another application of POMs is subjecting auto structure generators on supplier websites to Insane Psychological Torture and causing the output to look like a pile of spilled metal-oxygen spaghetti:</p>
+
+<p><img src="/assets/images/2025_01_09_tungsten/noodles.png" width="600" /><br /></p>
+
+<h3 id="tungstodicobaltate">Tungstodicobaltate</h3>
+<p>In this article we are preparing a heteropolymetalate consisting of tungsten and cobalt, in particular the 11-Tungstodicobaltate (II), which we picked solely because “emerald green” sounded very pleasing to our ears.</p>
+
+<p>Figuring out the structure of this particular compound was a tad annoying, because the 1956 paper by Baker et al<sup id="fnref:4" role="doc-noteref"><a href="#fn:4" class="footnote" rel="footnote">4</a></sup> actually got it wrong. The formula provided is (NH4)8[Co2W12O42] (a “12-tungstodicobaltate”), which implies a cobalt atom “slotted in” between the tungsten polyhedra on the edges (???). However, this is wrong, and a more modern reference<sup id="fnref:5" role="doc-noteref"><a href="#fn:5" class="footnote" rel="footnote">5</a></sup> indicates that the dicobaltate has the formula of (NH4)8[Co2(H2O)W11O39], adopting a lacunary Keggin structure with one of the edge tetrahedra being replaced with Cobalt instead of tungsten.</p>
+
+<div style="height: 400px; width: 400px; margin-left: 8px; max-width:100%; position: relative;" class="viewer_3Dmoljs" data-href="/assets/images/dicobaltate.mol2" data-backgroundcolor="0xffffff" data-style="sphere:radius~0.5,colorscheme~Jmol;stick:colorscheme~Jmol" data-ui="true"></div>
+
+<div style="font-size: smaller; margin-top: 1%">
+Reference: Heylen, S., Joos, L., Parac-Vogt, T.N., Van Speybroeck, V., Kirschhock, C.E.A. and Martens, J.A. (2012), Entropy-Driven Chemisorption of NOx on Phosphotungstic Acid†. Angew. Chem. Int. Ed., 51: 11010-11013. https://doi.org/10.1002/anie.201205636 **(EDITED)** 
+</div>
+
+<h3 id="the-preparation">The preparation</h3>
+<p>The synthesis performed by us is based on the paper by Baker et al<sup id="fnref:4:1" role="doc-noteref"><a href="#fn:4" class="footnote" rel="footnote">4</a></sup>, though we recommend looking at a more modern and optimized version of it by Barros et al.<sup id="fnref:5:1" role="doc-noteref"><a href="#fn:5" class="footnote" rel="footnote">5</a></sup></p>
+
+<p>1.15 grams of cobalt acetate (0.0045 mol) were dissolved in 6 ml of distilled water and the solution was acidified with a few drops of glacial acetic acid. Another solution of 9.1 grams of sodium tungstate dihydrate (0.0276 mol) in 20 ml of water was also prepared, to which 2.1 ml of glacial acetic acid were added in order to get the pH to 6.5.</p>
+
+<p>The tungstate solution was brought a boil and a warm solution of the cobalt acetate was slowly added, leading to a change in colour from clear to blue to deep emerald green. The resulting solution was boiled for 10 minutes and then gravity filtered while hot.</p>
+
+<p>To the cooled down solution of the cobaltoditungstate was added a saturated solution of 6 grams of ammonium nitrate (0.075 mol), leading to the precipitation of our ammonium product. The solution was left to stand overnight in the fridge and a large amount of a shiny green precipitate was obtained. The precipitate was gravity filtered and washed with a little methanol, yielding 4.633 grams of dry crystalline tungstate, corresponding to a yield of 52%. (Another 0.480 g were obtained from the remaining mother liquor, giving us a total yield of 57%).</p>
+
+<p><img src="/assets/images/2025_01_09_tungsten/w_schott.jpg" width="600" /><br /></p>
+
+<p>The last step in literature entailed 5 recrystallizations, which a dear friend of ours described as “advanced self harm”, and as much we dislike ourselves, the product obtained by a simple slow crystallization overnight  contained no visible impurities, and therefore was kept as is without workup.</p>
+
+<p><img src="/assets/images/2025_01_09_tungsten/w_filter_mass.jpg" width="600" /><br /></p>
+
+<p>Taking a picture that actually displayed the sparkliness of the target compound was an exercise in utter misery, as the black cloth background we got off aliexpress.com isn’t well suited for photography in approaching-macro territory, and was promptly replaced with a sheet of sandpaper that spent the last 2 years inexplicably lying in a corner of our bedroom. (donations for camera equipment and such are very welcome)</p>
+
+<p><img src="/assets/images/2025_01_09_tungsten/w_shiny.jpg" width="600" /><br /></p>
+
+<h3 id="what-does-it-do">What does it do?</h3>
+<p>Subjecting it to different harsh reaction conditions (strong acid, strong base), seems to mostly just ruin the polytungstate and turn it into tungsten trioxide or back into tungstate. A more detailed writeup of its chemistry is available in the cited prep and the redox/acid-base chemistry of this complex will be looked at in more detail in another post where we prepare some derivatives of this complex.</p>
+
+<h3 id="sources">Sources</h3>
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p>de Luyart, J.J. and F. (September 1783) “Análisis químico del volfram, y examen de un nuevo metal, que entra en su composición” (Chemical analysis of wolframite, and examination of a new metal, which enters into its composition), Extractos de las Juntas Generales celebradas por la Real Sociedad Bascongada de los Amigos del País en la ciudad de Vitoria por setiembre de 1783, pp. 46–88. <a href="https://archive.org/details/b21731032_0002">https://archive.org/details/b21731032_0002</a> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:2" role="doc-endnote">
+      <p>Ruiz Rubio, L., Vilas Vilela, J.L., Artetxe, B., &amp; Gutiérrez-Zorrilla, J.M. (Eds.). (2022). Polyoxometalates: Advances, Properties, and Applications (1st ed.). Jenny Stanford Publishing. <a href="https://doi.org/10.1201/9781003277446">https://doi.org/10.1201/9781003277446</a> <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:3" role="doc-endnote">
+      <p>KEGGIN, J. F. (1933). Structure of the Molecule of 12-Phosphotungstic Acid. Nature, 131(3321), 908–909. <a href="https://doi.org/10.1038/131908b0 ">https://doi.org/10.1038/131908b0 </a> <a href="#fnref:3" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:4" role="doc-endnote">
+      <p>Baker, L. C. W. &amp; McCutcheon, T. P. (1956) Heteropoly Salts Containing Cobalt and Hexavalent Tungsten in the Anion. J. Am. Chem. Soc. 78, 4503–4510. <a href="https://doi.org/10.1021/ja01599a001">https://doi.org/10.1021/ja01599a001</a> <a href="#fnref:4" class="reversefootnote" role="doc-backlink">&#8617;</a> <a href="#fnref:4:1" class="reversefootnote" role="doc-backlink">&#8617;<sup>2</sup></a></p>
+    </li>
+    <li id="fn:5" role="doc-endnote">
+      <p>Barros Á, Artetxe B, Eletxigerra U, Aranzabe E, Gutiérrez-Zorrilla JM. Systematic Approach to the Synthesis of Cobalt-Containing Polyoxometalates for Their Application as Energy Storage Materials. Materials. 2023; 16(14):5054. <a href="https://doi.org/10.3390/ma16145054">https://doi.org/10.3390/ma16145054 </a> <a href="#fnref:5" class="reversefootnote" role="doc-backlink">&#8617;</a> <a href="#fnref:5:1" class="reversefootnote" role="doc-backlink">&#8617;<sup>2</sup></a></p>
+    </li>
+  </ol>
+</div>]]></content><author><name>me :3</name></author><summary type="html"><![CDATA[]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://isopropyletherperoxide.github.io/assets/images/2025_01_09_tungsten/w_shiny.jpg" /><media:content medium="image" url="https://isopropyletherperoxide.github.io/assets/images/2025_01_09_tungsten/w_shiny.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">A Template Synthesis of a Polyborate Copper Complex</title><link href="http://localhost:4000/2025/07/16/En_Pentaborate.html" rel="alternate" type="text/html" title="A Template Synthesis of a Polyborate Copper Complex" /><published>2025-07-16T00:00:00+03:00</published><updated>2025-07-16T00:00:00+03:00</updated><id>http://localhost:4000/2025/07/16/En_Pentaborate</id><content type="html" xml:base="http://localhost:4000/2025/07/16/En_Pentaborate.html"><![CDATA[<p>The chemistry of boric acids and boron is, for lack of better words, rather Unhinged. Unlike it’s relatively (and only relatively) well behaved neighbour aluminium or the ubiqitous carbon, it’s aqueous chemistry involves a lot of polymers, with boric acid forming differently shaped ions depending on the pH and the ions present in solution. One such example is in commonly encountered Borax, which does not crystallize out as just a sodium orthoborate, but instead takes a shape of a tetraborate ion, with it’s weird bicylic structure.</p>
+
+<script src="https://3Dmol.org/build/3Dmol-min.js"></script>
+
+<script src="https://3Dmol.org/build/3Dmol.ui-min.js"></script>
+
+<div style="height: 400px; width: 400px; margin-left: 8px; max-width:100%; position: relative;" class="viewer_3Dmoljs" data-href="/assets/images/tetraborate.mol2" data-backgroundcolor="0xffffff" data-style="sphere:radius~0.5,colorscheme~Jmol;stick:colorscheme~Jmol" data-ui="true"></div>
+
+<p>Reference: <a href="https://www.crystallography.net/cod/1534261.html">Crystallography Open Database</a></p>
+
+<p>In certain conditions, and especially in melts, the reaction can be pushed further into making amorphous giant polymers of boric oxides, which are of use in optics and glassmaking, like for making the widespread borosilicate glass or for synthesizing phosphors by adding a small amount of organic dopant before forming the borate glass matrix.</p>
+
+<p>Besides just making large polymeric networks, work has also been carried out in using various metal complexes as templates for assembling ions, allowing us to obtain ions of a well-defined size and structure, avoiding a polycondesation mess that is obtained via plain aqueous chemistry.</p>
+
+<p><img src="/assets/images/24borate.png" width="600" /><br /></p>
+
+<div style="height: 400px; width: 400px; margin-left: 8px; max-width:100%; position: relative;" class="viewer_3Dmoljs" data-href="/assets/images/tetracosborate.mol2" data-backgroundcolor="0xffffff" data-style="sphere:radius~0.5,colorscheme~Jmol;stick:colorscheme~Jmol" data-ui="true"></div>
+
+<p>Reference: Mohammed A. Altahan, Michael A. Beckett, Simon J. Coles, Peter N. Horton CCDC 1858267: Experimental Crystal Structure Determination, 2018, DOI: <a href="https://doi.org/10.5517/ccdc.csd.cc20cp36">10.5517/ccdc.csd.cc20cp36</a></p>
+
+<p>In this writeup, we are replicating the synthesis of a rather small ion, the pentaborate (seen below), although much larger assemblies have been detailed in literature (personally, the biggest I’ve seen was 24 (as seen above))<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>.</p>
+
+<p><img src="/assets/images/5borate.png" width="600" /><br /></p>
+
+<h3 id="ethylenediamine-copper-pentaborate">Ethylenediamine Copper Pentaborate</h3>
+<p>This work is based on a <a href="https://www.sciencedirect.com/science/article/abs/pii/S0277538717304990?via%3Dihub">2017 article by Altahan et al</a><sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">2</a></sup>, with no significant changes made outside of slightly scaling it up because I personally like working on a 0.01 mol scale.</p>
+
+<p>Thankfully, because this compound was synthesized and characterized before at a proper lab, with access to proper X-ray equipment, we can take a look at a a visualization of crystallographic data that was obtained in their work, and see up close the peculiar shape the spirocyclic pentaborate ion takes</p>
+
+<div style="height: 400px; width: 400px; margin-left: 8px; max-width:100%; position: relative;" class="viewer_3Dmoljs" data-href="/assets/images/mebqes.mol2" data-backgroundcolor="0xffffff" data-style="sphere:radius~0.5,colorscheme~Jmol;stick:colorscheme~Jmol" data-ui="true"></div>
+
+<p>Reference:  Mohammed A. Altahan, Michael A. Beckett, Simon J. Coles, Peter N. Horton CCDC 1534199: Experimental Crystal Structure Determination, 2017, DOI: <a href="https://doi.org/10.5517/ccdc.csd.cc1nhg9x">10.5517/ccdc.csd.cc1nhg9x</a></p>
+
+<h3 id="en-copper-sulfate">En Copper Sulfate</h3>
+<p>The first step is making the precursor complex, bis-(Ethylenediamine) Copper (II) Sulfate, which is trivally synthesized by adding 2.1 grams of neat ethylenediamine to a solution of 4 grams of copper sulfate hexahydrate in 15 ml of distilled water. This provides us with an excess of starting material after precipitation by adding isopropanol. The resulting product is a purple-blue powder, soluble in water giving a deep blue-violet solution.</p>
+
+<h3 id="en-copper-hydroxide">En Copper Hydroxide</h3>
+<p>In the next step, 2 grams of the copper complex were dissolved in a small amount of water and a solution of 2.26 grams of barium hydroxide octahydrate was prepared in enough warm distilled water to give a homogenous solution. The hydroxide was added to the metal complex, leading to the precipitation of white barium sulfate, and the replacement of the sulfate anion with hydroxide. The barium sulfate was filtered off and thoroughly washed with distilled water to get the last bits of the soluble hydroxide complex out.</p>
+
+<h3 id="the-pentaborate">The Pentaborate</h3>
+<p>To the obtained aqueous solution, 4.4 grams of boric acid were added and the solution was stirred for 30 minutes, with a slight colour change to more purple. The solution was then concentrated down on gentle heat to ~10 ml and left to dry in a desiccator. After a while of waiting, a quite impure product was obtained, containing huge crystals of the target compound, but also a lot of boric acid and an insoluble blue precipitate of copper (meta?) borate.</p>
+
+<p><img src="/assets/images/borate_big_crystals.jpg" width="600" title="big, crude crystals of the boron complex" /><br /></p>
+
+<p><img src="/assets/images/impure_dry_borate.jpg" width="600" /><br /></p>
+
+<p>The work on this complex was resumed only a few months after, as I spent the rest of the summer in a sort of dissociative haze caused by the summer heat and power outages, and honestly don’t recall most of it except for the stuff written down in some of my lab logs. Probably for good.</p>
+
+<p>The resulting solid was then dissolved in a mixture of methanol and water, and gravity filtered to remove insoluble impurities like copper borate, resulting in a purple solution resembling Cobalt (II). The solution was slightly evaporated, and the resulting purple product was separated out via gravity filtration and placed in a vial, at which point the synthesis was finally considered complete.</p>
+
+<p><img src="/assets/images/pentaborate_filter.jpg" width="600" /><br /></p>
+
+<p>The final yield wasn’t measured, however it was considerably lowered during the recrystallisation.</p>
+
+<p><img src="/assets/images/pentaborate_vial.jpg" width="600" /><br /></p>
+
+<h3 id="literature">Literature</h3>
+<p>Beckett, M. A. Recent Advances in Crystalline Hydrated Borates with Non-Metal or Transition-Metal Complex Cations. Coordination Chemistry Reviews 2016, 323, 2–14. <a href="https://doi.org/10.1016/j.ccr.2015.12.012">https://doi.org/10.1016/j.ccr.2015.12.012</a>.</p>
+
+<h3 id="sources">Sources</h3>
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p>Altahan, M. A.; Beckett, M. A.; Coles, S. J.; Horton, P. N. Synthesis and Characterization by a Single-Crystal XRD Study of [H3O]4[Cu7(NH3)2(H2O)4{B24O39(OH)12}]·13H2O: An Unusual [{(H2O)2(NH3)Cu}2{B2O3(OH)2}2Cu]2+ Trimetallic Bis(Dihydroxytrioxidodiborate) Chain Supported by a [{Cu4O}{B20O32(OH)8}]6− Cluster. J Clust Sci 2018, 29 (6), 1337–1343. <a href="https://doi.org/10.1007/s10876-018-1452-9.">https://doi.org/10.1007/s10876-018-1452-9.</a> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:2" role="doc-endnote">
+      <p>Altahan, M. A.; Beckett, M. A.; Coles, S. J.; Horton, P. N. Synthesis and Characterization of Polyborates Templated by Cationic Copper(II) Complexes: Structural (XRD), Spectroscopic, Thermal (TGA/DSC) and Magnetic Properties. Polyhedron 2017, 135, 247–257. <a href="https://doi.org/10.1016/j.poly.2017">https://doi.org/10.1007/s10876-018-1452-9.</a> <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>]]></content><author><name>me :3</name></author><summary type="html"><![CDATA[The chemistry of boric acids and boron is, for lack of better words, rather Unhinged. Unlike it’s relatively (and only relatively) well behaved neighbour aluminium or the ubiqitous carbon, it’s aqueous chemistry involves a lot of polymers, with boric acid forming differently shaped ions depending on the pH and the ions present in solution. One such example is in commonly encountered Borax, which does not crystallize out as just a sodium orthoborate, but instead takes a shape of a tetraborate ion, with it’s weird bicylic structure.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://isopropyletherperoxide.github.io/assets/images/pentaborate_thumb.jpg" /><media:content medium="image" url="https://isopropyletherperoxide.github.io/assets/images/pentaborate_thumb.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Making a (historically interesting?) Pyrylium Salt</title><link href="http://localhost:4000/2025/05/02/Pyrylium.html" rel="alternate" type="text/html" title="Making a (historically interesting?) Pyrylium Salt" /><published>2025-05-02T00:00:00+03:00</published><updated>2025-05-02T00:00:00+03:00</updated><id>http://localhost:4000/2025/05/02/Pyrylium</id><content type="html" xml:base="http://localhost:4000/2025/05/02/Pyrylium.html"><![CDATA[<p>Pyrylium is a six-membered oxygen-containing heterocycle that is quite commonly encountered in compounds derived from plants and also in dyes, with its derivatives having some uses in synthesis of heterocyclic compounds like pyridines and phosphines. Usually pyrylium salts are prepared from intermolecular condensations of aromatic aldehydes, for example the commonly encountered 1,3,5-triphenylpyrylium salt prepared from acetophenone and benzaldehyde, however, the salt described next is prepared via an intramolecular condensation, entailing a slightly different procedure.</p>
+
+<h3 id="the-2-hydroxy-2-styrylbenzopyrylium-chloride">The 2-Hydroxy-2-Styrylbenzopyrylium Chloride</h3>
+<p>This particular pyrylium salt was synthesized in 1908<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup> as part of an attempt of making synthetic coumarines, which wasn’t very successful. While they failed at making coumarines during the research of this particular compound, the synthesis of these salts has lead to the discovery of a very peculiar type of structure - the spiropyran.</p>
+
+<p><img class="bw" src="/assets/images/pyrylium.png" width="700" alt="synthesis of pyrylium and the spiropyran" title="pyryliums and spiropyrans" /><br /></p>
+
+<p>The spiropyran generated from this salt is not photochemically or thermochemically interesting, so I decided to explore the chemistry of the pyrylium salt instead, as the structure looked quite curious to me.</p>
+
+<p>For learning more about spiropyran history, one should refer to the <a href="https://pubs.rsc.org/en/content/articlehtml/2019/cs/c9cs00203k">paper</a> by Luuk Kortekaas and Wesley R. Browne (2019), as it is the work that has brought this compound and its historical value to my attention</p>
+
+<h3 id="synthesis">Synthesis</h3>
+<p>The synthesis of this compound is quite simple, starting with an Aldol (more accurately a Claisen–Schmidt condensation) to form the ketone precursor followed by an acid-catalyzed condensation of the ketone into the final product. Aftewards it is possible to run a condensation reaction to condense it further into the benzospiropyran, but I have chosen to avoid doing that because of a lack of motivation. :(</p>
+
+<p><img class="bw" src="/assets/images/dicoumarketone.png" width="600" alt="synthesis of dicoumarketone" title="dicoumarketone synth" /><br /></p>
+
+<h4 id="attempt-1-where-i-didnt-think-of-using-my-brain">Attempt 1, where I didn’t think of using my brain</h4>
+<p>On my first attempt I didn’t pay much attention to literature, and just tried blindly copying the steps for the synthesis of Dibenzalacetone from Orgsyn<sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">2</a></sup>. This has proven to be a mistake. As the final product was a salt and considerably more soluble in water, making its isolation much harder.</p>
+
+<p><img src="/assets/images/aldol_dicoumarketone.jpg" width="600" title="aldol starting" /><br /></p>
+
+<p>2 grams of sodium hydroxide were dissolved in 20 ml of water and 20 ml of methanol, to which 2.4 grams of salicylaldehyde (0.02 mol) and 0.58 grams of acetone (0.01 mol) were added with vigorous stirring. Over time the reaction mixture turned red and no product precipitation was observed. At this point the solution was set to slowly evaporate on a slightly warm hotplate overnight. A reasonable amount of crystalline precipitate was still obtained but was all set aside, as I wanted to carry out the synthesis in a much more proper manner.</p>
+
+<h4 id="attempt-2-the-non-sloppy-one">Attempt 2, the non-sloppy one</h4>
+<p>This time, I have changed up the procedure slightly and made it more accurate to the one carried out in the old german paper<sup id="fnref:1:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>, paying closer attention to the high acidity of the resulting product.</p>
+
+<p>2.4 grams of salicylaldehyde and 0.6 grams of acetone were dissolved in 10 milliliters of methanol. A solution of 1.6 grams of sodium hydroxide in 5 ml of water was poured into the methanolic reaction mix with intense stirring. The solution was left to stir and evaporate at room temperature. After a short while a colour change from transparent to orange-red has occured, and on the next day a crop of dark red-brown crystals was obtained.</p>
+
+<p><img src="/assets/images/dicoumarketone_crystals.jpg" width="600" title="dicoumarketone crystals" /><br /></p>
+
+<p>The disodium salt of dicoumarketone is a red-brown crystalline solid that dissolves in water to give strongly coloured red solutions. This property lead to a quite grim looking gravity filtration.</p>
+
+<p><img src="/assets/images/bloody_dicoumarketone.jpg" width="600" title="bloodclot" /><br /></p>
+
+<p>To the delight of a few quite unwell girl-adjacent entities<sup id="fnref:3" role="doc-noteref"><a href="#fn:3" class="footnote" rel="footnote">3</a></sup> <sup id="fnref:4" role="doc-noteref"><a href="#fn:4" class="footnote" rel="footnote">4</a></sup>, getting this product on my skin quite accurately resembled getting bloodstains all over my hands.</p>
+
+<p><img src="/assets/images/dicoumarketone_stains.jpg" width="320" alt="red stains on hands in front of vacuum filter flask" title="Bloody Murder" /><br /></p>
+
+<p>The Dicoumarketone disodium salt was then dissolved in 50 ml of distilled water, and 0.8 ml of glacial acetic acid were added to precipitate out the insoluble free acid. This is actually unrecommended, as acetic acid is too strong, and literature suggests bubbling CO2 through it instead. (setting up a CO2 generator was way too much for me, already beaten by blackouts and summer heat).</p>
+
+<p><img src="/assets/images/free_dicoumarketone_acid.jpg" width="600" title="yellow free acid" /><br /></p>
+
+<p>My laziness has directly lead to a decreased yield, so it’s worth trying this with a weaker acid instead. The yield of the free acid was 1.42 grams, which corresponds to ~50% of theoretical. Quite bad for such a simple reaction.</p>
+
+<p>An attempt of dissolving the free acid in methanol was attempted, however some kind of insoluble impurity (perhaps from the acid sitting out for a bit too long) was present, and had to be filtered away. This was not present in the test run and could possibly be attributed to getting a worse purity material during the precipitation, so it may be preferable for the acid to be precipitated out from more dilute solutions and with a weaker acid.</p>
+
+<p>The obtained yellow-brown clear solution was then acidified with a few drops of concentrated hydrochloric acid and left to evaporate in a dish, resulting in a formation of a bright red solution and crystals.</p>
+
+<p><img src="/assets/images/pyrylium_cycle.jpg" width="600" title="yellow free acid" /><br /></p>
+
+<p>The product was scraped off the dish and weighed out, giving us a miserable 0.47 grams of the salt.</p>
+
+<p><img src="/assets/images/final_pyrylium.jpg" width="600" title="yellow free acid" /><br /></p>
+
+<h3 id="verdicts">Verdicts</h3>
+<p>I am not quite sure of the purity of the final product, as the procedure for properly crystallizing the pyrylium hydrochloride salt is quite more complex<sup id="fnref:5" role="doc-noteref"><a href="#fn:5" class="footnote" rel="footnote">5</a></sup> (involving formic acid saturated with hydrogen chloride). There are also some interesting sounding adducts with metals, which I might or might not prepare at some point.</p>
+
+<h3 id="literature">Literature</h3>
+
+<ul>
+  <li>https://pubs.rsc.org/en/content/articlehtml/2019/cs/c9cs00203k</li>
+</ul>
+
+<h3 id="references">References</h3>
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p><a href="https://chemistry-europe.onlinelibrary.wiley.com/doi/10.1002/cber.190804102251">Über cyclische Oxoniumsalze aus Dicumarketon und über Spiropyranderivate</a> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a> <a href="#fnref:1:1" class="reversefootnote" role="doc-backlink">&#8617;<sup>2</sup></a></p>
+    </li>
+    <li id="fn:2" role="doc-endnote">
+      <p><a href="https://www.orgsyn.org/demo.aspx?prep=CV2P0167">Dibenzalacetone</a> <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:3" role="doc-endnote">
+      <p><a href="https://twitter.com/qdoit_">https://twitter.com/qdoit_</a> <a href="#fnref:3" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:4" role="doc-endnote">
+      <p><a href="https://mastodon.social/@whitequark">https://mastodon.social/@whitequark</a> <a href="#fnref:4" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:5" role="doc-endnote">
+      <p><a href="https://pubs.rsc.org/en/content/articlelanding/1922/ct/ct9222101198">CXLIV.—Benzopyrylium salts of distyryl ketones. Part I </a> <a href="#fnref:5" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>]]></content><author><name>me :3</name></author><summary type="html"><![CDATA[Pyrylium is a six-membered oxygen-containing heterocycle that is quite commonly encountered in compounds derived from plants and also in dyes, with its derivatives having some uses in synthesis of heterocyclic compounds like pyridines and phosphines. Usually pyrylium salts are prepared from intermolecular condensations of aromatic aldehydes, for example the commonly encountered 1,3,5-triphenylpyrylium salt prepared from acetophenone and benzaldehyde, however, the salt described next is prepared via an intramolecular condensation, entailing a slightly different procedure.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://isopropyletherperoxide.github.io/assets/images/dicoumarketone_crystals.jpg" /><media:content medium="image" url="https://isopropyletherperoxide.github.io/assets/images/dicoumarketone_crystals.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Making Purpald and turning aldehydes purple</title><link href="http://localhost:4000/2025/03/30/Purpald.html" rel="alternate" type="text/html" title="Making Purpald and turning aldehydes purple" /><published>2025-03-30T00:00:00+02:00</published><updated>2025-03-30T00:00:00+02:00</updated><id>http://localhost:4000/2025/03/30/Purpald</id><content type="html" xml:base="http://localhost:4000/2025/03/30/Purpald.html"><![CDATA[<p>4-amino-3-hydrazine-5-mercapto-1,2,4-triazole (Purpald) is an interesting heterocycle formed by the hydrazinolysis of compounds containing a thiourea fragment. Outside of purely academic interests it is also used as a reagent for the detection of aldehydes in the very appropriately named Purpald Assay. As one might guess from the name, this reagent makes aldehydes go purple.</p>
+
+<p><img class="bw" src="/assets/images/purpald_synth.png" width="600" alt="synthesis of purpald diagram" title="Beige purpald" /><br /></p>
+
+<p>Initially, I have wanted to synthesize this heterocycle to do further chemistry with, to use as a counterion for a tetrachlorocuprate, violurate and to use it as a ligand. However, the compound has ended up too unstable for that, rather quickly degrading to a brown sticky mass in storage and forming a foul smelling grey mass even under gentle conditions on reaction with violuric acid. So instead I have used up the litle amounts I got from this reaction trying to demonstrate the characteristic aldehyde reaction and trying to isolate the purple condensation product.</p>
+
+<p><img class="bw" src="/assets/images/purpald_assay_scheme.png" width="600" alt="diagram of the purpald assay" title="Beige purpald" /><br /></p>
+
+<h3 id="synthesis">Synthesis</h3>
+<p>The following procedure is adapted from a 1974 <a href="http://www.tandfonline.com/doi/abs/10.1080/00304947409355092">paper</a> from Dickinson and Jacobsen</p>
+
+<p>Purpald is synthesized by refluxing thiourea-containing compounds (in this case just thiourea) in hydrazine hydrate for 3 hours right below boiling point.</p>
+
+<p>In a flat bottom flask equipped with a reflux condenser fitted with a hose leading outside, 3.8 grams of thiourea were dissolved in 10 grams of hydrazine hydrate and the solution was heated in a water bath for three hours. However as this synthesis was carried out during a power shortage, the reaction time had to be cut short to 2.5 hours which has most likely severely affected my yields. During the reaction a decent amount of H2S is evolved, which was led outside using a hose (which I very much do not recommend, for your and everyone else’s sake please carry out a reaction like this in a fumehood or outside). The resulting solution was then chilled and a greenish precipitate of the triazole and elemental sulfur was collected from the bright yellow solution.</p>
+
+<p><img src="/assets/images/yellow_purpald.jpg" width="320" alt="Flask filled with yellow product in a yellow solutino" title="Crude yellow sulfury product" /><br /></p>
+
+<p>This precipitate was then digested in 37.5 ml of a 2M solution of hydrochloric acid, with the triazole solution being filtered off and the insoluble impurities discarded.</p>
+
+<p>This solution was neutralized to pH 6.5 with NaOH solution and a precipitate of freebase cream-colored triazole was collected after cooling down the flask and weighted.</p>
+
+<p><img src="/assets/images/beige_pure_purpald.jpg" width="600" alt="picture of beige pure purpald" title="Beige purpald" /><br /></p>
+
+<p>The result was 1.39 grams of an offwhite product. Which constitutes a 19% yield. A shame upon me and my whole bloodline, but we persevere.</p>
+
+<p><img src="/assets/images/final_purpald.jpg" width="600" alt="flakey beige-pink-grey powder in a petri dish" title="whatever remains of the final product" /><br /></p>
+
+<h3 id="uses">Uses</h3>
+<p>The purpald assay involves an aldehyde (preferably simple like formaldehyde) an oxidizer and purpald. Usually this involves bubbling air or oxygen through the solution and seeing how purple the resulting solution turns.</p>
+
+<p><img src="/assets/images/purpald_assay.jpg" width="600" alt="purple liquid in test tube" title="The purpald assay" /><br /></p>
+
+<p>Futile attempts were made at using the resulting compound for further chemistry. Copper salts reacted with the purpald to form an uninteresting brown compound and trying to react it in cold water with violuric acid has resulted in a sulfur-smelling grey mess.</p>
+
+<p>On storage the purpald seems to have reacted with the oxygen and formed a brown tarry product. Which made me very sad and that’s about when my experimentation with it ended.</p>]]></content><author><name>me :3</name></author><summary type="html"><![CDATA[4-amino-3-hydrazine-5-mercapto-1,2,4-triazole (Purpald) is an interesting heterocycle formed by the hydrazinolysis of compounds containing a thiourea fragment. Outside of purely academic interests it is also used as a reagent for the detection of aldehydes in the very appropriately named Purpald Assay. As one might guess from the name, this reagent makes aldehydes go purple.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://isopropyletherperoxide.github.io/assets/images/purpald_assay.jpg" /><media:content medium="image" url="https://isopropyletherperoxide.github.io/assets/images/purpald_assay.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>

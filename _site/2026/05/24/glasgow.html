@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+        <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FPTWFRVMWJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FPTWFRVMWJ');
+</script>
+<link rel="stylesheet" href="https://use.typekit.net/tcf7hto.css"> <!-- liberation sans font --!>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hack-font/3.3.0/web/hack.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,200..900;1,7..72,200..900&display=swap" rel="stylesheet">
+
+        <meta charset="utf-8">
+        <meta content="Exploring Interfaces Glasgowly" property="og:title" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta content="Bringing Forth the Inevitable" property="og:description" />
+        <meta content="#d000ff" data-react-helmet="true" name="theme-color" />
+        <meta name="twitter:image" content="https://isopropyletherperoxide.github.io/assets/images/2026_glasgow/glasgle.webp" />
+        <meta content="https://isopropyletherperoxide.github.io/assets/images/2026_glasgow/glasgle.webp" property="og:image" />
+        <title>Exploring Interfaces Glasgowly</title>
+        <link rel="stylesheet" href="/assets/css/styles.css">
+        <link rel="icon" href="/assets/images/icon.png">
+</head>
+
+<body class="content">
+        <nav class="nav" >
+        <a class="nav_links" href="/" >
+                Home
+        </a>
+        <a class="nav_links" href="/blog" id="current_page" >
+                Articles
+        </a>
+</nav>
+
+        <h1>Exploring Interfaces Glasgowly</h1>
+<p>24 May 2026 - arylia</p>
+<div class="blog_box">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/atom-one-dark.css" />
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+
+<script>hljs.highlightAll();</script>
+
+<p>…the “Pivot to Hardware”. Now, that everyone feels the heat around the corner it is inevitable that everyone around you contracts a case of severe ROEED<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>, complete with all the symptoms such the diffusion model-generated breadboard picture posting or inane posturing about “hard tech” and “industrial capability”.</p>
+
+<p>This is a short introduction to 2 of the applets that are currently present on the Glasgow Interface Explorer and an Exploration of 2 peripherals that were collecting dust on our desk for the last couple years. We hope this can provide some sort of educational value for an aspiring embedded-girl and maybe show off the value of having one on your workbench.</p>
+
+<p><img src="/assets/images/2026_glasgow/glasgle.webp" /><br /></p>
+
+<h3 id="peer-review-panel">Peer Review Panel</h3>
+<p>This article was reviewed by 2 different catgirls both using the “it” pronoun in some shape or form respectfully. Deducing their identities from my social circle to mess with academic objectivity and to encourage academic misconduct is left as an exercise to the reader.</p>
+
+<p><strong>Reviewer 1:</strong> “writing style comes off a little unusual in comparison to the last few posts- […] …perhaps it’s because of the tutorial-esque goal, leading to little time spent discussing issues you’ve had - surprising, i thought you were unable to pass up an opportunity for self-deprecation.”</p>
+
+<p><strong>Reviewer 2:</strong> “Grebe out of 10; ship it”</p>
+
+<p>Reviewer 3 was out of budget and out of scope for this article.</p>
+
+<h2 id="what-is-a-glasgow">What is a Glasgow?</h2>
+<p>Referred to in the documentation as the “Swiss Army Knife of Electronics”, the <a href="https://glasgow-embedded.org/latest/intro.html">Glasgow Interface Explorer</a> is a tool that allows one to very quickly and efficiently communicate with a myriad (infinity) of interfaces. Unlike your standard fare Bus Pirates and whatnot the Glasgow is based around an FPGA, and switching applets entails a reconfiguration of it (made unnoticeably fast with the IceStorm toolchain). No bitbanging software crutches, everything is done in hardware. In a sense, the Glasgow is like a shapeshifter or a slimegirl that can morph to anything you can imagine. The complexity of this is greatly abstracted via Amaranth and a convenient architecture, so using it to communicate with peripherals ends up even easier than with an Arduino or similar. The CrowdSupply page for the Glasgow provides a nice comparison table between it and similar devices on the market</p>
+
+<p><img src="/assets/images/2026_glasgow/table.png" /><br /></p>
+
+<h2 id="scd-40--i2c-controller">SCD-40 // i2c-controller</h2>
+<p>We’ve been feeling really tired and dizzy and sleepy often. There’s a myriad of reasons for that but the CO2 levels give us an excuse to buy things so an SCD-40<sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">2</a></sup> sensor module was procured from AliExpress.</p>
+
+<p><img src="/assets/images/2026_glasgow/scd40_board.png" /><br /></p>
+
+<p>This sensor talks I2C, an interface we have fond middle school memories of. It goes into the <code class="language-plaintext highlighter-rouge">i2c-controller</code> shaped hole. Consulting the datasheet, we can see the two commands we care the most about, <code class="language-plaintext highlighter-rouge">start_periodic_measurement</code> and <code class="language-plaintext highlighter-rouge">read_measurement</code>, the documentation for which gives us instructions on how to decode the raw data into sensor readings</p>
+
+<p><img class="bw" src="/assets/images/2026_glasgow/scd_instructions.png" /><br /></p>
+
+<p>As a barebones example, here we simply write the startup sequence and call <code class="language-plaintext highlighter-rouge">read_measurement</code> in a loop, following the 5 second delay so that we don’t get NACKed<sup id="fnref:3" role="doc-noteref"><a href="#fn:3" class="footnote" rel="footnote">3</a></sup></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">time</span> 
+
+<span class="k">await</span> <span class="n">i2c_iface</span><span class="p">.</span><span class="n">scan</span><span class="p">()</span>
+<span class="k">await</span> <span class="n">i2c_iface</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="mi">98</span><span class="p">,</span> <span class="p">[</span> <span class="mh">0x21</span><span class="p">,</span> <span class="mh">0xb1</span> <span class="p">])</span>
+
+<span class="n">time</span><span class="p">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+ <span class="k">try</span><span class="p">:</span>
+    <span class="k">async</span> <span class="k">with</span> <span class="n">i2c_iface</span><span class="p">.</span><span class="n">transaction</span><span class="p">():</span>
+        <span class="k">await</span> <span class="n">i2c_iface</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="mi">98</span><span class="p">,</span> <span class="p">[</span><span class="mh">0xec</span><span class="p">,</span> <span class="mh">0x05</span><span class="p">])</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="k">await</span> <span class="n">i2c_iface</span><span class="p">.</span><span class="n">read</span><span class="p">(</span><span class="mi">98</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="nb">int</span><span class="p">.</span><span class="n">from_bytes</span><span class="p">(</span><span class="n">data</span><span class="p">[:</span><span class="mi">2</span><span class="p">]))</span>
+    <span class="n">time</span><span class="p">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>To check the CO2 sensor, it was precariously suspended above a beaker of sodium bicarb solution, into which dilute HCl was occasionally poured. This way of testing the sensor was referred to as “chemistbrained” by Catherine.</p>
+
+<p><img src="/assets/images/2026_glasgow/sensor_testing.webp" /><br /></p>
+
+<p>As a demo of what can be achieved, here’s a short script that spits the data into a csv, complete with the parsing of all the sensor data</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">csv</span>
+<span class="kn">import</span> <span class="nn">time</span> 
+<span class="kn">import</span> <span class="nn">datetime</span>
+
+<span class="k">def</span> <span class="nf">temp_calc</span><span class="p">(</span><span class="nb">input</span><span class="p">):</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="o">-</span><span class="mi">45</span> <span class="o">+</span> <span class="p">(</span><span class="mi">175</span> <span class="o">*</span> <span class="nb">int</span><span class="p">.</span><span class="n">from_bytes</span><span class="p">(</span><span class="nb">input</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">5</span><span class="p">])</span> <span class="o">/</span> <span class="mi">65536</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">output</span> 
+
+<span class="k">def</span> <span class="nf">rh_calc</span><span class="p">(</span><span class="nb">input</span><span class="p">):</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">*</span> <span class="p">(</span><span class="nb">int</span><span class="p">.</span><span class="n">from_bytes</span><span class="p">(</span><span class="nb">input</span><span class="p">[</span><span class="mi">6</span><span class="p">:</span><span class="mi">8</span><span class="p">])</span> <span class="o">/</span> <span class="mi">65536</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">output</span>
+
+<span class="k">def</span> <span class="nf">co2_calc</span><span class="p">(</span><span class="nb">input</span><span class="p">):</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="nb">int</span><span class="p">.</span><span class="n">from_bytes</span><span class="p">(</span><span class="nb">input</span><span class="p">[:</span><span class="mi">2</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">output</span> 
+
+<span class="k">await</span> <span class="n">i2c_iface</span><span class="p">.</span><span class="n">scan</span><span class="p">()</span>
+<span class="k">await</span> <span class="n">i2c_iface</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="mi">98</span><span class="p">,</span> <span class="p">[</span> <span class="mh">0x21</span><span class="p">,</span> <span class="mh">0xb1</span> <span class="p">])</span>
+
+<span class="n">time</span><span class="p">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+ <span class="k">try</span><span class="p">:</span>
+    <span class="k">async</span> <span class="k">with</span> <span class="n">i2c_iface</span><span class="p">.</span><span class="n">transaction</span><span class="p">():</span>
+        <span class="k">await</span> <span class="n">i2c_iface</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="mi">98</span><span class="p">,</span> <span class="p">[</span><span class="mh">0xec</span><span class="p">,</span> <span class="mh">0x05</span><span class="p">])</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="k">await</span> <span class="n">i2c_iface</span><span class="p">.</span><span class="n">read</span><span class="p">(</span><span class="mi">98</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">[:</span><span class="mi">2</span><span class="p">])</span>
+    <span class="k">print</span><span class="p">(</span><span class="nb">int</span><span class="p">.</span><span class="n">from_bytes</span><span class="p">(</span><span class="n">data</span><span class="p">[:</span><span class="mi">2</span><span class="p">]))</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">temp_calc</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">rh_calc</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">'out.csv'</span><span class="p">,</span> <span class="s">'a'</span><span class="p">,</span> <span class="n">newline</span> <span class="o">=</span> <span class="s">''</span><span class="p">)</span> <span class="k">as</span> <span class="n">csvfile</span><span class="p">:</span> 
+        <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="p">.</span><span class="n">writer</span><span class="p">(</span><span class="n">csvfile</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s">' '</span><span class="p">)</span>
+        <span class="n">writer</span><span class="p">.</span><span class="n">writerow</span><span class="p">([</span><span class="n">datetime</span><span class="p">.</span><span class="n">datetime</span><span class="p">.</span><span class="n">now</span><span class="p">(),</span> <span class="n">co2_calc</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">temp_calc</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">rh_calc</span><span class="p">(</span><span class="n">data</span><span class="p">)])</span>
+    <span class="n">time</span><span class="p">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+ <span class="k">except</span> <span class="nb">KeyboardInterrupt</span><span class="p">:</span>
+    <span class="k">await</span> <span class="n">device</span><span class="p">.</span><span class="n">set_voltage</span><span class="p">(</span><span class="s">"AB"</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="c1"># turn off the IO banks so we don't get NACKed on restart
+</span>    <span class="nb">exit</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>The csv then can be digested by the <a href="https://github.com/isopropyletherperoxide/glasgle-blogpost/blob/main/log.py">Fearsome and Horrible Python Leviathan</a> of pandas and matplotlib into a Plot. (writing the Plot was easily the most consuming and annoying part of this article…)</p>
+
+<p><img src="/assets/images/2026_glasgow/plots.png" /><br /></p>
+
+<p>There also <a href="https://glasgow-embedded.org/latest/applets/sensor/scd30.html">exists</a> an SCD30 applet that writes the results to InfluxDB, which can be read with Grafana but we felt that a csv example is a little more approachable and we also didn’t read the documentation past the “Interface” taxon.</p>
+
+<h2 id="ad9833--spi-controller">AD9833 // spi-controller</h2>
+<p>Using the spi-controller applet and a 8 euro AD9833 breakout board you can spin up a rudimentary waveform generator that effortlessly supports Python scripting within a few hours.</p>
+
+<video controls="">
+    <source src="/assets/images/2026_glasgow/glasgow_demo.webm" />
+</video>
+
+<p>Before starting on the actual SPI section - to set up a REPL with some predefined commands you can, in fact: open the REPL of the applet of your liking with <code class="language-plaintext highlighter-rouge">glasgow repl spi-controller</code> and then simply load your script by reading the file and executing it in the repl. (<strong>update:</strong> now you can use <code class="language-plaintext highlighter-rouge">--prelude</code>)<sup id="fnref:4" role="doc-noteref"><a href="#fn:4" class="footnote" rel="footnote">4</a></sup></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">"script.py"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span> <span class="k">exec</span><span class="p">(</span><span class="n">f</span><span class="p">.</span><span class="n">read</span><span class="p">())</span>
+</code></pre></div></div>
+
+<p>The AD9833<sup id="fnref:5" role="doc-noteref"><a href="#fn:5" class="footnote" rel="footnote">5</a></sup> is an digital direct synthesis signal generator. The way you communicate with it is the weird “3-wire bus SPI-Special-Princess-Interface, Microwire, “DSP” and more” that we will treat as plain Motorola SPI instead. The AD9833 decided to be slightly different, and arbitrarily decided to rename what would normally be called “CS/Chip Select/Slave Select” to “FSYNC” and “MISO” to “DAT”. This might make sense given a ~slight difference in how Chip Select is handled here, but it does not make the already bad SPI pin naming situation any better.</p>
+
+<p><img src="/assets/images/2026_glasgow/ad9833_board.png" /><br /></p>
+
+<p>There are three registers we care about in here. <code class="language-plaintext highlighter-rouge">CONTROL</code>, <code class="language-plaintext highlighter-rouge">FREQ0</code>, <code class="language-plaintext highlighter-rouge">PHASE0</code>. Control and Freq (““CONTROL FREAK””) being the most consequential ones to us.</p>
+
+<p><code class="language-plaintext highlighter-rouge">CONTROL</code> is a 16-bit register that, according to the datasheet looks like this:
+https://github.com/GlasgowEmbedded/glasgow/pull/1169
+<img class="bw" src="/assets/images/2026_glasgow/control.png" /><br /></p>
+
+<p>while <code class="language-plaintext highlighter-rouge">FREQ0</code> consists of 2 16 bit registers each filled with 14 LSBs and 14 MSBs of the frequency value respectively.</p>
+
+<p><img class="bw" src="/assets/images/2026_glasgow/freqreg.png" /><br /></p>
+
+<p><code class="language-plaintext highlighter-rouge">PHASE0</code> is simply one 16 bit register with 12 bits used for phase data</p>
+
+<p><img class="bw" src="/assets/images/2026_glasgow/phasereg.png" /><br /></p>
+
+<p>Weird acronyms aside (opbittern…?) the bits we want to change first are <code class="language-plaintext highlighter-rouge">RESET</code> and <code class="language-plaintext highlighter-rouge">DB28</code> in <code class="language-plaintext highlighter-rouge">CONTROL</code>. <code class="language-plaintext highlighter-rouge">RESET</code> clears the <em>internal</em> registers of our device and sets the output to a pleasant and wholly harmless midrange of 0.3V. This is to make sure that nothing inside of our device can get spooked by a register write and push the output away from predictable (<code class="language-plaintext highlighter-rouge">PHASE0</code> seems to do this…). <code class="language-plaintext highlighter-rouge">DB28</code> enables a double-dip write mode that lets us write the LSBs and MSBs of a FREQ register without bothering <code class="language-plaintext highlighter-rouge">CONTROL</code> too much. The rest (<code class="language-plaintext highlighter-rouge">FREQ1</code>, <code class="language-plaintext highlighter-rouge">PHASE1</code>) we don’t really care about as they’re for special-embedded-fruitcakes who design actual products and instrumentation… Aspirational, but outside the scope of this article.</p>
+
+<p>First, for the sake of ease of use, let’s write some helper functions. The function for <code class="language-plaintext highlighter-rouge">CONTROL</code> looks like this and consists of a set of very simple bit masks.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">async</span> <span class="k">def</span> <span class="nf">control_write</span><span class="p">(</span><span class="n">db28</span><span class="p">,</span> <span class="n">hlb</span><span class="p">,</span> <span class="n">reset</span><span class="p">,</span> <span class="n">opbiten</span><span class="p">,</span> <span class="n">mode</span><span class="p">):</span> 
+    <span class="n">reg</span> <span class="o">=</span> <span class="mh">0x00</span> 
+    <span class="n">reg</span> <span class="o">|=</span> <span class="n">db28</span> <span class="o">&lt;&lt;</span> <span class="mi">13</span> 
+    <span class="n">reg</span> <span class="o">|=</span> <span class="n">hlb</span> <span class="o">&lt;&lt;</span> <span class="mi">12</span>
+    <span class="n">reg</span> <span class="o">|=</span> <span class="n">reset</span> <span class="o">&lt;&lt;</span> <span class="mi">8</span> 
+    <span class="n">reg</span> <span class="o">|=</span> <span class="n">opbiten</span> <span class="o">&lt;&lt;</span> <span class="mi">5</span>
+    <span class="n">reg</span> <span class="o">|=</span> <span class="n">mode</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span> 
+    <span class="k">async</span> <span class="k">with</span> <span class="n">spi_iface</span><span class="p">.</span><span class="n">select</span><span class="p">():</span> 
+     <span class="k">await</span> <span class="n">spi_iface</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="n">reg</span><span class="p">.</span><span class="n">to_bytes</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">byteorder</span><span class="o">=</span><span class="s">"big"</span><span class="p">))</span>
+</code></pre></div></div>
+
+<p>The <code class="language-plaintext highlighter-rouge">FREQ0</code> function is a bit more complicated, as we have to make sure that we don’t overflow our 28 bit register size and prepend the 14 bit registers with 2 address bits each.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">freq_calc</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">f</span> <span class="o">*</span> <span class="mi">268435456</span><span class="p">)</span> <span class="o">/</span> <span class="mi">25000000</span>
+
+<span class="k">async</span> <span class="k">def</span> <span class="nf">b28_write</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="n">reg</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">freq_calc</span><span class="p">(</span><span class="n">f</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">reg</span> <span class="o">&gt;</span> <span class="mi">268435455</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="nb">Exception</span><span class="p">(</span><span class="s">"Value too big!"</span><span class="p">)</span>
+    <span class="c1"># split number into 2 14 bit blocks 
+</span>    <span class="n">low_val</span> <span class="o">=</span> <span class="n">reg</span> <span class="o">&amp;</span> <span class="mh">0x3FFF</span>
+    <span class="n">low_val</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">14</span><span class="p">)</span> <span class="o">|</span> <span class="n">low_val</span> 
+    <span class="n">high_val</span> <span class="o">=</span> <span class="p">(</span><span class="n">reg</span> <span class="o">&gt;&gt;</span> <span class="mi">14</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mh">0x3FFF</span>
+    <span class="n">high_val</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">14</span><span class="p">)</span> <span class="o">|</span> <span class="n">high_val</span> 
+    <span class="k">async</span> <span class="k">with</span> <span class="n">spi_iface</span><span class="p">.</span><span class="n">select</span><span class="p">():</span> 
+        <span class="k">await</span> <span class="n">spi_iface</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="n">low_val</span><span class="p">.</span><span class="n">to_bytes</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">byteorder</span><span class="o">=</span><span class="s">"big"</span><span class="p">))</span>    
+        <span class="k">await</span> <span class="n">spi_iface</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="n">high_val</span><span class="p">.</span><span class="n">to_bytes</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">byteorder</span><span class="o">=</span><span class="s">"big"</span><span class="p">))</span>  
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">PHASE0</code> is similar, the formulas for computing register values are provided in the diagram a little bit further down the page.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">phase_calc</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">p</span> <span class="o">/</span> <span class="mi">360</span><span class="p">)</span> <span class="o">*</span> <span class="mi">4096</span>
+
+<span class="k">async</span> <span class="k">def</span> <span class="nf">phase_write</span><span class="p">(</span><span class="n">p</span><span class="p">):</span> <span class="c1"># running this outside of reset seems to be scary. like a game of russian roulette
+</span>    <span class="n">reg</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">phase_calc</span><span class="p">(</span><span class="n">p</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">reg</span> <span class="o">&gt;</span> <span class="mi">4095</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="nb">Exception</span><span class="p">(</span><span class="s">"Value too big!"</span><span class="p">)</span>
+    <span class="n">val</span> <span class="o">=</span> <span class="p">(</span><span class="mi">12</span> <span class="o">&lt;&lt;</span> <span class="mi">12</span><span class="p">)</span> <span class="o">|</span> <span class="n">reg</span> <span class="c1"># prepend 1100 (12) to value
+</span>    <span class="k">print</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
+    <span class="k">async</span> <span class="k">with</span> <span class="n">spi_iface</span><span class="p">.</span><span class="n">select</span><span class="p">():</span> 
+        <span class="k">await</span> <span class="n">spi_iface</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="n">val</span><span class="p">.</span><span class="n">to_bytes</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">byteorder</span><span class="o">=</span><span class="s">"big"</span><span class="p">))</span> 
+</code></pre></div></div>
+
+<p>A diagram of an average write sequence (inspired by what is suggested in AN-1070<sup id="fnref:6" role="doc-noteref"><a href="#fn:6" class="footnote" rel="footnote">6</a></sup> provided below, in addition to the formulas used to provide the register values for FREQ0 and PHASE0</p>
+
+<p><img class="bw" src="/assets/images/2026_glasgow/glasgle_flowchart.png" /><br /></p>
+
+<h2 id="conclusions">Conclusions</h2>
+<p>This, in general was… a pretty enjoyable foray into Digital Electronics. Not our preferred field or even subfield but the Glasgow made it much more tolerable and even pleasant at times. Most of our time wasn’t even spent figuring out the digital electronics stuff, but instead on digging through the Python Ecosystem™®.Before this, we have avoided learning Python like the plague due to a general dislike of how it goes about its way, so this time we have sunk an immeasurable amount of labour into trivialities such as “getting matplotlib to work”. Writing code for it feels like slowly dying in a desert. The next article after this one (ahead of schedule) will be a weird experimental tangent and after that there should be some actual inorganic chemistry. No hardware pivots. No nanoparticles brainrot. Just a few compounds synthesized and documented. Fully self-contained.</p>
+
+<h3 id="supplementary-material">Supplementary Material</h3>
+<p>All the code (including Nix scripts, don’t ask me to write flakes, they’re not the kind of flake I want offered to me) is provided <a href="https://github.com/isopropyletherperoxide/glasgle-blogpost">here</a>. You can buy the Glasgow through <em>these</em> sources: <a href="https://glasgow-embedded.org/latest/purchase.html">link.</a> Or you can wait until the <a href="https://social.treehouse.systems/@whitequark/116612162817489546">RevD</a> CrowdSupply campaign if you want to support the release of the next Improved Revision of the Glasgow Interface Explorer.</p>
+
+<h3 id="conflicts-of-interest">Conflicts of Interest</h3>
+<p>The unit used in this article was provided courtesy of Catherine Whitequark alongside a small amount of technical support and proofreading on the article. This is not a paid review and is written entirely out of our own volition. Our hand is not being forced into anything. Catherine was mean to us once or twice during the past few months.</p>
+
+<h2 id="footnotes">Footnotes</h2>
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p>Rapid Onset Electrical Engineering Dysphoria, early draft pick for the DSM-6 <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:2" role="doc-endnote">
+      <p><a href="https://sensirion.com/media/documents/E0F04247/631EF271/CD_DS_SCD40_SCD41_Datasheet_D1.pdf">https://sensirion.com/media/documents/E0F04247/631EF271/CD_DS_SCD40_SCD41_Datasheet_D1.pdf</a> <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:3" role="doc-endnote">
+      <p>The I2C commands here are enclosed in transaction blocks but that’s an “in most cases” best practice. You can leave them out and sometimes you actually have to leave them out. Nothing good under the sun in the embedded world. <a href="#fnref:3" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:4" role="doc-endnote">
+      <p>in the middle of the peer review process this was <a href="https://github.com/GlasgowEmbedded/glasgow/pull/1169">added</a> so the oneliner is now unnecessary. but we are technically the reason why it’s there now so the section stays <a href="#fnref:4" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:5" role="doc-endnote">
+      <p><a href="https://www.analog.com/media/en/technical-documentation/data-sheets/ad9833.pdf">https://www.analog.com/media/en/technical-documentation/data-sheets/ad9833.pdf</a> <a href="#fnref:5" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:6" role="doc-endnote">
+      <p>Analog Devices. AN-1070: Programming the AD9833/AD9834. <a href="https://www.analog.com/en/resources/app-notes/an-1070.html">https://www.analog.com/en/resources/app-notes/an-1070.html</a> <a href="#fnref:6" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+</div>
+
+</body>
+
+</html>
