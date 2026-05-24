@@ -1,8 +1,18 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-05-24T02:06:18+03:00</updated><id>http://localhost:4000/feed.xml</id><entry><title type="html">Exploring Interfaces Glasgowly</title><link href="http://localhost:4000/2026/05/24/glasgow.html" rel="alternate" type="text/html" title="Exploring Interfaces Glasgowly" /><published>2026-05-24T00:00:00+03:00</published><updated>2026-05-24T00:00:00+03:00</updated><id>http://localhost:4000/2026/05/24/glasgow</id><content type="html" xml:base="http://localhost:4000/2026/05/24/glasgow.html"><![CDATA[<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/atom-one-dark.css" />
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-05-24T14:06:43+03:00</updated><id>http://localhost:4000/feed.xml</id><entry><title type="html">Exploring Interfaces Glasgowly</title><link href="http://localhost:4000/2026/05/24/glasgow.html" rel="alternate" type="text/html" title="Exploring Interfaces Glasgowly" /><published>2026-05-24T00:00:00+03:00</published><updated>2026-05-24T00:00:00+03:00</updated><id>http://localhost:4000/2026/05/24/glasgow</id><content type="html" xml:base="http://localhost:4000/2026/05/24/glasgow.html"><![CDATA[<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/atom-one-dark.css" />
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
 
 <script>hljs.highlightAll();</script>
+
+<script>
+const urlParams = new URLSearchParams(window.location.search);
+
+if (urlParams.has('hikari-mode')) {
+    console.log("hikari mode ON");
+    document.getElementsByTagName("h1")[0].setHTML("Exploring Interfaces Glasgowly, Special 1/1 hikari_no_yume Limited Edition");
+    document.getElementsByClassName("blog_box")[0].insertAdjacentHTML("afterbegin", "<p>This is a special <strong>Gold Edition</strong> of Exploring Interfaces Glasgowly provided to @hikari_no_yume exclusively</p>")
+}
+</script>
 
 <p>…the “Pivot to Hardware”. Now, that everyone feels the heat around the corner it is inevitable that everyone around you contracts a case of severe ROEED<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>, complete with all the symptoms such the diffusion model-generated breadboard picture posting or inane posturing about “hard tech” and “industrial capability”.</p>
 
