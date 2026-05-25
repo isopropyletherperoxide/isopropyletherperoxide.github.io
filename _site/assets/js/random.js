@@ -19,12 +19,18 @@ const phrases =
       "ITS NOT A WEBSITE", // endorphin port
       "Inkscape: Torment",
         "pessimism of the intellect, optimism of the delusion",
+            "i now present to you an elaborate choreography of failure",
+            "intimately wed to concept over practice", // sprain
       "The work is mysterious and important.", // severance
+      "This helped “Stencil” appear as only one among a repertoire of identities. “Forcible dislocation of personality” was what he called the general technique",
+
       "Wholly Tangential.",
       "“I have done that, says my memory. I cannot have done that, says my pride and remains adamant. Finally, memory yields”", // nietzsche
       "You should get that looked at.", "Power in Misery",
       "NO NO NO NO NO NO NO NO NO NO NO NO NO NO NO NO NO NO NO NO NO NO NO NO NO",
-      "*purrs*",
+      "*purrs*", "meow", "nya", "meow meow", 
+      "we are in the business of making people feel really bad",
+       "The Internet Makes You Stupid", "your first and final warning", 
       "this demands the gentle hand of a surgeon",  // pathologic
       "crushed into dust by my weak chemist hands", // paraphrased from nilered
       "History might absolve me", "History will absolve me", "All objects have some kind of inherent vice as a result of the baseline law of entropy.",
