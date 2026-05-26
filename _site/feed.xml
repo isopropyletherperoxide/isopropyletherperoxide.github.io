@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-05-26T23:22:19+03:00</updated><id>http://localhost:4000/feed.xml</id><entry><title type="html">Warzone Grebewatching</title><link href="http://localhost:4000/2026/05/26/Warzone_Grebewatching.html" rel="alternate" type="text/html" title="Warzone Grebewatching" /><published>2026-05-26T00:00:00+03:00</published><updated>2026-05-26T00:00:00+03:00</updated><id>http://localhost:4000/2026/05/26/Warzone_Grebewatching</id><content type="html" xml:base="http://localhost:4000/2026/05/26/Warzone_Grebewatching.html"><![CDATA[<script>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-05-26T23:25:15+03:00</updated><id>http://localhost:4000/feed.xml</id><entry><title type="html">Warzone Grebewatching</title><link href="http://localhost:4000/2026/05/26/Warzone_Grebewatching.html" rel="alternate" type="text/html" title="Warzone Grebewatching" /><published>2026-05-26T00:00:00+03:00</published><updated>2026-05-26T00:00:00+03:00</updated><id>http://localhost:4000/2026/05/26/Warzone_Grebewatching</id><content type="html" xml:base="http://localhost:4000/2026/05/26/Warzone_Grebewatching.html"><![CDATA[<script>
 const title = document.getElementById('title');
 hr = false;
 num = 0;
@@ -53,7 +53,7 @@ position: relative;
 
 <p>So on friday, after hitting the bare minimum of caloric intake by eating a banana and ingesting a normal amount of stimulants, we have headed out towards to the lake. Arriving to the edge of the residential zone of the city, we walked through a series of various garage complexes and parking lots, places beloved by the local substance users and dealers, making our way to a minor pond near the local big box department store. At the pond we have spent our time pacing back and forth in confusion, trying to find a path forward to the lake, as google maps kept pointing us to a rubble pile and some form of industrial scrapyard/parking lot instead the promised walkway.</p>
 
-<p><img src="/assets/images/2026_grebewatch/plan_of_action.png" /><br /></p>
+<p><img src="/assets/images/2026_grebewatch/plan_of_action.webp" /><br /></p>
 
 <p>Looking closely 2-3 times to make sure that this really is the road, we scaled the aformentioned rubble pile into the Source Engine Singleplayer Development Kit 2013 Asset-laden Scrapyard.</p>
 

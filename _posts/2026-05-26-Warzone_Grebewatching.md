@@ -62,7 +62,7 @@ In April of Current Year, the drudgery of undergrad, unpaid unappreciated chemis
 
 So on friday, after hitting the bare minimum of caloric intake by eating a banana and ingesting a normal amount of stimulants, we have headed out towards to the lake. Arriving to the edge of the residential zone of the city, we walked through a series of various garage complexes and parking lots, places beloved by the local substance users and dealers, making our way to a minor pond near the local big box department store. At the pond we have spent our time pacing back and forth in confusion, trying to find a path forward to the lake, as google maps kept pointing us to a rubble pile and some form of industrial scrapyard/parking lot instead the promised walkway.
 
-<img src="/assets/images/2026_grebewatch/plan_of_action.png"><br>
+<img src="/assets/images/2026_grebewatch/plan_of_action.webp"><br>
 
 Looking closely 2-3 times to make sure that this really is the road, we scaled the aformentioned rubble pile into the Source Engine Singleplayer Development Kit 2013 Asset-laden Scrapyard.
 
