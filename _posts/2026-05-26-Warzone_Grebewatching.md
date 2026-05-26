@@ -11,7 +11,7 @@ twittercard: summary_large_image
 const title = document.getElementById('title');
 hr = false;
 num = 0;
-links = ["/assets/images/2026_grebewatch/grebewatching.svg", "/assets/images/2026_grebewatch/warzone_grebewatching.svg"]
+links = ["/assets/images/2026_grebewatch/warzone_grebewatching.svg", "/assets/images/2026_grebewatch/grebewatching.svg"]
 
 async function loadSVG(targetElementId, url) {
   try {
