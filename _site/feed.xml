@@ -1,4 +1,125 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-05-28T20:03:53+03:00</updated><id>http://localhost:4000/feed.xml</id><entry><title type="html">Warzone Grebewatching</title><link href="http://localhost:4000/2026/05/26/Warzone_Grebewatching.html" rel="alternate" type="text/html" title="Warzone Grebewatching" /><published>2026-05-26T00:00:00+03:00</published><updated>2026-05-26T00:00:00+03:00</updated><id>http://localhost:4000/2026/05/26/Warzone_Grebewatching</id><content type="html" xml:base="http://localhost:4000/2026/05/26/Warzone_Grebewatching.html"><![CDATA[<script>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-06-29T23:03:57+03:00</updated><id>http://localhost:4000/feed.xml</id><entry><title type="html">Synthesis of Tetranuclear Chicken Feed Copper Complexes; including a section on Deep Eutectic Solvents</title><link href="http://localhost:4000/2026/06/29/Choline_Complexes.html" rel="alternate" type="text/html" title="Synthesis of Tetranuclear Chicken Feed Copper Complexes; including a section on Deep Eutectic Solvents" /><published>2026-06-29T00:00:00+03:00</published><updated>2026-06-29T00:00:00+03:00</updated><id>http://localhost:4000/2026/06/29/Choline_Complexes</id><content type="html" xml:base="http://localhost:4000/2026/06/29/Choline_Complexes.html"><![CDATA[<p><em>“…it feels like an ad in a cheap hardware store in a part of town where there is at least 4 different people injecting heroin under that store”</em><br /></p>
+<div align="right"> - <b>Rosa</b>, when presented with this article, 2 days ago </div>
+
+<p><br />
+Deep Eutectic Solvents are a sort of an emerging (?) buzzword in the world of academic chemistry. An entire explanation of the field is unwarranted and out of place here; but a short gist of it is: they consist of mixture of salts (usually one organic and the other inorganic) that undergo a very drastic melting point depression when mixed.<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup></p>
+
+<p>The most sought-after property of a DES is its ability to act as an ionic liquid. Ionic liquids, as implied by their name - are a class of salt that is liquid below the boiling point of water (most of the time.). Ionic Liquids are yet another such Emerging Buzzword Type of molecule that shows some promising properties in certain application but is quite severely bottlenecked by the high cost. Because of course, most labs who don’t make it their purpose to write about ILs would prefer to just buy a gallon of cheap, mass-produced THF or Hexane or HMPA compared to Ultra-Niche-Designer-Drug-Research-Chemical psychoactive alkylimidazole hexafluorophosphate that performs marginally better in a small subset of an already ivory-tower catalytic reaction.</p>
+
+<p>Despite all this, they are an interesting class of molecule and DESes provide a viable alternative to some expensive ionic fluids and don’t require as involved of a synthesis as the aforementioned bespoke organics. The most widespread in literature (unsubstantiated claim but we’ve seen it a fair few times) DES is made out of a 1:2 mixture of Urea and Choline Chloride. Both chemicals easily accessible to your average <del>bench chemist</del> Chicken Farmer.</p>
+
+<p>Now, to disregard everything we just said - the topic of this post is not actually the Type II DES at hand. The DES is there just so we could leech off a popular keyword. What we actually are here after are the two interestingly-structured and colored complexes of Choline Chloride made purely for aesthetic enjoyment. As cholinium is a very accessible somewhat bulky quat ammonium ion - the chicken farm supply store does not stock tetramethylammonium hydroxide for some reason.</p>
+
+<h3 id="chemicals">Chemicals</h3>
+<p>To everyone’s dismay - the choline chloride used here was actually just bought from an Aliexpress biochem supplier instead of a farm supply shop. All the local farm-grade stuff came pre mixed with seed and purifying choline chloride from that seems… Annoying at best according to the sciencemadness thread<sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">2</a></sup>. The Copper Chloride Dihydrate used here was made by us a few years back from insanely impure gardening store grade Copper Sulfate that had bits of glass and sand in it as an impurity and actually might’ve just been really shit and impure Copper (II) Chloride instead of sulfate.</p>
+
+<p><img style="width: 70%" src="/assets/images/2026_choline/labcels.png" /><br /></p>
+
+<h2 id="synthesis-of-the-des">Synthesis of the DES</h2>
+<p>But; just for the sake of it and because we wanted to play with one ever since we were in high school, let’s actually make a type 2 DES before getting to the complexes at hand.</p>
+
+<p>Mixing solid CuCl2 dihydrate and ChCl leads to the formation of a black goop, which is assumed to be the DES in question.<sup id="fnref:4" role="doc-noteref"><a href="#fn:4" class="footnote" rel="footnote">3</a></sup></p>
+
+<p><img src="/assets/images/2026_choline/DES_pre_mixing.webp" /><br /></p>
+
+<p>Heating the solution seems to drive the formation of the goop forward, though we haven’t seen a drastic liquefaction that we (wrongly?) assumed would happen.</p>
+
+<p><img src="/assets/images/2026_choline/DES_waterbath.webp" /><br /></p>
+
+<p>The flavour palate of the DES leaves a lot to be desired; as it does not pair well with a serving of Chicken Strips (Kentucky Fried Chicken, 3.85euro, 5 pcs.) compared to any of the standard dressings or dipping sauces.</p>
+
+<p><strong>somewhat icky food pic, click at ur own risk</strong></p>
+
+<p><img style="filter: blur(10px)" id="evil_chicken" src="/assets/images/2026_choline/DES_Chicken.webp" /><br /></p>
+
+<script>
+const chicken = document.getElementById('evil_chicken');
+
+chicken.addEventListener('click', async (event) => {
+if (blur != true) {
+chicken.style.filter = "blur(0px)"
+blur = true
+}
+else {
+chicken.style.filter = "blur(10px)"
+blur = false
+}
+})
+
+</script>
+
+<p>(<strong>LEGAL DISCLAIMER: please dont eat this. this is not culinary advice and we are not responsible for any harm caused, physical or mental</strong>)</p>
+
+<p>On sitting out, a brown-red compound that we assume is some impure form of the red choline chlorocuprate is formed in the DES.</p>
+
+<p><img src="/assets/images/2026_choline/DES_After.webp" /><br /></p>
+
+<h2 id="synthesis-of-the-complexes">Synthesis of the Complexes</h2>
+<p>For this we used the procedures provided in (White et al. (1953))<sup id="fnref:3" role="doc-noteref"><a href="#fn:3" class="footnote" rel="footnote">4</a></sup>. Two discrete compounds that were described in the paper were obtained, one was isolated.</p>
+
+<p><img src="/assets/images/2026_choline/solutions.webp" /><br /></p>
+
+<p>The red compound is synthesized via the reaction of 0.01 moles (1.7 grams) of Copper (II) chloride withan equimolar amount (1.38 grams) of Choline Chloride in ~50 ml of Methanol, though you should go lighter on the solvent, our copper chloride is just really bad. The original paper uses azeotropic ethanol, but because we are biased against it as a solvent we used methanol instead, which is way too good of a solvent for this compound and leads to No Precipitation. This situation can be fixed by the addition of isopropanol to the methanolic solution, which leads to a precipitation of a brown-orange solid on cooling. On standing in the freezer overnight, sparkly red crystals are formed. They were filtered off and washed with hot 2:1 methanol-isopropanol, which gave us 458 mg of a sparkly red solid. Which corresponds to a lovely… yield of 18.6% of [choline]4[Cu4Cl10O] of theoretical (2.6025 g).</p>
+
+<p>In a previous, trial run of this synthesis we got… 647 mg (49%) out on the same synthesis scaled down by half. Good job!</p>
+
+<p><img src="/assets/images/2026_choline/final_compound.webp" /><br /></p>
+
+<p>The yellow compound is synthesized similarly, but 0.034 moles (4.8 g) of Choline Chloride and 0.011 mol (2.24 g) of Copper (II) Chloride Dihydrate are used instead. The red compound is quite soluble in the methanol-isopropanol mix so you have to be quite careful while purifying and crystallizing it.</p>
+
+<p>Now, because of the widely acknowledged fact that yellow chemistry is Trash. We could not isolate the yellow solid due to a myriad of technical difficulties. Because we really wanted to hit a deadline, the yellow complex is omitted from this article. We hope it can reappear a bit later.</p>
+
+<p>The classic aqueous method for chlorometalate synthesis was also attempted at a tiny scale (279 mg ChCl to 170 mg CuCl2 dihydrate (1:2 molar ratio), slowly evaporated with a few drops of HCl), yielding a yellow mass of hygroscopic crystals, possibly the same compound as the yellow chlorocuprate mentioned before.</p>
+
+<p><img src="/assets/images/2026_choline/aq_complex.webp" /><br /></p>
+
+<h2 id="structures">Structures</h2>
+<p>Now, there are 2 papers dealing with this compound. White et al.<sup id="fnref:3:1" role="doc-noteref"><a href="#fn:3" class="footnote" rel="footnote">4</a></sup> from 1953 and also a modern paper by De Vreese et al. from 2012<sup id="fnref:4:1" role="doc-noteref"><a href="#fn:4" class="footnote" rel="footnote">3</a></sup>. The original 1953 paper gets the structure of the red compound really wrong, claiming it to be [choline]CuCl3 when it is actually a tetranuclear complex with the formula [choline]4[Cu4Cl10O]. You can look at the structure from the XRD analysis carried out in 2012 down here.</p>
+
+<p><img src="/assets/images/2026_choline/tetranuclear.png" /><br /></p>
+
+<p>The structure of the yellow compound (if we can match the yellow compound from the 1953 paper to the 2011 paper correctly) is also slightly weird. What is supposed to be [choline]2CuCl4 is actually [choline]3CuCl4[Cl], with more choline chloride per choline tetrachlorocuprate unit cell than expected.</p>
+
+<p><img src="/assets/images/2026_choline/cholinecucl3.png" /><br /></p>
+
+<h2 id="things-that-went-wrong">Things That Went Wrong</h2>
+<p>Now, usually we like to post articles in the first half of the month, so the quite precarious date on this blogpost might explain the general shoddiness of the chemistry carried out. So lets engage in some rigorous self-criticism and find out what went wrong here in the awful last day rush this post was written in.</p>
+
+<h3 id="the-methods">The Methods:</h3>
+<p>We… strayed from the method a bit and improvised by the end… Leading to questionable yields and purities. We would strongly suggest using ethanol instead (oftentimes they’re more or less equivalent but in this one the lesser polarity of ethanol is actually beneficial compared to methanol).</p>
+
+<h3 id="the-reagents">The Reagents:</h3>
+<p>Our copper chloride was quite impure and probably needs a recrystallization from hydrochloric acid. On standing, Copper (II) Chloride tends to hydrolyse and form basic salts like Cu(OH)Cl that interfere with our synthesis.</p>
+
+<h3 id="the-equipment">The Equipment</h3>
+<p>Right as we were filtering the yellow compound, the hose on our aspirator pump finally gave way and decomposed, making the vacuum pulled by it negligible. We had to frantically scrape the remains of the rotten hose off the aspirator and force on a new one just to finish this on time.</p>
+
+<h3 id="the-heat">The Heat</h3>
+<p>The European Heatwave is not treating us well. The heat in the lab seems to poach our brain into a nice and firm hardboiled state.</p>
+
+<h2 id="conclusions">Conclusions</h2>
+<p>And you may ask me, what is the purpose of the research carried out? Why did you do this? Besides aesthetic value and a personal obligation we did this because it staves off the Feeling. A compulsive work-habit even when the work isn’t very useful helps a lot, no matter what the austrian-style economists might tel you. An alternative would be to just engage in a substance habit but securing funding for that is less trivial than chemistry. Anyways; this stuff can like. Oxidize corn oil? I live in a very sunflower oil country, so I’ve genuinely never encountered corn oil in my life. A smaller-scope less rushed chemistry post will probably come next.</p>
+
+<p><img class="bw" src="/assets/images/2026_choline/corn_oil.png" /><br /></p>
+
+<h2 id="footnotes">Footnotes</h2>
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p>Smith, E. L.; Abbott, A. P.; Ryder, K. S. Deep Eutectic Solvents (DESs) and Their Applications. Chem. Rev. 2014, 114 (21), 11060–11082. <a href="https://doi.org/10.1021/cr300162p">https://doi.org/10.1021/cr300162p</a> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:2" role="doc-endnote">
+      <p>Sources of choline chloride in Australia, sciencemadness.org forum users. <a href="https://www.sciencemadness.org/talk/viewthread.php?tid=77467#pid494461">https://www.sciencemadness.org/talk/viewthread.php?tid=77467#pid494461</a> <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:4" role="doc-endnote">
+      <p>De Vreese, P.; Brooks, N. R.; Van Hecke, K.; Van Meervelt, L.; Matthijs, E.; Binnemans, K.; Van Deun, R. Speciation of Copper(II) Complexes in an Ionic Liquid Based on Choline Chloride and in Choline Chloride/Water Mixtures. Inorg. Chem. 2012, 51 (9), 4972–4981. <a href="https://doi.org/10.1021/ic202341m">https://doi.org/10.1021/ic202341m</a> <a href="#fnref:4" class="reversefootnote" role="doc-backlink">&#8617;</a> <a href="#fnref:4:1" class="reversefootnote" role="doc-backlink">&#8617;<sup>2</sup></a></p>
+    </li>
+    <li id="fn:3" role="doc-endnote">
+      <p>White, P. L.; Hegsted, D. M.; Mayer, J. Two Complex Salts of Choline and Copper Chloride and Their Activity as Catalysts of Fat Oxidation1. J. Am. Chem. Soc. 1953, 75 (10), 2352–2354. <a href="https://doi.org/10.1021/ja01106a018">https://doi.org/10.1021/ja01106a018</a> <a href="#fnref:3" class="reversefootnote" role="doc-backlink">&#8617;</a> <a href="#fnref:3:1" class="reversefootnote" role="doc-backlink">&#8617;<sup>2</sup></a></p>
+    </li>
+  </ol>
+</div>]]></content><author><name>aryl chloride</name></author><summary type="html"><![CDATA[“…it feels like an ad in a cheap hardware store in a part of town where there is at least 4 different people injecting heroin under that store” - Rosa, when presented with this article, 2 days ago]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://isopropyletherperoxide.github.io/assets/images/2026_choline/thumbnail.webp" /><media:content medium="image" url="https://isopropyletherperoxide.github.io/assets/images/2026_choline/thumbnail.webp" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Warzone Grebewatching</title><link href="http://localhost:4000/2026/05/26/Warzone_Grebewatching.html" rel="alternate" type="text/html" title="Warzone Grebewatching" /><published>2026-05-26T00:00:00+03:00</published><updated>2026-05-26T00:00:00+03:00</updated><id>http://localhost:4000/2026/05/26/Warzone_Grebewatching</id><content type="html" xml:base="http://localhost:4000/2026/05/26/Warzone_Grebewatching.html"><![CDATA[<script>
 const title = document.getElementById('title');
 hr = false;
 num = 0;
@@ -1040,87 +1161,4 @@ Reference: Heylen, S., Joos, L., Parac-Vogt, T.N., Van Speybroeck, V., Kirschh
       <p>Altahan, M. A.; Beckett, M. A.; Coles, S. J.; Horton, P. N. Synthesis and Characterization of Polyborates Templated by Cationic Copper(II) Complexes: Structural (XRD), Spectroscopic, Thermal (TGA/DSC) and Magnetic Properties. Polyhedron 2017, 135, 247–257. <a href="https://doi.org/10.1016/j.poly.2017">https://doi.org/10.1007/s10876-018-1452-9.</a> <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
   </ol>
-</div>]]></content><author><name>me :3</name></author><summary type="html"><![CDATA[The chemistry of boric acids and boron is, for lack of better words, rather Unhinged. Unlike it’s relatively (and only relatively) well behaved neighbour aluminium or the ubiqitous carbon, it’s aqueous chemistry involves a lot of polymers, with boric acid forming differently shaped ions depending on the pH and the ions present in solution. One such example is in commonly encountered Borax, which does not crystallize out as just a sodium orthoborate, but instead takes a shape of a tetraborate ion, with it’s weird bicylic structure.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://isopropyletherperoxide.github.io/assets/images/pentaborate_thumb.jpg" /><media:content medium="image" url="https://isopropyletherperoxide.github.io/assets/images/pentaborate_thumb.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Making a (historically interesting?) Pyrylium Salt</title><link href="http://localhost:4000/2025/05/02/Pyrylium.html" rel="alternate" type="text/html" title="Making a (historically interesting?) Pyrylium Salt" /><published>2025-05-02T00:00:00+03:00</published><updated>2025-05-02T00:00:00+03:00</updated><id>http://localhost:4000/2025/05/02/Pyrylium</id><content type="html" xml:base="http://localhost:4000/2025/05/02/Pyrylium.html"><![CDATA[<p>Pyrylium is a six-membered oxygen-containing heterocycle that is quite commonly encountered in compounds derived from plants and also in dyes, with its derivatives having some uses in synthesis of heterocyclic compounds like pyridines and phosphines. Usually pyrylium salts are prepared from intermolecular condensations of aromatic aldehydes, for example the commonly encountered 1,3,5-triphenylpyrylium salt prepared from acetophenone and benzaldehyde, however, the salt described next is prepared via an intramolecular condensation, entailing a slightly different procedure.</p>
-
-<h3 id="the-2-hydroxy-2-styrylbenzopyrylium-chloride">The 2-Hydroxy-2-Styrylbenzopyrylium Chloride</h3>
-<p>This particular pyrylium salt was synthesized in 1908<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup> as part of an attempt of making synthetic coumarines, which wasn’t very successful. While they failed at making coumarines during the research of this particular compound, the synthesis of these salts has lead to the discovery of a very peculiar type of structure - the spiropyran.</p>
-
-<p><img class="bw" src="/assets/images/pyrylium.png" width="700" alt="synthesis of pyrylium and the spiropyran" title="pyryliums and spiropyrans" /><br /></p>
-
-<p>The spiropyran generated from this salt is not photochemically or thermochemically interesting, so I decided to explore the chemistry of the pyrylium salt instead, as the structure looked quite curious to me.</p>
-
-<p>For learning more about spiropyran history, one should refer to the <a href="https://pubs.rsc.org/en/content/articlehtml/2019/cs/c9cs00203k">paper</a> by Luuk Kortekaas and Wesley R. Browne (2019), as it is the work that has brought this compound and its historical value to my attention</p>
-
-<h3 id="synthesis">Synthesis</h3>
-<p>The synthesis of this compound is quite simple, starting with an Aldol (more accurately a Claisen–Schmidt condensation) to form the ketone precursor followed by an acid-catalyzed condensation of the ketone into the final product. Aftewards it is possible to run a condensation reaction to condense it further into the benzospiropyran, but I have chosen to avoid doing that because of a lack of motivation. :(</p>
-
-<p><img class="bw" src="/assets/images/dicoumarketone.png" width="600" alt="synthesis of dicoumarketone" title="dicoumarketone synth" /><br /></p>
-
-<h4 id="attempt-1-where-i-didnt-think-of-using-my-brain">Attempt 1, where I didn’t think of using my brain</h4>
-<p>On my first attempt I didn’t pay much attention to literature, and just tried blindly copying the steps for the synthesis of Dibenzalacetone from Orgsyn<sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">2</a></sup>. This has proven to be a mistake. As the final product was a salt and considerably more soluble in water, making its isolation much harder.</p>
-
-<p><img src="/assets/images/aldol_dicoumarketone.jpg" width="600" title="aldol starting" /><br /></p>
-
-<p>2 grams of sodium hydroxide were dissolved in 20 ml of water and 20 ml of methanol, to which 2.4 grams of salicylaldehyde (0.02 mol) and 0.58 grams of acetone (0.01 mol) were added with vigorous stirring. Over time the reaction mixture turned red and no product precipitation was observed. At this point the solution was set to slowly evaporate on a slightly warm hotplate overnight. A reasonable amount of crystalline precipitate was still obtained but was all set aside, as I wanted to carry out the synthesis in a much more proper manner.</p>
-
-<h4 id="attempt-2-the-non-sloppy-one">Attempt 2, the non-sloppy one</h4>
-<p>This time, I have changed up the procedure slightly and made it more accurate to the one carried out in the old german paper<sup id="fnref:1:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>, paying closer attention to the high acidity of the resulting product.</p>
-
-<p>2.4 grams of salicylaldehyde and 0.6 grams of acetone were dissolved in 10 milliliters of methanol. A solution of 1.6 grams of sodium hydroxide in 5 ml of water was poured into the methanolic reaction mix with intense stirring. The solution was left to stir and evaporate at room temperature. After a short while a colour change from transparent to orange-red has occured, and on the next day a crop of dark red-brown crystals was obtained.</p>
-
-<p><img src="/assets/images/dicoumarketone_crystals.jpg" width="600" title="dicoumarketone crystals" /><br /></p>
-
-<p>The disodium salt of dicoumarketone is a red-brown crystalline solid that dissolves in water to give strongly coloured red solutions. This property lead to a quite grim looking gravity filtration.</p>
-
-<p><img src="/assets/images/bloody_dicoumarketone.jpg" width="600" title="bloodclot" /><br /></p>
-
-<p>To the delight of a few quite unwell girl-adjacent entities<sup id="fnref:3" role="doc-noteref"><a href="#fn:3" class="footnote" rel="footnote">3</a></sup> <sup id="fnref:4" role="doc-noteref"><a href="#fn:4" class="footnote" rel="footnote">4</a></sup>, getting this product on my skin quite accurately resembled getting bloodstains all over my hands.</p>
-
-<p><img src="/assets/images/dicoumarketone_stains.jpg" width="320" alt="red stains on hands in front of vacuum filter flask" title="Bloody Murder" /><br /></p>
-
-<p>The Dicoumarketone disodium salt was then dissolved in 50 ml of distilled water, and 0.8 ml of glacial acetic acid were added to precipitate out the insoluble free acid. This is actually unrecommended, as acetic acid is too strong, and literature suggests bubbling CO2 through it instead. (setting up a CO2 generator was way too much for me, already beaten by blackouts and summer heat).</p>
-
-<p><img src="/assets/images/free_dicoumarketone_acid.jpg" width="600" title="yellow free acid" /><br /></p>
-
-<p>My laziness has directly lead to a decreased yield, so it’s worth trying this with a weaker acid instead. The yield of the free acid was 1.42 grams, which corresponds to ~50% of theoretical. Quite bad for such a simple reaction.</p>
-
-<p>An attempt of dissolving the free acid in methanol was attempted, however some kind of insoluble impurity (perhaps from the acid sitting out for a bit too long) was present, and had to be filtered away. This was not present in the test run and could possibly be attributed to getting a worse purity material during the precipitation, so it may be preferable for the acid to be precipitated out from more dilute solutions and with a weaker acid.</p>
-
-<p>The obtained yellow-brown clear solution was then acidified with a few drops of concentrated hydrochloric acid and left to evaporate in a dish, resulting in a formation of a bright red solution and crystals.</p>
-
-<p><img src="/assets/images/pyrylium_cycle.jpg" width="600" title="yellow free acid" /><br /></p>
-
-<p>The product was scraped off the dish and weighed out, giving us a miserable 0.47 grams of the salt.</p>
-
-<p><img src="/assets/images/final_pyrylium.jpg" width="600" title="yellow free acid" /><br /></p>
-
-<h3 id="verdicts">Verdicts</h3>
-<p>I am not quite sure of the purity of the final product, as the procedure for properly crystallizing the pyrylium hydrochloride salt is quite more complex<sup id="fnref:5" role="doc-noteref"><a href="#fn:5" class="footnote" rel="footnote">5</a></sup> (involving formic acid saturated with hydrogen chloride). There are also some interesting sounding adducts with metals, which I might or might not prepare at some point.</p>
-
-<h3 id="literature">Literature</h3>
-
-<ul>
-  <li>https://pubs.rsc.org/en/content/articlehtml/2019/cs/c9cs00203k</li>
-</ul>
-
-<h3 id="references">References</h3>
-
-<div class="footnotes" role="doc-endnotes">
-  <ol>
-    <li id="fn:1" role="doc-endnote">
-      <p><a href="https://chemistry-europe.onlinelibrary.wiley.com/doi/10.1002/cber.190804102251">Über cyclische Oxoniumsalze aus Dicumarketon und über Spiropyranderivate</a> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a> <a href="#fnref:1:1" class="reversefootnote" role="doc-backlink">&#8617;<sup>2</sup></a></p>
-    </li>
-    <li id="fn:2" role="doc-endnote">
-      <p><a href="https://www.orgsyn.org/demo.aspx?prep=CV2P0167">Dibenzalacetone</a> <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
-    </li>
-    <li id="fn:3" role="doc-endnote">
-      <p><a href="https://twitter.com/qdoit_">https://twitter.com/qdoit_</a> <a href="#fnref:3" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
-    </li>
-    <li id="fn:4" role="doc-endnote">
-      <p><a href="https://mastodon.social/@whitequark">https://mastodon.social/@whitequark</a> <a href="#fnref:4" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
-    </li>
-    <li id="fn:5" role="doc-endnote">
-      <p><a href="https://pubs.rsc.org/en/content/articlelanding/1922/ct/ct9222101198">CXLIV.—Benzopyrylium salts of distyryl ketones. Part I </a> <a href="#fnref:5" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
-    </li>
-  </ol>
-</div>]]></content><author><name>me :3</name></author><summary type="html"><![CDATA[Pyrylium is a six-membered oxygen-containing heterocycle that is quite commonly encountered in compounds derived from plants and also in dyes, with its derivatives having some uses in synthesis of heterocyclic compounds like pyridines and phosphines. Usually pyrylium salts are prepared from intermolecular condensations of aromatic aldehydes, for example the commonly encountered 1,3,5-triphenylpyrylium salt prepared from acetophenone and benzaldehyde, however, the salt described next is prepared via an intramolecular condensation, entailing a slightly different procedure.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://isopropyletherperoxide.github.io/assets/images/dicoumarketone_crystals.jpg" /><media:content medium="image" url="https://isopropyletherperoxide.github.io/assets/images/dicoumarketone_crystals.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+</div>]]></content><author><name>me :3</name></author><summary type="html"><![CDATA[The chemistry of boric acids and boron is, for lack of better words, rather Unhinged. Unlike it’s relatively (and only relatively) well behaved neighbour aluminium or the ubiqitous carbon, it’s aqueous chemistry involves a lot of polymers, with boric acid forming differently shaped ions depending on the pH and the ions present in solution. One such example is in commonly encountered Borax, which does not crystallize out as just a sodium orthoborate, but instead takes a shape of a tetraborate ion, with it’s weird bicylic structure.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://isopropyletherperoxide.github.io/assets/images/pentaborate_thumb.jpg" /><media:content medium="image" url="https://isopropyletherperoxide.github.io/assets/images/pentaborate_thumb.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
