@@ -1,4 +1,102 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-07-08T15:46:35+03:00</updated><id>http://localhost:4000/feed.xml</id><entry><title type="html">Synthesis of Tetranuclear Chicken Feed Copper Complexes; including a section on Deep Eutectic Solvents</title><link href="http://localhost:4000/2026/06/29/Choline_Complexes.html" rel="alternate" type="text/html" title="Synthesis of Tetranuclear Chicken Feed Copper Complexes; including a section on Deep Eutectic Solvents" /><published>2026-06-29T00:00:00+03:00</published><updated>2026-06-29T00:00:00+03:00</updated><id>http://localhost:4000/2026/06/29/Choline_Complexes</id><content type="html" xml:base="http://localhost:4000/2026/06/29/Choline_Complexes.html"><![CDATA[<p><em>“…it feels like an ad in a cheap hardware store in a part of town where there is at least 4 different people injecting heroin under that store”</em><br /></p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-07-28T19:39:11+03:00</updated><id>http://localhost:4000/feed.xml</id><entry><title type="html">Combustively Synthesizing Europium-Doped Alumina</title><link href="http://localhost:4000/2026/07/28/Europium_Doped_Alumina.html" rel="alternate" type="text/html" title="Combustively Synthesizing Europium-Doped Alumina" /><published>2026-07-28T00:00:00+03:00</published><updated>2026-07-28T00:00:00+03:00</updated><id>http://localhost:4000/2026/07/28/Europium_Doped_Alumina</id><content type="html" xml:base="http://localhost:4000/2026/07/28/Europium_Doped_Alumina.html"><![CDATA[<p>The insufficient heating of the precursor mix resulted in the formation of a sparse, somewhat sticky and wet foamy solid, protruding and threatening to spill out beyond the walls of the crucible.</p>
+
+<p>Hit with the tip of the blowtorch flame, the semisolid foam sets alight, turning into a fluffy mass of oxide product at a slow and steady pace, marked by an incandescent front advancing throughout the reagents. The decomposition of the nitrate makes itself obvious with the noxious stench of nitric oxide now permeating the air. Red-brown fumes emanate from the crucible, filling up the lab space with an unmistakeable stench of metallic rot. The incandescent front after itself leaves behind masses of fluffy white desired product. On cooling, the resulting phosphor exhibits the desired luminescent properties to a reasonable, although slightly disappointing extent.</p>
+
+<video controls="">
+    <source src="/assets/images/2026_europium_alumina/combustion_1.webm" />
+</video>
+
+<p>Here, you can see the somewhat disappointing fluorescence under a 395 nm light.</p>
+
+<p><img src="/assets/images/2026_europium_alumina/glow_foam.webp" /><br /></p>
+
+<h2 id="introduction-why-care-about-europium">Introduction (Why care about Europium?)</h2>
+<p>Europium is one of the more fun rare earth metals. Some, like lanthanum are so useless that onyxmet sends them out for free to internet personalities, while some, like Lutetium sit in that rare corner of “obscure” and “expensive” where we know only one person who has ever done Lutetium chemistry sans Martin “Periodic” Polyakoff-Videos. Europium is relatively inexpensive and it has interesting enough solution chemistry that doesn’t require you to talk to materials people or to spin optic fibres.</p>
+
+<p>The most useful property of Europium is its fluorescence, as with Europium you can easily have a rather large stokes shift of UV into red-orange with just the Eu3+ ion and most importantly, without getting Specialist Organic Fluorophores involved. These are used in things like LEDs, fluorescent pigments and all sorts of Screens. Because of nominative determinism, obviously a Europium-based compound is used as one of the fluorescent dyes used in Euro bills to protect them from being counterfeited. You can see it glow here, on a 100 euro bill that we stole from our girlfriend’s purse.</p>
+
+<p><img src="/assets/images/2026_europium_alumina/euro.webp" /><br /></p>
+
+<p>The yellowy-orangey etcetera such as the stars or the small security fibers allegedly contain some form of Europium diketonate complex<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>. This would be much closer to a characteristic red-orange under a different wavelength but all that we had on us was a 365 nm pen light (used for every photo in the article from now on) with a single half-dead AAA battery in it (this part was finished in Un Trou Perdu, Bay of Somme, North France)</p>
+
+<p>Even though cheaper than something like Erbium, Europium is still a bit pricey, so it is better to use it as a Fluorescent Additive into something, and to have a bulk matrix around it make up majority of the pigment. This time, the filler element will be Aluminium.</p>
+
+<h2 id="combustion-synthesis">Combustion Synthesis</h2>
+<p>Because high-temperature chemistry is expensive and because our own high-temperature chemistry projects are stuck in development hell, we decided to look at a different approach to making various oxide materials. Namely: combustion synthesis. Combustion synthesis is in and of itself the more productive little sister of a flash powder or a rocket fuel; with the stark difference being that we actually want to keep the end product for ourselves instead of caring solely about the exotherm. The exotherm here does still matter as it provides the energy for whatever lattice-formation-doping-insertion-contortion process we try to do. But, unlike with rocket fuels or pyrotechnics, we’d rather minimize gas production, as spraying oxides in all direction is firmly beyond the line of reasonable chemistry and is shameful material scientist behaviour.</p>
+
+<p>The biggest con of combustion synthesis lies in its short-livedness. The short reaction time is often not long enough for neither characterizable phase formation nor the burning of the side products and unreacted precursor off, leading to a generally messier end product. pXRD time is too expensive, and we hate filling up pXRD cuvettes so this is not much of a concern to us. A qualitative result is good enough for the meth corner blog, and a positive qualitative result is outstanding, even.</p>
+
+<h2 id="equipment-reagents">Equipment, Reagents</h2>
+<p>Aluminium nitrate nonahydrate was sourced from a local chemistry supplier, the urea from a fertilizer bag we got at the age of 14, and europium nitrate something hydrate was made from europium carbonate sourced from <a href="https://onyxmet.com">onyxmet.com</a>, which is just about the best source for Miscellaneous Elements there is. The heating vessel was an aliexpress ceramic crucible we bought with our girlfriend’s debit card and the heating implement was a two-shot system of 1kW kitchen hotplate and blowtorch. A temperature controlled muffle furnace is most definitely preferable.</p>
+
+<h2 id="experimental">Experimental</h2>
+<p>This procedure is taken directly from a paper by Kumar et al, 2015<sup id="fnref:1:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>.</p>
+
+<p>The scales are small this time, and we have neither Mettler-Toledo money or scale up money (everything’s poor on the Scales front) so first things first we made a standard solution of 50 mg of Europium Nitrate in 10 ml of water.</p>
+
+<h3 id="run-1">Run 1</h3>
+<p>The tinsy and yellow one.</p>
+
+<ul>
+  <li>0.00199 mol of Al(NO3)3 nonahydrate - 0.7465087 grams</li>
+  <li>0.00001 mol of Eu(NO3)3 hexahydrate ~ 5mg / 1 ml of solution</li>
+  <li>0.005 mols of Urea - 300 mg</li>
+</ul>
+
+<p>The precursors were mixed in the crucible with the europium solution acting as a solvent, and they were stirred until full dissolution. The crucible was set on a preheated plate and evaporated to dryness. The process went through with no visible combustion, leaving a small piece of Sediment on the bottom of the crucible. This sediment was left to cool (fluorescence doesn’t tolerate high temperatures) and checked under various UV lights. The resulting compound has a yellow-orange fluorescence, befit that of Eu3+. In hindsight, this result is ambiguous, as we aren’t sure if the combustion synthesis actually had happened. HOWEVER; to get ahead of ourselves - this phosphor had the brightest luminescence out of all 3 attempts, so maybe we did something right. Or maybe it’s some weird fucked up bizarre world urea derivative complexing with the europium. Or quantum dots. It’s yellow and glows brightly. We file that as a success.</p>
+
+<p><img src="/assets/images/2026_europium_alumina/phosphor_1.webp" /><br /></p>
+
+<h3 id="run-2">Run 2</h3>
+<p>Let’s scale everything up 4 times. Let’s gamble.</p>
+
+<ul>
+  <li>2.96 grams Al(NO3)3 * 9H2O (0.008 mol)</li>
+  <li>4 ml of the Europium solution (0.00004 mol/20 mg)</li>
+  <li>1.2 g of Urea (0.02 mol)</li>
+</ul>
+
+<p>This resulted in the production of a voluminous, somewhat sticky foam, which, when hit with a blowtorch erupted in an incandescent flame and left behind a fluffy muffinlike formation of Product. This was crushed up into a powder, which exhibits a yellowish fluorescence under 365 nm and a more orange one under 395 nm. Not sure how to interpret the slightly different end product, as the more dim fluorescence could either be Good or Bad. Possibly the brighter fluorescence is the result of the better incorporation of the Eu3+ ions in the previous run, or in the more pessimistic interpretation - the result of the interaction of Eu3+ with some sort of antenna ligand left behind by the incomplete destruction of the urea fuel (more on antenna ligands<sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">2</a></sup> sometime in the future).</p>
+
+<p><img src="/assets/images/2026_europium_alumina/foam.webp" /><br /></p>
+
+<p><img src="/assets/images/2026_europium_alumina/phosphor_2.webp" /><br /></p>
+
+<p>Run 2 yield: 400 mg</p>
+
+<h3 id="run-3">Run 3.</h3>
+<p>The “B-roll” run with the remains of our Europium Solution.</p>
+
+<ul>
+  <li>3.73 grams of Al(NO3)3 * 9H2O (0.01 mol)</li>
+  <li>5 ml of Eu solution (0.00005 mol ~ 25 mg / 5 ml of solution)</li>
+  <li>1.5 grams of Urea (0.025 mol)</li>
+</ul>
+
+<p>As a cope (lowkey true though), we are going to formally state, put it on record even, that this run was carried out mostly with the purpose of getting more footage for the blog as we pressed record too late during the second run. Everything went in about the same manner as it did during run 2, with the exception that when we tried to “calcine” our end product with a blowtorch we managed to let the crucible slip from our pliers, with it landing at a perfect angle on the hotplate knob to spill all the product onto the yucknasty dusty lab floor. B-roll run. This is normal. Fine even. Strike this one from the fucking record. Memoryhole it. If anyone asks, and nobody will - didn’t happen. We did two runs and that’s where it ended. Will you shut up man? Stop asking me about the third run in the alumina blogpost. You look insane asking this. You are embarrassing me and yourself. Look at yourself, seriously, you’re asking me about some third europium run? Look at the footage instead. Don’t ask about the product. That’d be considered harassment.</p>
+
+<video controls="">
+    <source src="/assets/images/2026_europium_alumina/combustion_2.webm" />
+</video>
+
+<p>No yield, we think of ourselves as higher than sweeping this kind of product off the horrible lab floor.</p>
+
+<h2 id="conclusions">Conclusions</h2>
+<p>Although wildly inconsistent, combustion synthesis is fun enough to do to be worth it in the end. We still got something to show for it, which is more than we can say about some of the other projects we’ve been trying to do for the last month. Good job, Aryl.</p>
+
+<p><img src="/assets/images/2026_europium_alumina/two_vials.webp" /><br /></p>
+
+<h2 id="footnotes">Footnotes</h2>
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p>Kumar, S.; Prakash, R.; Kumar, V.; Bhalerao, G. M.; Choudhary, R. J.; Phase, D. M. Surface and Spectral Studies of Eu3+ Doped α-Al2O3 Synthesized via Solution Combustion Synthesis. Advanced Powder Technology 2015, 26 (4), 1263–1268. <a href="https://doi.org/10.1016/j.apt.2015.06.009">https://doi.org/10.1016/j.apt.2015.06.009.</a> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a> <a href="#fnref:1:1" class="reversefootnote" role="doc-backlink">&#8617;<sup>2</sup></a></p>
+    </li>
+    <li id="fn:2" role="doc-endnote">
+      <p>Werts, M. H. V. Making Sense of Lanthanide Luminescence. Science Progress 2005, 88 (2), 101–131. https://doi.org/10.3184/003685005783238435. <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>]]></content><author><name>aryl nitrate</name></author><summary type="html"><![CDATA[The insufficient heating of the precursor mix resulted in the formation of a sparse, somewhat sticky and wet foamy solid, protruding and threatening to spill out beyond the walls of the crucible.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://isopropyletherperoxide.github.io/assets/images/2026_europium_alumina/glow_foam.webp" /><media:content medium="image" url="https://isopropyletherperoxide.github.io/assets/images/2026_europium_alumina/glow_foam.webp" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Synthesis of Tetranuclear Chicken Feed Copper Complexes; including a section on Deep Eutectic Solvents</title><link href="http://localhost:4000/2026/06/29/Choline_Complexes.html" rel="alternate" type="text/html" title="Synthesis of Tetranuclear Chicken Feed Copper Complexes; including a section on Deep Eutectic Solvents" /><published>2026-06-29T00:00:00+03:00</published><updated>2026-06-29T00:00:00+03:00</updated><id>http://localhost:4000/2026/06/29/Choline_Complexes</id><content type="html" xml:base="http://localhost:4000/2026/06/29/Choline_Complexes.html"><![CDATA[<p><em>“…it feels like an ad in a cheap hardware store in a part of town where there is at least 4 different people injecting heroin under that store”</em><br /></p>
 <div align="right"> - <b>Rosa</b>, when presented with this article, 2 days ago </div>
 
 <p><br />
@@ -1091,74 +1189,4 @@ Reference: Heylen, S., Joos, L., Parac-Vogt, T.N., Van Speybroeck, V., Kirschh
       <p>Barros Á, Artetxe B, Eletxigerra U, Aranzabe E, Gutiérrez-Zorrilla JM. Systematic Approach to the Synthesis of Cobalt-Containing Polyoxometalates for Their Application as Energy Storage Materials. Materials. 2023; 16(14):5054. <a href="https://doi.org/10.3390/ma16145054">https://doi.org/10.3390/ma16145054 </a> <a href="#fnref:5" class="reversefootnote" role="doc-backlink">&#8617;</a> <a href="#fnref:5:1" class="reversefootnote" role="doc-backlink">&#8617;<sup>2</sup></a></p>
     </li>
   </ol>
-</div>]]></content><author><name>me :3</name></author><summary type="html"><![CDATA[]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://isopropyletherperoxide.github.io/assets/images/2025_01_09_tungsten/w_shiny.jpg" /><media:content medium="image" url="https://isopropyletherperoxide.github.io/assets/images/2025_01_09_tungsten/w_shiny.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">A Template Synthesis of a Polyborate Copper Complex</title><link href="http://localhost:4000/2025/07/16/En_Pentaborate.html" rel="alternate" type="text/html" title="A Template Synthesis of a Polyborate Copper Complex" /><published>2025-07-16T00:00:00+03:00</published><updated>2025-07-16T00:00:00+03:00</updated><id>http://localhost:4000/2025/07/16/En_Pentaborate</id><content type="html" xml:base="http://localhost:4000/2025/07/16/En_Pentaborate.html"><![CDATA[<p>The chemistry of boric acids and boron is, for lack of better words, rather Unhinged. Unlike it’s relatively (and only relatively) well behaved neighbour aluminium or the ubiqitous carbon, it’s aqueous chemistry involves a lot of polymers, with boric acid forming differently shaped ions depending on the pH and the ions present in solution. One such example is in commonly encountered Borax, which does not crystallize out as just a sodium orthoborate, but instead takes a shape of a tetraborate ion, with it’s weird bicylic structure.</p>
-
-<script src="https://3Dmol.org/build/3Dmol-min.js"></script>
-
-<script src="https://3Dmol.org/build/3Dmol.ui-min.js"></script>
-
-<div style="height: 400px; width: 400px; margin-left: 8px; max-width:100%; position: relative;" class="viewer_3Dmoljs" data-href="/assets/images/tetraborate.mol2" data-backgroundcolor="0xffffff" data-style="sphere:radius~0.5,colorscheme~Jmol;stick:colorscheme~Jmol" data-ui="true"></div>
-
-<p>Reference: <a href="https://www.crystallography.net/cod/1534261.html">Crystallography Open Database</a></p>
-
-<p>In certain conditions, and especially in melts, the reaction can be pushed further into making amorphous giant polymers of boric oxides, which are of use in optics and glassmaking, like for making the widespread borosilicate glass or for synthesizing phosphors by adding a small amount of organic dopant before forming the borate glass matrix.</p>
-
-<p>Besides just making large polymeric networks, work has also been carried out in using various metal complexes as templates for assembling ions, allowing us to obtain ions of a well-defined size and structure, avoiding a polycondesation mess that is obtained via plain aqueous chemistry.</p>
-
-<p><img src="/assets/images/24borate.png" width="600" /><br /></p>
-
-<div style="height: 400px; width: 400px; margin-left: 8px; max-width:100%; position: relative;" class="viewer_3Dmoljs" data-href="/assets/images/tetracosborate.mol2" data-backgroundcolor="0xffffff" data-style="sphere:radius~0.5,colorscheme~Jmol;stick:colorscheme~Jmol" data-ui="true"></div>
-
-<p>Reference: Mohammed A. Altahan, Michael A. Beckett, Simon J. Coles, Peter N. Horton CCDC 1858267: Experimental Crystal Structure Determination, 2018, DOI: <a href="https://doi.org/10.5517/ccdc.csd.cc20cp36">10.5517/ccdc.csd.cc20cp36</a></p>
-
-<p>In this writeup, we are replicating the synthesis of a rather small ion, the pentaborate (seen below), although much larger assemblies have been detailed in literature (personally, the biggest I’ve seen was 24 (as seen above))<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>.</p>
-
-<p><img src="/assets/images/5borate.png" width="600" /><br /></p>
-
-<h3 id="ethylenediamine-copper-pentaborate">Ethylenediamine Copper Pentaborate</h3>
-<p>This work is based on a <a href="https://www.sciencedirect.com/science/article/abs/pii/S0277538717304990?via%3Dihub">2017 article by Altahan et al</a><sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">2</a></sup>, with no significant changes made outside of slightly scaling it up because I personally like working on a 0.01 mol scale.</p>
-
-<p>Thankfully, because this compound was synthesized and characterized before at a proper lab, with access to proper X-ray equipment, we can take a look at a a visualization of crystallographic data that was obtained in their work, and see up close the peculiar shape the spirocyclic pentaborate ion takes</p>
-
-<div style="height: 400px; width: 400px; margin-left: 8px; max-width:100%; position: relative;" class="viewer_3Dmoljs" data-href="/assets/images/mebqes.mol2" data-backgroundcolor="0xffffff" data-style="sphere:radius~0.5,colorscheme~Jmol;stick:colorscheme~Jmol" data-ui="true"></div>
-
-<p>Reference:  Mohammed A. Altahan, Michael A. Beckett, Simon J. Coles, Peter N. Horton CCDC 1534199: Experimental Crystal Structure Determination, 2017, DOI: <a href="https://doi.org/10.5517/ccdc.csd.cc1nhg9x">10.5517/ccdc.csd.cc1nhg9x</a></p>
-
-<h3 id="en-copper-sulfate">En Copper Sulfate</h3>
-<p>The first step is making the precursor complex, bis-(Ethylenediamine) Copper (II) Sulfate, which is trivally synthesized by adding 2.1 grams of neat ethylenediamine to a solution of 4 grams of copper sulfate hexahydrate in 15 ml of distilled water. This provides us with an excess of starting material after precipitation by adding isopropanol. The resulting product is a purple-blue powder, soluble in water giving a deep blue-violet solution.</p>
-
-<h3 id="en-copper-hydroxide">En Copper Hydroxide</h3>
-<p>In the next step, 2 grams of the copper complex were dissolved in a small amount of water and a solution of 2.26 grams of barium hydroxide octahydrate was prepared in enough warm distilled water to give a homogenous solution. The hydroxide was added to the metal complex, leading to the precipitation of white barium sulfate, and the replacement of the sulfate anion with hydroxide. The barium sulfate was filtered off and thoroughly washed with distilled water to get the last bits of the soluble hydroxide complex out.</p>
-
-<h3 id="the-pentaborate">The Pentaborate</h3>
-<p>To the obtained aqueous solution, 4.4 grams of boric acid were added and the solution was stirred for 30 minutes, with a slight colour change to more purple. The solution was then concentrated down on gentle heat to ~10 ml and left to dry in a desiccator. After a while of waiting, a quite impure product was obtained, containing huge crystals of the target compound, but also a lot of boric acid and an insoluble blue precipitate of copper (meta?) borate.</p>
-
-<p><img src="/assets/images/borate_big_crystals.jpg" width="600" title="big, crude crystals of the boron complex" /><br /></p>
-
-<p><img src="/assets/images/impure_dry_borate.jpg" width="600" /><br /></p>
-
-<p>The work on this complex was resumed only a few months after, as I spent the rest of the summer in a sort of dissociative haze caused by the summer heat and power outages, and honestly don’t recall most of it except for the stuff written down in some of my lab logs. Probably for good.</p>
-
-<p>The resulting solid was then dissolved in a mixture of methanol and water, and gravity filtered to remove insoluble impurities like copper borate, resulting in a purple solution resembling Cobalt (II). The solution was slightly evaporated, and the resulting purple product was separated out via gravity filtration and placed in a vial, at which point the synthesis was finally considered complete.</p>
-
-<p><img src="/assets/images/pentaborate_filter.jpg" width="600" /><br /></p>
-
-<p>The final yield wasn’t measured, however it was considerably lowered during the recrystallisation.</p>
-
-<p><img src="/assets/images/pentaborate_vial.jpg" width="600" /><br /></p>
-
-<h3 id="literature">Literature</h3>
-<p>Beckett, M. A. Recent Advances in Crystalline Hydrated Borates with Non-Metal or Transition-Metal Complex Cations. Coordination Chemistry Reviews 2016, 323, 2–14. <a href="https://doi.org/10.1016/j.ccr.2015.12.012">https://doi.org/10.1016/j.ccr.2015.12.012</a>.</p>
-
-<h3 id="sources">Sources</h3>
-
-<div class="footnotes" role="doc-endnotes">
-  <ol>
-    <li id="fn:1" role="doc-endnote">
-      <p>Altahan, M. A.; Beckett, M. A.; Coles, S. J.; Horton, P. N. Synthesis and Characterization by a Single-Crystal XRD Study of [H3O]4[Cu7(NH3)2(H2O)4{B24O39(OH)12}]·13H2O: An Unusual [{(H2O)2(NH3)Cu}2{B2O3(OH)2}2Cu]2+ Trimetallic Bis(Dihydroxytrioxidodiborate) Chain Supported by a [{Cu4O}{B20O32(OH)8}]6− Cluster. J Clust Sci 2018, 29 (6), 1337–1343. <a href="https://doi.org/10.1007/s10876-018-1452-9.">https://doi.org/10.1007/s10876-018-1452-9.</a> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
-    </li>
-    <li id="fn:2" role="doc-endnote">
-      <p>Altahan, M. A.; Beckett, M. A.; Coles, S. J.; Horton, P. N. Synthesis and Characterization of Polyborates Templated by Cationic Copper(II) Complexes: Structural (XRD), Spectroscopic, Thermal (TGA/DSC) and Magnetic Properties. Polyhedron 2017, 135, 247–257. <a href="https://doi.org/10.1016/j.poly.2017">https://doi.org/10.1007/s10876-018-1452-9.</a> <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
-    </li>
-  </ol>
-</div>]]></content><author><name>me :3</name></author><summary type="html"><![CDATA[The chemistry of boric acids and boron is, for lack of better words, rather Unhinged. Unlike it’s relatively (and only relatively) well behaved neighbour aluminium or the ubiqitous carbon, it’s aqueous chemistry involves a lot of polymers, with boric acid forming differently shaped ions depending on the pH and the ions present in solution. One such example is in commonly encountered Borax, which does not crystallize out as just a sodium orthoborate, but instead takes a shape of a tetraborate ion, with it’s weird bicylic structure.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://isopropyletherperoxide.github.io/assets/images/pentaborate_thumb.jpg" /><media:content medium="image" url="https://isopropyletherperoxide.github.io/assets/images/pentaborate_thumb.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+</div>]]></content><author><name>me :3</name></author><summary type="html"><![CDATA[]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://isopropyletherperoxide.github.io/assets/images/2025_01_09_tungsten/w_shiny.jpg" /><media:content medium="image" url="https://isopropyletherperoxide.github.io/assets/images/2025_01_09_tungsten/w_shiny.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
