@@ -1,0 +1,94 @@
+---
+title: "Combustively Synthesizing Europium-Doped Alumina"
+author: aryl nitrate
+image: https://isopropyletherperoxide.github.io/assets/images/2026_europium_alumina/glow_foam.webp
+layout: post
+subtitle: "they let me set things on fire again"
+twittercard: summary_large_image
+--- 
+
+The insufficient heating of the precursor mix resulted in the formation of a sparse, somewhat sticky and wet foamy solid, protruding and threatening to spill out beyond the walls of the crucible.
+
+Hit with the tip of the blowtorch flame, the semisolid foam sets alight, turning into a fluffy mass of oxide product at a slow and steady pace, marked by an incandescent front advancing throughout the reagents. The decomposition of the nitrate makes itself obvious with the noxious stench of nitric oxide now permeating the air. Red-brown fumes emanate from the crucible, filling up the lab space with an unmistakeable stench of metallic rot. The incandescent front after itself leaves behind masses of fluffy white desired product. On cooling, the resulting phosphor exhibits the desired luminescent properties to a reasonable, although slightly disappointing extent. 
+
+<video controls>
+    <source src="/assets/images/2026_europium_alumina/combustion_1.webm">
+</video>
+
+Here, you can see the somewhat disappointing fluorescence under a 395 nm light.
+
+<img src="/assets/images/2026_europium_alumina/glow_foam.webp"><br>
+
+## Introduction (Why care about Europium?) 
+Europium is one of the more fun rare earth metals. Some, like lanthanum are so useless that onyxmet sends them out for free to internet personalities, while some, like Lutetium sit in that rare corner of "obscure" and "expensive" where we know only one person who has ever done Lutetium chemistry sans Martin "Periodic" Polyakoff-Videos. Europium is relatively inexpensive and it has interesting enough solution chemistry that doesn't require you to talk to materials people or to spin optic fibres. 
+
+The most useful property of Europium is its fluorescence, as with Europium you can easily have a rather large stokes shift of UV into red-orange with just the Eu3+ ion and most importantly, without getting Specialist Organic Fluorophores involved. These are used in things like LEDs, fluorescent pigments and all sorts of Screens. Because of nominative determinism, obviously a Europium-based compound is used as one of the fluorescent dyes used in Euro bills to protect them from being counterfeited. You can see it glow here, on a 100 euro bill that we stole from our girlfriend's purse. 
+
+<img src="/assets/images/2026_europium_alumina/euro.webp"><br>
+
+The yellowy-orangey etcetera such as the stars or the small security fibers allegedly contain some form of Europium diketonate complex[^1]. This would be much closer to a characteristic red-orange under a different wavelength but all that we had on us was a 365 nm pen light (used for every photo in the article from now on) with a single half-dead AAA battery in it (this part was finished in Un Trou Perdu, Bay of Somme, North France)
+
+Even though cheaper than something like Erbium, Europium is still a bit pricey, so it is better to use it as a Fluorescent Additive into something, and to have a bulk matrix around it make up majority of the pigment. This time, the filler element will be Aluminium.
+
+## Combustion Synthesis 
+Because high-temperature chemistry is expensive and because our own high-temperature chemistry projects are stuck in development hell, we decided to look at a different approach to making various oxide materials. Namely: combustion synthesis. Combustion synthesis is in and of itself the more productive little sister of a flash powder or a rocket fuel; with the stark difference being that we actually want to keep the end product for ourselves instead of caring solely about the exotherm. The exotherm here does still matter as it provides the energy for whatever lattice-formation-doping-insertion-contortion process we try to do. But, unlike with rocket fuels or pyrotechnics, we'd rather minimize gas production, as spraying oxides in all direction is firmly beyond the line of reasonable chemistry and is shameful material scientist behaviour.
+
+The biggest con of combustion synthesis lies in its short-livedness. The short reaction time is often not long enough for neither characterizable phase formation nor the burning of the side products and unreacted precursor off, leading to a generally messier end product. pXRD time is too expensive, and we hate filling up pXRD cuvettes so this is not much of a concern to us. A qualitative result is good enough for the meth corner blog, and a positive qualitative result is outstanding, even. 
+
+## Equipment, Reagents  
+Aluminium nitrate nonahydrate was sourced from a local chemistry supplier, the urea from a fertilizer bag we got at the age of 14, and europium nitrate something hydrate was made from europium carbonate sourced from <a href="https://onyxmet.com">onyxmet.com</a>, which is just about the best source for Miscellaneous Elements there is. The heating vessel was an aliexpress ceramic crucible we bought with our girlfriend's debit card and the heating implement was a two-shot system of 1kW kitchen hotplate and blowtorch. A temperature controlled muffle furnace is most definitely preferable.
+
+## Experimental 
+This procedure is taken directly from a paper by Kumar et al, 2015[^1].  
+
+The scales are small this time, and we have neither Mettler-Toledo money or scale up money (everything's poor on the Scales front) so first things first we made a standard solution of 50 mg of Europium Nitrate in 10 ml of water. 
+
+### Run 1 
+The tinsy and yellow one.
+
+- 0.00199 mol of Al(NO3)3 nonahydrate - 0.7465087 grams
+- 0.00001 mol of Eu(NO3)3 hexahydrate ~ 5mg / 1 ml of solution 
+- 0.005 mols of Urea - 300 mg
+
+The precursors were mixed in the crucible with the europium solution acting as a solvent, and they were stirred until full dissolution. The crucible was set on a preheated plate and evaporated to dryness. The process went through with no visible combustion, leaving a small piece of Sediment on the bottom of the crucible. This sediment was left to cool (fluorescence doesn't tolerate high temperatures) and checked under various UV lights. The resulting compound has a yellow-orange fluorescence, befit that of Eu3+. In hindsight, this result is ambiguous, as we aren't sure if the combustion synthesis actually had happened. HOWEVER; to get ahead of ourselves - this phosphor had the brightest luminescence out of all 3 attempts, so maybe we did something right. Or maybe it's some weird fucked up bizarre world urea derivative complexing with the europium. Or quantum dots. It's yellow and glows brightly. We file that as a success. 
+
+<img src="/assets/images/2026_europium_alumina/phosphor_1.webp"><br>
+
+### Run 2
+Let's scale everything up 4 times. Let's gamble. 
+
+- 2.96 grams Al(NO3)3 * 9H2O (0.008 mol)
+- 4 ml of the Europium solution (0.00004 mol/20 mg)
+- 1.2 g of Urea (0.02 mol)
+
+This resulted in the production of a voluminous, somewhat sticky foam, which, when hit with a blowtorch erupted in an incandescent flame and left behind a fluffy muffinlike formation of Product. This was crushed up into a powder, which exhibits a yellowish fluorescence under 365 nm and a more orange one under 395 nm. Not sure how to interpret the slightly different end product, as the more dim fluorescence could either be Good or Bad. Possibly the brighter fluorescence is the result of the better incorporation of the Eu3+ ions in the previous run, or in the more pessimistic interpretation - the result of the interaction of Eu3+ with some sort of antenna ligand left behind by the incomplete destruction of the urea fuel (more on antenna ligands[^2] sometime in the future). 
+
+<img src="/assets/images/2026_europium_alumina/foam.webp"><br>
+
+<img src="/assets/images/2026_europium_alumina/phosphor_2.webp"><br>
+
+Run 2 yield: 400 mg
+
+### Run 3. 
+The "B-roll" run with the remains of our Europium Solution. 
+
+- 3.73 grams of Al(NO3)3 * 9H2O (0.01 mol)
+- 5 ml of Eu solution (0.00005 mol ~ 25 mg / 5 ml of solution)
+- 1.5 grams of Urea (0.025 mol)
+
+As a cope (lowkey true though), we are going to formally state, put it on record even, that this run was carried out mostly with the purpose of getting more footage for the blog as we pressed record too late during the second run. Everything went in about the same manner as it did during run 2, with the exception that when we tried to "calcine" our end product with a blowtorch we managed to let the crucible slip from our pliers, with it landing at a perfect angle on the hotplate knob to spill all the product onto the yucknasty dusty lab floor. B-roll run. This is normal. Fine even. Strike this one from the fucking record. Memoryhole it. If anyone asks, and nobody will - didn't happen. We did two runs and that's where it ended. Will you shut up man? Stop asking me about the third run in the alumina blogpost. You look insane asking this. You are embarrassing me and yourself. Look at yourself, seriously, you're asking me about some third europium run? Look at the footage instead. Don't ask about the product. That'd be considered harassment.
+
+<video controls>
+    <source src="/assets/images/2026_europium_alumina/combustion_2.webm">
+</video>
+
+No yield, we think of ourselves as higher than sweeping this kind of product off the horrible lab floor.
+
+## Conclusions
+Although wildly inconsistent, combustion synthesis is fun enough to do to be worth it in the end. We still got something to show for it, which is more than we can say about some of the other projects we've been trying to do for the last month. Good job, Aryl.
+
+ <img src="/assets/images/2026_europium_alumina/two_vials.webp"><br>
+
+## Footnotes
+[^1]: Kumar, S.; Prakash, R.; Kumar, V.; Bhalerao, G. M.; Choudhary, R. J.; Phase, D. M. Surface and Spectral Studies of Eu3+ Doped α-Al2O3 Synthesized via Solution Combustion Synthesis. Advanced Powder Technology 2015, 26 (4), 1263–1268. <a href="https://doi.org/10.1016/j.apt.2015.06.009">https://doi.org/10.1016/j.apt.2015.06.009.</a>
+[^2]: Werts, M. H. V. Making Sense of Lanthanide Luminescence. Science Progress 2005, 88 (2), 101–131. https://doi.org/10.3184/003685005783238435. 
