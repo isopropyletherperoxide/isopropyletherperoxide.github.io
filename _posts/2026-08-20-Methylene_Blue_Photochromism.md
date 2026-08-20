@@ -20,7 +20,7 @@ To see redox photochromism in action on your own, contact your local Ray-Ban® r
 <img src="/assets/images/2026_methylene_blue/photochromic_smiley.webp"><br>
 
 ## Foreword: on Worms in US Politics
-An astute reader could note, that the medicinal properties of the dye do not actually end at it's use as a methemoglobinemia drug, and actually go a tad bit further, which is precisely why it went through an utter PR nightmare somewhere around 2025 during the USAmerican Presidental Transition. It really brought us no joy whatsoever to see a topic of niche nootropics discourse break its way into the mainstream of American Electoral Politics after noted US elected necrozoophiliac[^2] Richard FK Jr. was caught spiking his own drink with a mysterious Blue Fluid that is allegedly a solution of MB.[^3] 
+An astute reader could note, that the medicinal properties of the dye do not actually end at its use as a methemoglobinemia drug, and actually go a tad bit further, which is precisely why it went through an utter PR nightmare somewhere around 2025 during the USAmerican Presidental Transition. It really brought us no joy whatsoever to see a topic of niche nootropics discourse break its way into the mainstream of American Electoral Politics after noted US elected necrozoophiliac[^2] Richard FK Jr. was caught spiking his own drink with a mysterious Blue Fluid that is allegedly a solution of MB.[^3] 
 
 <img src="/assets/images/2026_methylene_blue/rfk.png"><br>
 
