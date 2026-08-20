@@ -96,7 +96,7 @@ We were supposed to skip town in 2 days and we didnt feel like dealing with fume
 ## Conclusions
 Thank you for reading our monthly screed. We hope you are aesthetically and epistemologically satisified with the contents of the article. The pace this piece was finished in was feverish and we had to make several scope cutbacks to get it out in due time as we had 3 other chemistry projects going at the same time. Some of them went as so far as to progress into the "first step optimization" stage. This post is not sponsored by Ray-Ban®, sadly. Our knockoff aviators got almost destroyed in our bag on last month's vacation, so to creative director of Ray-Ban®, Mr. A$AP Rocky please hit us up we were one of the few who actually thought Testing was really good back in 2018. More chemistry &c to come soon, with less fumed silica involved, we hope.
 
-As mentioned, if you have any suggestions on how to improve the coating process or something fun to do with the photochromic system, don't be afraid to reach out to us on [twitter](https://x.com/endless_sine) or discord (@arylation).
+As mentioned, if you have any suggestions on how to improve the coating process or something fun to do with the photochromic system, don't be afraid to reach out to us on [twitter](https://x.com/endless_sine), [fedi](https://mastodon.social/@aryl) or discord (@arylation).
 
 ### Footnotes 
 [^1]: [https://en.wikipedia.org/wiki/Photochromism](https://en.wikipedia.org/wiki/Photochromism)
