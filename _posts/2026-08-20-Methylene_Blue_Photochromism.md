@@ -3,7 +3,7 @@ title: "Playing with a Photochromic Methylene Blue System"
 author: phenothiazine aryl
 image: https://isopropyletherperoxide.github.io/assets/images/2026_methylene_blue/swirlie.webp
 layout: post
-subtitle: "i'm taking mysterious fluids on flights to places you've never heard about"
+subtitle: "i'm taking mysterious fluids on flights to places you've never heard of"
 twittercard: summary_large_image
 --- 
 
