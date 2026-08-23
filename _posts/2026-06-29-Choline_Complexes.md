@@ -5,6 +5,7 @@ image: https://isopropyletherperoxide.github.io/assets/images/2026_choline/thumb
 layout: post
 subtitle: "sponsored by the poultry-industrial complex"
 twittercard: summary_large_image
+toc: true
 --- 
 
 *"...it feels like an ad in a cheap hardware store in a part of town where there is at least 4 different people injecting heroin under that store"*<br>
@@ -100,10 +101,10 @@ We... strayed from the method a bit and improvised by the end... Leading to ques
 ### The Reagents: 
 Our copper chloride was quite impure and probably needs a recrystallization from hydrochloric acid. On standing, Copper (II) Chloride tends to hydrolyse and form basic salts like Cu(OH)Cl that interfere with our synthesis. 
 
-### The Equipment 
+### The Equipment:
 Right as we were filtering the yellow compound, the hose on our aspirator pump finally gave way and decomposed, making the vacuum pulled by it negligible. We had to frantically scrape the remains of the rotten hose off the aspirator and force on a new one just to finish this on time.
 
-### The Heat 
+### The Heat:
 The European Heatwave is not treating us well. The heat in the lab seems to poach our brain into a nice and firm hardboiled state. 
 
 ## Conclusions 

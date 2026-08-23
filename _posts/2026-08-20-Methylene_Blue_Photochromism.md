@@ -5,6 +5,7 @@ image: https://isopropyletherperoxide.github.io/assets/images/2026_methylene_blu
 layout: post
 subtitle: "i'm taking mysterious fluids on flights to places you've never heard of"
 twittercard: summary_large_image
+toc: true
 --- 
 
 **tw: us politics, close up pictures of human brain**
@@ -98,7 +99,7 @@ Thank you for reading our monthly screed. We hope you are aesthetically and epis
 
 As mentioned, if you have any suggestions on how to improve the coating process or something fun to do with the photochromic system, don't be afraid to reach out to us on [twitter](https://x.com/endless_sine), [fedi](https://mastodon.social/@aryl) or discord (@arylation).
 
-### Footnotes 
+## Footnotes 
 [^1]: [https://en.wikipedia.org/wiki/Photochromism](https://en.wikipedia.org/wiki/Photochromism)
 [^2]: [RFK Jr. admits to dumping a dead bear in Central Park, solving a decade-old mystery](https://www.npr.org/2024/08/05/nx-s1-5063939/rfk-jr-central-park-bear-bicycle), 2024, NPR
 [^3]: [What was RFK Jr putting in his drink mid-flight?](https://www.independent.co.uk/news/world/americas/us-politics/rfk-jr-drinking-flight-methylene-blue-b2693495.html), 2025, The Independent

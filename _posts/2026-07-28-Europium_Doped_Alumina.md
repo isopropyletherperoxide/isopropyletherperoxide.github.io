@@ -5,6 +5,7 @@ image: https://isopropyletherperoxide.github.io/assets/images/2026_europium_alum
 layout: post
 subtitle: "they let me set things on fire again"
 twittercard: summary_large_image
+toc: true
 --- 
 
 The insufficient heating of the precursor mix resulted in the formation of a sparse, somewhat sticky and wet foamy solid, protruding and threatening to spill out beyond the walls of the crucible.
@@ -69,7 +70,7 @@ This resulted in the production of a voluminous, somewhat sticky foam, which, wh
 
 Run 2 yield: 400 mg
 
-### Run 3. 
+### Run 3 
 The "B-roll" run with the remains of our Europium Solution. 
 
 - 3.73 grams of Al(NO3)3 * 9H2O (0.01 mol)

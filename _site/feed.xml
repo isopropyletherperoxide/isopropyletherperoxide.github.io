@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-08-20T17:23:30+03:00</updated><id>http://localhost:4000/feed.xml</id><entry><title type="html">Playing with a Photochromic Methylene Blue System</title><link href="http://localhost:4000/2026/08/20/Methylene_Blue_Photochromism.html" rel="alternate" type="text/html" title="Playing with a Photochromic Methylene Blue System" /><published>2026-08-20T00:00:00+03:00</published><updated>2026-08-20T00:00:00+03:00</updated><id>http://localhost:4000/2026/08/20/Methylene_Blue_Photochromism</id><content type="html" xml:base="http://localhost:4000/2026/08/20/Methylene_Blue_Photochromism.html"><![CDATA[<p><strong>tw: us politics, close up pictures of human brain</strong></p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-08-24T01:20:40+03:00</updated><id>http://localhost:4000/feed.xml</id><entry><title type="html">Playing with a Photochromic Methylene Blue System</title><link href="http://localhost:4000/2026/08/20/Methylene_Blue_Photochromism.html" rel="alternate" type="text/html" title="Playing with a Photochromic Methylene Blue System" /><published>2026-08-20T00:00:00+03:00</published><updated>2026-08-20T00:00:00+03:00</updated><id>http://localhost:4000/2026/08/20/Methylene_Blue_Photochromism</id><content type="html" xml:base="http://localhost:4000/2026/08/20/Methylene_Blue_Photochromism.html"><![CDATA[<p><strong>tw: us politics, close up pictures of human brain</strong></p>
 
 <p><strong>Photochromism</strong> is the process of a chemical undergoing a reversible colour change upon interaction with light. “Reversible” here being a load-bearing descriptor differentiating it from photodegradation, which is what you can commonly see in non-lightfast pigments after they sit out in the sun after a while. Photochromicity has a myriad of different mechanisms ranging from cis-trans isomerizations (azobenzenes), ring opening and closure reactions (spiropyrans, the oldest known photochromic compounds)<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup> to redox reactions (this work, a lot of inorganic photochromic pigments).</p>
 
@@ -89,7 +89,7 @@
 
 <p>As mentioned, if you have any suggestions on how to improve the coating process or something fun to do with the photochromic system, don’t be afraid to reach out to us on <a href="https://x.com/endless_sine">twitter</a>, <a href="https://mastodon.social/@aryl">fedi</a> or discord (@arylation).</p>
 
-<h3 id="footnotes">Footnotes</h3>
+<h2 id="footnotes">Footnotes</h2>
 
 <div class="footnotes" role="doc-endnotes">
   <ol>
@@ -193,7 +193,7 @@
 
 <p>Run 2 yield: 400 mg</p>
 
-<h3 id="run-3">Run 3.</h3>
+<h3 id="run-3">Run 3</h3>
 <p>The “B-roll” run with the remains of our Europium Solution.</p>
 
 <ul>
@@ -318,10 +318,10 @@ blur = false
 <h3 id="the-reagents">The Reagents:</h3>
 <p>Our copper chloride was quite impure and probably needs a recrystallization from hydrochloric acid. On standing, Copper (II) Chloride tends to hydrolyse and form basic salts like Cu(OH)Cl that interfere with our synthesis.</p>
 
-<h3 id="the-equipment">The Equipment</h3>
+<h3 id="the-equipment">The Equipment:</h3>
 <p>Right as we were filtering the yellow compound, the hose on our aspirator pump finally gave way and decomposed, making the vacuum pulled by it negligible. We had to frantically scrape the remains of the rotten hose off the aspirator and force on a new one just to finish this on time.</p>
 
-<h3 id="the-heat">The Heat</h3>
+<h3 id="the-heat">The Heat:</h3>
 <p>The European Heatwave is not treating us well. The heat in the lab seems to poach our brain into a nice and firm hardboiled state.</p>
 
 <h2 id="conclusions">Conclusions</h2>

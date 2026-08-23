@@ -4,5 +4,15 @@ layout: default
 <h1 id="title">{{ page.title }}</h1>
 <p>{{ page.date | date_to_string }} - {{ page.author }}</p>
 <div class="blog_box">
-{{ content }}
+<div>
+  <div id="table-of-contents">
+          {% if page.toc %}
+    <h2> Contents </h2>
+{% endif %}
+    {% toc %}
+  </div>
+  <div id="markdown-content">
+    {{ content }}
+  </div>
+</div>
 </div>

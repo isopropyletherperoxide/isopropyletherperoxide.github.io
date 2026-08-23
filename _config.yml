@@ -2,6 +2,7 @@ url: "https://isopropyletherperoxide.github.io"
 plugins:
   - jekyll-sitemap
   - jekyll-feed
+  - jekyll-toc
 exclude: 
   - shell.nix
 timezone: Europe/Kyiv
