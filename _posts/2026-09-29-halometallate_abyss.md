@@ -21,7 +21,7 @@ In today's case cesium is an ion of interest purely due to its sheer size. If yo
 
 <img src="/assets/images/2026_cesium_halometal/ions.png"><br>
 
-Because of the fact that Halogens are low-field ligands according to Crystal Field Theory (don't worry if you don't know this, a quick explainer is included in the article), tetrahedral complexes of some metals are more likely to form due to their low contribution to Crystal Field Stabilization Energy, driven largely by sterics. (otherwise, like with cyanide a Square Planar compound will form). These large, soft (only in the charge-radius meaning of it, they are quite structurally rigid, more on this later) complexes pack rather well with large counterions such as Cs+ or [N(Alk)4]+. Sometimes mathematicians (this happened twice to us before) complain that chemistry feels non-rigorous and hellishly empirical, and in these moments we understand[^5] that they might've been correct. The empirical rules that modern Perovskitologists use to estimate perovskite structure & stability are taken Straight From Geology[^6]
+Because of the fact that Halogens are low-field ligands according to Crystal Field Theory (don't worry if you don't know this, a quick explainer is included in the article), the tetrahedral complexes of some metals are much more likely to form compared to similar Square Planar complexes. This is due to the low energy contribution of halides to CFSE, compared to something like cyanide. In such compounds, the geometry is largely decided by whatever's near it in the lattice and also Sterics. These large, soft (only in the charge-radius meaning of it, they are quite structurally rigid, more on this later) complexes pack rather well with large counterions such as Cs+ or [N(Alk)4]+. Sometimes mathematicians (this happened twice to us before) complain that chemistry feels non-rigorous and hellishly empirical, and in these moments we understand[^5] that they might've been correct. The empirical rules that modern Perovskitologists use to estimate perovskite structure & stability are taken Straight From Geology[^6]
 
 <img src="/assets/images/2026_cesium_halometal/ball_so_hard_motherfuckers_wanna_fine_me.png"><br>
 <div style="font-size: smaller; margin-top: -15px;"> 
@@ -107,11 +107,11 @@ The CFT situation for Tetrahedral Copper is quite different and gives us a squis
 
 The following part is not peer reviewed and is mostly educated undergrad guesswork from prior literature. Take it with a grain of salt. Heavily based on this[^20] chemistry stackexchange answer.
 
-In hydrated tetrachlorocuprates (like the crystal grower darlings K2[CuCl4(H2O)2] and (NH4)2[CuCl4(H2O)2]) copper takes the configuration of a distorted octahedron with two chlorides and two aquo ligands present in a "planar" configuration, and two extra chlorides present at a very long distance. Those chlorides are weakly bound to the potassium ions in the neighbouring cell, somewhat stabilizing our lattice.
+In hydrated tetrachlorocuprates (like the crystal grower darlings K2[CuCl4(H2O)2] and (NH4)2[CuCl4(H2O)2]) copper takes the configuration of a distorted octahedron with two chlorides and two aquo ligands present in a "planar" configuration, and two extra chlorides that are subjects of our JT elongation present at a very long distance. Those chlorides are also weakly bound to the potassium ions in the neighbouring cell, somewhat stabilizing our lattice.
 
 <img src="/assets/images/2026_cesium_halometal/rb2cucl4.png"><br>
 <div style="font-size: smaller; margin-top: -15px;"> 
-Figure used from: Waizumi, K.; Masuda, H.; Ohtaki, H.; Burkov, K. A.; Chernykh, L. Structure of 2RbCl.CuCl2.2H2O. Acta Crystallogr C Cryst Struct Commun 1992, 48 (8), 1374–1376. https://doi.org/10.1107/s0108270192000180 
+Figure used from: Waizumi, K.; Masuda, H.; Ohtaki, H.; Burkov, K. A.; Chernykh, L. Structure of 2RbCl.CuCl2.2H2O. Acta Crystallogr C Cryst Struct Commun 1992, 48 (8), 1374–1376. https://doi.org/10.1107/s0108270192000180  
 </div>
 
 A bigger ion like Cs+ is less likely to force extra water molecules in or to squeeze the copper into a planar structure so it allows for a distorted tetrahedron to form instead of the weird planar-octahedral whatever so we see a structure almost isomorphic to compounds like Cs2[CoCl4]. With the exception of the JT distortion present alongside electrostatic effects from the other atoms in the lattice to squish the tetrahedron. 
