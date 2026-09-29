@@ -1,7 +1,7 @@
 ---
 title: "Cesium Chlorometallates Near the Perovskite Abyss"
 author: tetrachloroarylate
-image: https://isopropyletherperoxide.github.io/assets/images/2026_halometal/thumbnail.webp
+image: https://isopropyletherperoxide.github.io/assets/images/2026_cesium_halometal/thumbnail.webp
 layout: post
 subtitle: "God Help Us Help Us Lose Our Minds"
 twittercard: summary_large_image
