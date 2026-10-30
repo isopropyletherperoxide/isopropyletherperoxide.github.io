@@ -1,4 +1,111 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-09-29T16:26:13+03:00</updated><id>http://localhost:4000/feed.xml</id><entry><title type="html">Cesium Chlorometallates Near the Perovskite Abyss</title><link href="http://localhost:4000/2026/09/29/halometallate_abyss.html" rel="alternate" type="text/html" title="Cesium Chlorometallates Near the Perovskite Abyss" /><published>2026-09-29T00:00:00+03:00</published><updated>2026-09-29T00:00:00+03:00</updated><id>http://localhost:4000/2026/09/29/halometallate_abyss</id><content type="html" xml:base="http://localhost:4000/2026/09/29/halometallate_abyss.html"><![CDATA[<p>Long-time readers and fellow inorganic chemistry appreciators probably already know about the halometallate ions and in particular, about a beloved long-time staple of hobbyist chemistry - the tetrachlorocuprate. The correct IUPAC-approved nomenclature for the ion is “tetrachloridocuprate” and it will be mentioned exactly once and then promptly forgotten and left in the annals of history even if it does convey slightly more information.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-10-30T18:07:09+02:00</updated><id>http://localhost:4000/feed.xml</id><entry><title type="html">Indicator Silica Gel &amp;amp; Generalized October Futility</title><link href="http://localhost:4000/2026/10/30/indicator-silica-misery.html" rel="alternate" type="text/html" title="Indicator Silica Gel &amp;amp; Generalized October Futility" /><published>2026-10-30T00:00:00+02:00</published><updated>2026-10-30T00:00:00+02:00</updated><id>http://localhost:4000/2026/10/30/indicator-silica-misery</id><content type="html" xml:base="http://localhost:4000/2026/10/30/indicator-silica-misery.html"><![CDATA[<p>Back in June, currentyear we have decided to sweep through our lab on a mission to eliminate inefficiencies &amp; sources of contamination after we’d almost ruined our entire stock of Cesium Carbonate by leaving it in an iodine-contaminated desiccator. In the process of decontamination, the vessel in question was emptied of its old calcium chloride drying agent and thoroughly washed in order to remove all traces of halogens. But then our task at hand was interrupted by the fact that the big jar of calcium chloride (our favourite desiccant) exploded in storage, leaving us with two giant shards of glass and a big moist lump of CaCl2 we did not feel like dealing with.</p>
+
+<p>The reason why Calcium Chloride and not silica gel is our favourite desiccant is that calcium chloride comes with its own built in saturation indicator in the form of deliquescence. Spent CaCl2 will form a big chunk or even a puddle on saturation, while silica gel retains its mechanical structure over the whole range of humidity, unless you suddenly hit it with an excessive amount of moisture. This is advantageous for things like food storage or for its applications in the shipping industry, but which does us no service in our desiccators. This flaw is rectified by some industries by the application of Indicator Silica.</p>
+
+<p>So in order to celebrate No Effort <del>November</del> October we have decided to move focus away from any sort of theory heavy chemistry or advanced inorganic synthesis towards something that seemed much simpler and more commonly appreciated - Indicator Silica. How it’s produced, how it works, and the caveats that are involved therein.</p>
+
+<h2 id="the-typology-of-indicator-silica">The Typology of Indicator Silica</h2>
+<p>As of October 2026, indicator silica mostly comes in two flavours, the original cobalt chloride and the new “cobalt-free” form. These are two are equally effective as desiccants and only differ by the humidity indicator they contain. In the second type, the cobalt is replaced in a favour of a supposedly less toxic organic dye (usually something like Crystal Violet). The latter kind became more widespread around the 2000s when the European Union classified soluble cobalt salts as toxic/carcinogenic<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>.</p>
+
+<p>This ruling led to an interesting conclusion in that there is now a secret third category of silica gel that is sold as “cobalt <strong>chloride</strong> free” and not “<strong>cobalt</strong> free”. While this sort of naming is correct, these desiccants still contain the scary soluble cobalt in the form of a tetrachlorocobaltate salt which is cobalt chloride in every toxicological sense of the term. (the chemical composition of the solid compound is different but in solutions salts like this dissociate to cobalt chloride). A little snag for you to look out for if you are using the silica gel around food or pets or whatever else that does not appreciate extra Cobalt.<sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">2</a></sup></p>
+
+<h2 id="how-do-silica-and-indicator-silica-work">How do Silica and Indicator Silica Work?</h2>
+<p>Silica gel is a highly porous material that holds water by the mechanism of Physical Adsorption. In the parts of physical chemistry that deal with sorption we split the processes into mainly two categories: <strong>adsorption</strong> and <strong>absorption</strong>.</p>
+
+<p>The difference between them is that <strong>absorption</strong> involves the entire bulk solid holding onto moisture (happens with fibrous/filamentous materials like cloth, for example), while <strong>adsorption</strong> only happens at or near the surface of our solid. There is also a third category that is Ion Exchange, but the ion exchange resin masterpost will have to wait a few more years so don’t bother with it yet. Surface adsorption is the defining mechanism of how silica gel and other common desiccants like molecular sieves or alumina work in everyday humidity control applications. <strong>Physical</strong> Adsorption means that our substrate does not actually react chemically with the adsorbate (in this case water) and that it is held in there purely by weaker forces like van der Waals or hydrogen bonds. In contrast, chemical adsorption happens in things like automotive catalytic converters where the nanoparticles of precious metals actually react with the harmful nitrogen oxides and form intermediary chemical compounds.</p>
+
+<p>The way physical chemistry describes this is by the application of an Adsorption Isotherm<sup id="fnref:3" role="doc-noteref"><a href="#fn:3" class="footnote" rel="footnote">3</a></sup> - a plot of amount of adsorbed adsorbate with regards to the relative vapour pressure of the adsorbed substance. (the exact coordinates for the plot may vary but they usually have the y axis set to amount of adsorbate (be it in a percentage or mass or something similar) on the surface and the x axis to some form of concentration of the adsorbate in the atmosphere)</p>
+
+<p>There exist many different models for this, such as Henry, BET, Langmuir, Freundlich and other isotherms, all differing in complexities, scope and applications. We will not focus on any model in particular and instead just look at the adsorption isotherms in general. Regardless of the model, IUPAC gives us 8 “model-agnostic” (mostly) adsorption isotherm shapes. So, for example, something like silica gel any other similar good drying agents/adsorbants will have a Type I isotherm.<sup id="fnref:4" role="doc-noteref"><a href="#fn:4" class="footnote" rel="footnote">4</a></sup></p>
+
+<p><img src="/assets/images/2026_silica/isotherm1.png" class="bw" /><br /></p>
+
+<p>Interestingly, these models are useful enough to describe <strong>bulk</strong> absorption in something like for example, 3D printing filament. According to this<sup id="fnref:5" role="doc-noteref"><a href="#fn:5" class="footnote" rel="footnote">5</a></sup> paper, PLA has a linear (Henry) isotherm, while ABS and the infamously hygroscopic Nylon have a Type III Isotherm that can be described by BET. The actual mechanisms are quite different in polymeric substances though, with it being treated more like standard diffusion with calculation done via Fick’s Law rather than with any of the surface adsorption models.</p>
+
+<p><img src="/assets/images/2026_silica/isotherm3.png" class="bw" /><br /></p>
+
+<p>Indicator silica isn’t any different from normal silica, with the exception that a small amount of moisture sensitive indicator compound is added. This compound resides at the surface of our gel and reacts in a certain way with water, changing the colour over time the more humidity is present. This is a reversible process, and in theory, we can cycle our indicator silica an unlimited amount of times before it breaks.<sup id="fnref:6" role="doc-noteref"><a href="#fn:6" class="footnote" rel="footnote">6</a></sup></p>
+
+<p>Inorganic humidity indicators are most of the time salts or complexes of various transition metals. The most widespread salts used for these purposes are metal halides, as they come with a nice sharp colour change and are usually pretty cheap. Cobalt silica before the aforementioned EU ruling for example relies on the formation of a tetrahedral blue tetrachlorocobaltate complex driven by the removal of the aquo ligands from cobalt’s octrahedral coordination sphere.</p>
+
+<p><img src="/assets/images/2026_silica/humidity_indicators_inorg.png" /><br /></p>
+
+<p>The more interesting mechanisms occur with the organic indicators, where the main role is played not by a ligand and geometry change but usually by the pH of the surface. Silica Gel by itself is quite acidic, so in a dry state, a dye like Phenolphtalein will have an orange colour corresponding to the fully protonated form, while with the increasing humidity it loses colour, indicative of the neutral form of the dye (similar to the less non-protonated pure neutral solid)</p>
+
+<p><img src="/assets/images/2026_silica/humidity_indicators.png" /><br /></p>
+
+<h2 id="synthesis">Synthesis</h2>
+<p>There exist two main routes of preparing doped silica gels. If you’re doing an actual interesting project the cooler way to do it is to prepare a solution of dopant mixed in with TEOS or other silica gel precursor, and then to form the gel with the dopant already included. This ensures a pretty uniform distribution and is a commonly employed technique in actual synthetic laboratories. The more boring way is to simply adsorb some of your dopant onto the surface of the silica by simply adding a solution of it beads that have been prepared beforehand for you. We are doing the latter because it is simply not worth it to crack out the TEOS for This. The silica gel was bought from a local chemical supplier although beads bought from a 3D printing shop or salvaged from a pile of torn moisture packets will suffice.</p>
+
+<h3 id="cocl2">CoCl2</h3>
+<p>This one came out slightly wrong because of a few missteps. The most likely mistakes we have done here were the addition of the metal salt solution to a still hot pile of silica (this fragged our nice 400 ml beaker) and the fact that we did it in more or less one portion. This made our indicator very unevenly distributed among the beads and caused the colour to look slightly washed. On the bright side, our final desiccant looks a bit like blueberries. The coating solution consists of 100 mg of CoCl2 hydrate dissolved in 10 ml of dH2O and the mass of beads used is 10 grams.</p>
+
+<p><img src="/assets/images/2026_silica/cocl2_silica.webp" /><br /></p>
+
+<p>Because of this mistake we don’t get a colour change as intense as we would’ve wanted, and instead on addition of water our desiccant desaturated and went towards more so a demure purple-lilac rather than a cobalt pink.</p>
+
+<h3 id="phenolphtalein">Phenolphtalein</h3>
+<p>As lightly less often encountered kind of non-cobalt containing silica gel, however it was well described in a patent<sup id="fnref:7" role="doc-noteref"><a href="#fn:7" class="footnote" rel="footnote">7</a></sup> we found while doing research for this article.</p>
+
+<p><img src="/assets/images/2026_silica/different_phenolp_silicas.webp" /><br /></p>
+
+<p>10 grams of silica gel beads were heated to dryness and left to cool down to room temperature, after which 7 ml of solution of 50 milligrams of phenolphthalein and 100 milligrams of potassium hydroxide in 50 ml of water were added in installments, mixing thoroughly to ensure even coating.</p>
+
+<h3 id="crystal-violet">Crystal Violet</h3>
+<p>This is the part where everything falls apart. There exists no good literature on how the very widespread green-orange indicator silica is made. The one bit of literature we could find is a patent in Korean<sup id="fnref:8" role="doc-noteref"><a href="#fn:8" class="footnote" rel="footnote">8</a></sup> with a godawful translate job and even they don’t make the green-orange stuff in particular.</p>
+
+<p><img src="/assets/images/2026_silica/bad_crystal_violet_2.webp" /><br /></p>
+
+<p>The best results we personally got were by adding a bunch of extra hydrochloric acid to beads doped with 5-7 ml of 0.04% neutral crystal violet in 90/10 water:methanol solution.</p>
+
+<p><img src="/assets/images/2026_silica/bad_crystal_violet.webp" /><br /></p>
+
+<p>The obtained beads were pretty ugly and did not tolerate drying very well. At some point we got into an unpleasant groove of going to university to do chromatography (great, even more fucking silica gel) and then going home to do more silica chemistry in the time when the power outage schedules even allowed us to. This was then compounded by the grueling 6/1 university schedule to the point where the latter half of october was turned into an utterly joyless, occasionally soul-crushing period of time with next to no reprieve. Not a way to live and not even the recently upped to 30 mg dose of Mirtazapine helped us cope with the sheer amount of silicon dioxide in our lives.</p>
+
+<p>If anyone considers improving on this, our suggestions are to keep the indicator load <strong>very light</strong> by w/w and to use a strong acid (our attempts to use 85% phosphoric acid as a pH adjusting agents were not very succesful)</p>
+
+<h3 id="bonus-cucl2">Bonus: CuCl2</h3>
+<p>Not something you’d really encounter as a commercial desiccant, although ferric chloride based preparations seem to be used on occasion. (but we have a horrible bias against iron as an element so we won’t be making it this time).</p>
+
+<p><img src="/assets/images/2026_silica/bad_cucl2_silica.webp" /><br /></p>
+
+<p>And it is not something you often encounter for good reason. A very disappointing indicator. When dry, the green-brown-black colours make the indicator resemble some form of obscure pea-based dish that you’d probably see served in a Wetherspoons situated inside of a His Majesty’s Prison Service Facility. Although it is a pretty nice “baby green” when saturated with moisture so maybe its really not all that bad. Not recommended.</p>
+
+<p><img src="/assets/images/2026_silica/cucl2_silica_wet.webp" /><br /></p>
+
+<h2 id="conclusions">Conclusions</h2>
+<p>Our main goals with this writeup were to find out whether if we could make indicator silica at home and whether if it was worth it whatsoever. The answer to the first question is a shaky yes and the answer to the second is a medium-strength no. The phenolphthalein silica is trivial and pleasant to make, while the other kinds are more or less not worth it money and time investment wise (we spent more money on the little jar of crystal violet than what it would cost us to buy a big jar of commercially prepared cobalt-free indicator silica). This is definitely enough silica chemistry for maybe the rest of this year, sans the godawful tar column that we still have to attend to well into november. More exciting chemistry is to come soon hopefully, Peace.</p>
+
+<h2 id="footnotes">Footnotes</h2>
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p><a href="https://en.wikipedia.org/wiki/Humidity_indicator_card#Cobalt-free_humidity_indicator_cards">Humidity indicator card # Cobalt-free humidity indicator cards - Wikipedia </a> (all the sources here are gone and trying to look in an EU database gave us a dead link that was also in Croatian) <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:2" role="doc-endnote">
+      <p>evidence of it happening: <a href="https://www.reddit.com/r/chemistry/comments/1r9vlv1/so_is_the_claim_to_be_cobalt_chloride_free_a/">https://www.reddit.com/r/chemistry/comments/1r9vlv1/so_is_the_claim_to_be_cobalt_chloride_free_a/</a> <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:3" role="doc-endnote">
+      <p><a href="https://en.wikipedia.org/wiki/Moisture_sorption_isotherm">Moisture sorption isotherm - Wikipedia</a> <a href="#fnref:3" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:4" role="doc-endnote">
+      <p>assuming small enough pore in silica. large pore silica gel has the shape of a Type IV isotherm and exhibits adsorption hysteresis. which we couldn’t mention in the main article due to our lack of time… <a href="#fnref:4" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:5" role="doc-endnote">
+      <p>Aniskevich A, Bulderberga O, Stankevics L. Moisture Sorption and Degradation of Polymer Filaments Used in 3D Printing. Polymers (Basel). 2023 Jun 7;15(12):2600. doi: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10304609/">10.3390/polym15122600</a>. PMID: 37376246; PMCID: PMC10304609. <a href="#fnref:5" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:6" role="doc-endnote">
+      <p>Not accounting for things like hydrolysis, though your silica gel will fail much earlier than your indicator most of the time <a href="#fnref:6" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:7" role="doc-endnote">
+      <p><a href="https://patents.google.com/patent/WO2006130029A2/en">Silica gels with moisture indicator, a method of obtaining them, and use of phthalein dyes</a> <a href="#fnref:7" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:8" role="doc-endnote">
+      <p><a href="https://patents.google.com/patent/KR100894629B1/en">Desiccant containing moisture absorption indicator and method for producing the same</a> <a href="#fnref:8" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>]]></content><author><name>aryl violet</name></author><summary type="html"><![CDATA[Back in June, currentyear we have decided to sweep through our lab on a mission to eliminate inefficiencies &amp; sources of contamination after we’d almost ruined our entire stock of Cesium Carbonate by leaving it in an iodine-contaminated desiccator. In the process of decontamination, the vessel in question was emptied of its old calcium chloride drying agent and thoroughly washed in order to remove all traces of halogens. But then our task at hand was interrupted by the fact that the big jar of calcium chloride (our favourite desiccant) exploded in storage, leaving us with two giant shards of glass and a big moist lump of CaCl2 we did not feel like dealing with.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://isopropyletherperoxide.github.io/assets/images/2026_silica/thumbnail.png" /><media:content medium="image" url="https://isopropyletherperoxide.github.io/assets/images/2026_silica/thumbnail.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Cesium Chlorometallates Near the Perovskite Abyss</title><link href="http://localhost:4000/2026/09/29/halometallate_abyss.html" rel="alternate" type="text/html" title="Cesium Chlorometallates Near the Perovskite Abyss" /><published>2026-09-29T00:00:00+03:00</published><updated>2026-09-29T00:00:00+03:00</updated><id>http://localhost:4000/2026/09/29/halometallate_abyss</id><content type="html" xml:base="http://localhost:4000/2026/09/29/halometallate_abyss.html"><![CDATA[<p>Long-time readers and fellow inorganic chemistry appreciators probably already know about the halometallate ions and in particular, about a beloved long-time staple of hobbyist chemistry - the tetrachlorocuprate. The correct IUPAC-approved nomenclature for the ion is “tetrachloridocuprate” and it will be mentioned exactly once and then promptly forgotten and left in the annals of history even if it does convey slightly more information.</p>
 
 <p><img src="/assets/images/2026_cesium_halometal/tetrahalometalate.png" /><br /></p>
 
@@ -11,7 +118,7 @@
 
 <p><img src="/assets/images/2026_cesium_halometal/ions.png" /><br /></p>
 
-<p>Because of the fact that Halogens are low-field ligands according to Crystal Field Theory (don’t worry if you don’t know this, a quick explainer is included in the article), the formation of tetrahedral complexes with relatively large ionic radii is heavily favoured. These large, soft (only in the charge-radius meaning of it, they are quite structurally rigid, more on this later) complexes pack rather well with large counterions such as Cs+ or [N(Alk)4]+. Sometimes mathematicians (this happened twice to us before) complain that chemistry feels non-rigorous and hellishly empirical, and in these moments we understand<sup id="fnref:5" role="doc-noteref"><a href="#fn:5" class="footnote" rel="footnote">5</a></sup> that they might’ve been correct. The empirical rules that modern Perovskitologists use to estimate perovskite structure &amp; stability are taken Straight From Geology<sup id="fnref:6" role="doc-noteref"><a href="#fn:6" class="footnote" rel="footnote">6</a></sup></p>
+<p>Because of the fact that Halogens are low-field ligands according to Crystal Field Theory (don’t worry if you don’t know this, a quick explainer is included in the article), the tetrahedral complexes of some metals are much more likely to form compared to similar Square Planar complexes. This is due to the low energy contribution of halides to CFSE, compared to something like cyanide. In such compounds, the geometry is largely decided by whatever’s near it in the lattice and also Sterics. These large, soft (only in the charge-radius meaning of it, they are quite structurally rigid, more on this later) complexes pack rather well with large counterions such as Cs+ or [N(Alk)4]+. Sometimes mathematicians (this happened twice to us before) complain that chemistry feels non-rigorous and hellishly empirical, and in these moments we understand<sup id="fnref:5" role="doc-noteref"><a href="#fn:5" class="footnote" rel="footnote">5</a></sup> that they might’ve been correct. The empirical rules that modern Perovskitologists use to estimate perovskite structure &amp; stability are taken Straight From Geology<sup id="fnref:6" role="doc-noteref"><a href="#fn:6" class="footnote" rel="footnote">6</a></sup></p>
 
 <p><img src="/assets/images/2026_cesium_halometal/ball_so_hard_motherfuckers_wanna_fine_me.png" /><br /></p>
 <div style="font-size: smaller; margin-top: -15px;"> 
@@ -57,7 +164,7 @@ Pictured: Linus Pauling and founder of Geochemistry Victor Goldschmidt playing w
 <p>This sort of compound is much less studied than its tetrahedral relatives, but some research has been done into using Erythrosiderite structured materials for their use in semiconductors and optoelectronics.<sup id="fnref:12" role="doc-noteref"><a href="#fn:12" class="footnote" rel="footnote">12</a></sup> <sup id="fnref:13" role="doc-noteref"><a href="#fn:13" class="footnote" rel="footnote">13</a></sup></p>
 
 <h3 id="cesium-tetrachloromanganate">Cesium Tetrachloromanganate</h3>
-<p>The raw solid is actually not much of an event. The dilute solution is pink that turns more yellow when concentrated further to the point of the formation of [MnCl4]. The final product is a white crystalline powder that is… sort of fluorescent? The fluorescence here actually shouldn’t happen and its presence signifies some form of impurity or defect in the crystalline lattice. No pictures of fluorescence included due to time constraints but we might try to include it in either a supplement to this article or in the next article… Made with 0.65 g of Cs2CO3 (0.002 mol), 5 ml of HCl 15% and 0.396 g of MnCl2 4H2O (0.002 mol)</p>
+<p>The raw solid is actually not much of an event. The dilute solution is pink that turns more yellow when concentrated further to the point of the formation of [MnCl4]. The final product is a white crystalline powder that.. sortof fluoresces a very faint pink under intense UV illumination? What is happening here is either the very weak luminescence of the pure compound or the presence of some sort of impurity where the optical effect is way more pronounced. No pictures of fluorescence included due to time constraints but we might try to include it in either a supplement to this article or in the next article… Made with 0.65 g of Cs2CO3 (0.002 mol), 5 ml of HCl 15% and 0.396 g of MnCl2 4H2O (0.002 mol)</p>
 
 <p><img src="/assets/images/2026_cesium_halometal/mncl4.webp" /><br /></p>
 
@@ -97,11 +204,11 @@ Figures used from: Jara, E.; Barreda-Argüeso, J. A.; González, J.; Rodríguez,
 
 <p>The following part is not peer reviewed and is mostly educated undergrad guesswork from prior literature. Take it with a grain of salt. Heavily based on this<sup id="fnref:20" role="doc-noteref"><a href="#fn:20" class="footnote" rel="footnote">20</a></sup> chemistry stackexchange answer.</p>
 
-<p>In hydrated tetrachlorocuprates (like the crystal grower darlings K2[CuCl4(H2O)2] and (NH4)2[CuCl4(H2O)2]) copper takes the configuration of a distorted octahedron with two chlorides and two aquo ligands present in a “planar” configuration, and two extra chlorides present at a very long distance. Those chlorides are weakly bound to the potassium ions in the neighbouring cell, somewhat stabilizing our lattice.</p>
+<p>In hydrated tetrachlorocuprates (like the crystal grower darlings K2[CuCl4(H2O)2] and (NH4)2[CuCl4(H2O)2]) copper takes the configuration of a distorted octahedron with two chlorides and two aquo ligands present in a “planar” configuration, and two extra chlorides that are subjects of our JT elongation present at a very long distance. Those chlorides are also weakly bound to the potassium ions in the neighbouring cell, somewhat stabilizing our lattice.</p>
 
 <p><img src="/assets/images/2026_cesium_halometal/rb2cucl4.png" /><br /></p>
 <div style="font-size: smaller; margin-top: -15px;"> 
-Figure used from: Waizumi, K.; Masuda, H.; Ohtaki, H.; Burkov, K. A.; Chernykh, L. Structure of 2RbCl.CuCl2.2H2O. Acta Crystallogr C Cryst Struct Commun 1992, 48 (8), 1374–1376. https://doi.org/10.1107/s0108270192000180 
+Figure used from: Waizumi, K.; Masuda, H.; Ohtaki, H.; Burkov, K. A.; Chernykh, L. Structure of 2RbCl.CuCl2.2H2O. Acta Crystallogr C Cryst Struct Commun 1992, 48 (8), 1374–1376. https://doi.org/10.1107/s0108270192000180  
 </div>
 
 <p>A bigger ion like Cs+ is less likely to force extra water molecules in or to squeeze the copper into a planar structure so it allows for a distorted tetrahedron to form instead of the weird planar-octahedral whatever so we see a structure almost isomorphic to compounds like Cs2[CoCl4]. With the exception of the JT distortion present alongside electrostatic effects from the other atoms in the lattice to squish the tetrahedron.</p>
@@ -1246,100 +1353,4 @@ Figure 5. <br /> The Tar Product</div>
       <p><a href="https://spaco.org/Blacksmithing/ZVSInductionHeater/1000WattZVSInductionHeaterNotes.html">https://spaco.org/Blacksmithing/ZVSInductionHeater/1000WattZVSInductionHeaterNotes.html</a> re:coil size/coupling and also good resource in general <a href="#fnref:4" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
   </ol>
-</div>]]></content><author><name>me....</name></author><summary type="html"><![CDATA[Sometime back in the Winter of 2025 I have ordered a 25€ 1kW induction heating board off Aliexpress and put myself up to the task of closing my teenage gestalt of High Temperature Chemistry.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://isopropyletherperoxide.github.io/assets/images/2026_induction_heater_vol_1/success_heating.webp" /><media:content medium="image" url="https://isopropyletherperoxide.github.io/assets/images/2026_induction_heater_vol_1/success_heating.webp" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Favourite Light Sources of Yesteryear</title><link href="http://localhost:4000/2026/01/09/ThreeLights.html" rel="alternate" type="text/html" title="Favourite Light Sources of Yesteryear" /><published>2026-01-09T00:00:00+02:00</published><updated>2026-01-09T00:00:00+02:00</updated><id>http://localhost:4000/2026/01/09/ThreeLights</id><content type="html" xml:base="http://localhost:4000/2026/01/09/ThreeLights.html"><![CDATA[<p><img src="/assets/images/2026_three_lights/danger.webp" /><br /></p>
-
-<p>The emission of visible (and invisible) light is up there among the best pastimes available to a researcher/tinkerer/infantile individual. Light sources sit in a very pleasant area of “spectacle-danger”, making them a fun activity to engage in for children and developmentally stunted adults alike. Most of these were part of bigger projects, however due to technical difficulties or just general lack of skill, the bigger projects failed to materialize (for now!)… So I cut my losses and compiled 3 of them in a Post.</p>
-
-<h3 id="xenon-tube">Xenon Tube</h3>
-<p>This is the ИНП3-7/80A (INP3-7/80A)<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup> - a big xenon-filled tube that functions as the pump source for an old Nd:YAG laser. These ideally should live in a nice snug aluminium enclosure, complete with watercooling, hanging out in an undeniably sapphic way with a beautiful girly-pink neodymium-doped yttrium aluminium garnet rod; I do not have the funds to afford such a machine (anyone, please? BTC:bc1q93g87lf8akzsn8qr5dz30e32s6lh77raskx8hc). So I had to make do with a replacement tube that I scored for 8$ on the local marketplace. It is a beautiful long glass tube with two metal electrodes, destined to be tickled gently with a high voltage to make path for a violent discharge of a big (2160 uF at 500V) capacitor. In spirit, an oversized xenon camera flash. I got it for the purpose of putting really high voltage AC through it and watching the arcs twinkle inside.</p>
-
-<video controls="">
-<source src="/assets/images/2026_three_lights/xenon.webm" />
-</video>
-
-<p>For the power supply I am using an AC flyback from a Soviet black and white CRT television, greatly overdriven with a ZVS<sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">2</a></sup> driver, powered by a really big switching power supply<sup id="fnref:3" role="doc-noteref"><a href="#fn:3" class="footnote" rel="footnote">3</a></sup>. You can get away with a smaller 555 timer based power supply, but an AC flyback is preferable, as capacitive coupling is really fun.</p>
-
-<p><img src="/assets/images/2026_three_lights/zvs.webp" /><br /></p>
-
-<p>Really, though I’d love to see it in action, its most likely fate is a decorative piece somewhere in the lab, powered with maybe a smaller flyback based power supply. The current one, like a hermit crab - lives inside of a shell of a broken ATX power supply and draws close to a kilowatt, also just like a hermit crab. It scares me.</p>
-
-<video controls="">
-<source src="/assets/images/2026_three_lights/xenon_cap.webm" />
-</video>
-
-<h3 id="hollow-cathode-lamps">Hollow Cathode Lamps</h3>
-<p>HCLs<sup id="fnref:4" role="doc-noteref"><a href="#fn:4" class="footnote" rel="footnote">4</a></sup> are the overgrown cousin of the neon bulb family. Used in spectroscopy as a reference source, these lamps - just like their commonplace relatives consist mostly of a tube filled with low pressure neon and two electrodes connected inside for easy mode ionization (If you’re worth anything, do it capacitively). While the bulb itself is made from normal borosilicate glass, the front window is made out of fused quartz, hinting at what kinds of wavelengths we’re dealing with here. The main feature that differentiates them from normal neon bulbs (outside of their gargantuan size!) is the aforementioned hollow cathode. The hollow cathode has a thin layer of whatever element of interest applied to them during manufacture. In the appropriate mode of operation, the metal/whatever sputters off it, gets really excited in the atmosphere of ionized buffer gas and emits light radiation of desirable wavelengths.</p>
-
-<p><img src="/assets/images/2026_three_lights/HCL_light.webp" /><br /></p>
-
-<p>This is not the light source that I initially wanted to play with, but I managed to score a giant box of a dozen or so of different ЛТ-2 (LT-2) lamps for the price of lunch. After leak checking them with a small slayer-exciter coil, I took to designing a power supply for such endeavours. It ended up being a haphazardly crafted device consisting of a project box fitted with voltmeters and ammeters that I tried beating into shape (no, you cannot make a bipolar ammeter by just twisting the adjustment screw really hard), two pots for rough and fine adjustment and a YH1168A module. It is not a good power supply. The ripple on the output when unloaded is somewhere around a few volts (!! :( !!), but it is suitable for powering basic digital vacuum tube circuitry and gas discharge tubes. For experimentation, I have picked a boron-doped lamp, thinking it’d produce an interesting and distinct color.</p>
-
-<p><img src="/assets/images/2026_three_lights/hcl.webp" /><br /></p>
-
-<p>My procedure for powering such a light is: Connecting the anode via a ballast resistor (usually within the order of ~2Kohm) to the positive rail of the power supply, connecting the cathode to the ground rail and twiddling the knob until I reach striking voltage. Neon lights are negative resistance devices, so after striking, the current draw drastically increases and excess voltage is dropped on the ballast resistor and turned into scorching heat and flames whenever a clueless operator decides to use a 1W thin film resistor as the ballast. For best performance, you’re supposed to match the current with the current written in the documentation of the tube (~20mA for this fine specimen), as overcurrents can damage the thin sputtered layer of whatever element is on the cathode. The striking voltage is somewhere around 500V, though I could run such a bulb relatively fine at 360V.</p>
-
-<video controls="">
-<source src="/assets/images/2026_three_lights/HCL_powered.webm" />
-</video>
-
-<p>Sadly, as we cannot see into the best segment of the spectrum, the characteristic UV peaks of Boron are beyond our perception. These bulbs are not fit for our mediocre eyes. At the time of purchase I have naively thought that there will be a faint green line present alongside the invisible UV lines of boron. The “monochromator” that I have used to try to make this possible consisted of a magnifying lens I had lying around, tinfoil wrapped around the tube to prevent stray light from illuminating my bedroom and either an x-cube or a diffraction grating I got from China for a great price. The green line was not visible due to one of the following reasons or due to the combination thereof: my terrifying “spectroscopic equipment”, the green line not existing/being too faint for our eyes to see, the mode of operation being incorrect or the tubes being too busted. Point is, it scared the timid ghostly green glow that I so yearned for away. Too bad. On the bright side, it is a good and powerful neon light source, so the green and blue lines that neon has<sup id="fnref:5" role="doc-noteref"><a href="#fn:5" class="footnote" rel="footnote">5</a></sup> are much more visible… Not the worst ending… though it makes me yearn for a HeNe laser now…</p>
-
-<p><img src="/assets/images/2026_three_lights/hcl_xcube.webp" /><br /></p>
-
-<p><img src="/assets/images/2026_three_lights/hcl_diffract.webp" /><br /></p>
-
-<h3 id="helium-filled-noise-diode">Helium-Filled Noise Diode</h3>
-<p>These experiments stem from a brief obsession with tube technology that sort of died down because it all turned into a long tangentially related project that moves along at a glacial pace. What I did get from it are some nice frames of the kinds of glow discharge you don’t see every day. This is a ТГ1П (TG1P) helium-filled diode<sup id="fnref:6" role="doc-noteref"><a href="#fn:6" class="footnote" rel="footnote">6</a></sup>, used as a noise source for radio equipment. Usually, diodes are not filled with anything, only pumped down to a vacuum, except for the often used in the past high power mercury vapour rectifiers/ignitrons and some inert gas filled tubes. Oftenmost you can find such a gas filling inside of a thyratron, a modern precursor to the SCR (where did you think the word thyristor come from?). Unlike the aforementioned gas-filled thyratrons and mercury vapour filled diodes, these are very low power tubes, rated for less than 50 mA anode current.</p>
-
-<p><img src="/assets/images/2026_three_lights/noise_diode_night.webp" /><br /></p>
-
-<p>The working principle behind these is similar to the historically used arc converter<sup id="fnref:7" role="doc-noteref"><a href="#fn:7" class="footnote" rel="footnote">7</a></sup>. At certain potentials, the glow discharge of gas-filled lamp continously extinguishes and reignites. This effect can be exploited both to generate a low frequency sawtooth waveform, like the one observed in a neon tube blinky (Pearson-Anson oscillator) or, when placed in the field of a permanent magnet, used to generate a dense noise, stretching all the way out into the 10+ megahertz range.</p>
-
-<p><img src="/assets/images/2026_three_lights/noise_diode_zoom.webp" /><br /></p>
-
-<p>These ignite at somewhere around 80V, draw around 1-1.3 amps (standard 6.3V voltage) for the heater and 37.5mA for the anode, so it was powered via a YH1168A boost converter board through a ballast resistor. After a few minutes, the insides are hot enough and the tube starts to work in its normal mode of operation.</p>
-
-<p><img src="/assets/images/2026_three_lights/noise_diode_setup.webp" /><br /></p>
-
-<p>So far, publishing a nice spectral characteristic of such a noise source is not very possible, the power supply I used for this is incredibly noisy (look at those ugly bumps…), and whatever ripple produced by it undoubtedly adds a bunch of unnecessary bullshit to the spectral data. Also, my apartment is ungrounded, which is unsafe and makes using any appliance much more dangerous. Even worse, it makes all sorts of noise measurements much less precise. If you are interested in noise source design using similar tubes, check out the footnotes<sup id="fnref:8" role="doc-noteref"><a href="#fn:8" class="footnote" rel="footnote">8</a></sup> <sup id="fnref:9" role="doc-noteref"><a href="#fn:9" class="footnote" rel="footnote">9</a></sup>.</p>
-
-<p><img src="/assets/images/2026_three_lights/noise1.webp" /><br /></p>
-
-<p><img src="/assets/images/2026_three_lights/noise2.webp" /><br /></p>
-
-<p>Very sad, though this is being slowly worked on, low-noise high voltage sources are a niche product that can take up a whole room or cost more than whatever my life’s worth. Or both. Not the last time you see this tube I hope.</p>
-
-<p>Peace.</p>
-
-<h3 id="footnotes">Footnotes</h3>
-<div class="footnotes" role="doc-endnotes">
-  <ol>
-    <li id="fn:1" role="doc-endnote">
-      <p><a href="https://donklipstein.com/inp3780a.pdf">https://donklipstein.com/inp3780a.pdf</a> INP3/7-80A datasheet <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
-    </li>
-    <li id="fn:2" role="doc-endnote">
-      <p><a href="http://uzzors2k.com/index.php?page=flybacktransformerdrivers">“http://uzzors2k.com/index.php?page=flybacktransformerdrivers”</a> <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
-    </li>
-    <li id="fn:3" role="doc-endnote">
-      <p><a href="https://www.aliexpress.com/item/1005005191633442.html">“https://www.aliexpress.com/item/1005005191633442.html”</a> switch mode power supply, 1.2kW, 33.3A @ 36V <a href="#fnref:3" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
-    </li>
-    <li id="fn:4" role="doc-endnote">
-      <p><a href="https://en.wikipedia.org/wiki/Hollow-cathode_lamp">“https://en.wikipedia.org/wiki/Hollow-cathode_lamp”</a> <a href="#fnref:4" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
-    </li>
-    <li id="fn:5" role="doc-endnote">
-      <p><a href="https://en.wikipedia.org/wiki/Neon#/media/File:10_(Ne_I)_NIST_ASD_emission_spectrum.png">“https://en.wikipedia.org/wiki/Neon#/media/File:10_(Ne_I)_NIST_ASD_emission_spectrum.png”</a> <a href="#fnref:5" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
-    </li>
-    <li id="fn:6" role="doc-endnote">
-      <p><a href="https://web.archive.org/web/20191121064714/http://www.155la3.ru/tg1p.htm">“https://web.archive.org/web/20191121064714/http://www.155la3.ru/tg1p.htm”</a> russian page on the TG1P <a href="#fnref:6" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
-    </li>
-    <li id="fn:7" role="doc-endnote">
-      <p><a href="https://en.wikipedia.org/wiki/Arc_converter">“https://en.wikipedia.org/wiki/Arc_converter”</a> <a href="#fnref:7" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
-    </li>
-    <li id="fn:8" role="doc-endnote">
-      <p><a href="https://electronicprojectsforfun.wordpress.com/making-noise/noise-sources-i-have-built/a-tube-noise-source-using-the-2d3b-tube/">“https://electronicprojectsforfun.wordpress.com/making-noise/noise-sources-i-have-built/a-tube-noise-source-using-the-2d3b-tube/”</a> <a href="#fnref:8" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
-    </li>
-    <li id="fn:9" role="doc-endnote">
-      <p><a href="https://pubs.aip.org/aapt/ajp/article-abstract/32/7/v/1047075/Noise-Generators">“https://pubs.aip.org/aapt/ajp/article-abstract/32/7/v/1047075/Noise-Generators”</a> <a href="#fnref:9" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
-    </li>
-  </ol>
-</div>]]></content><author><name>arylia incandenza</name></author><summary type="html"><![CDATA[]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://isopropyletherperoxide.github.io/assets/images/2026_three_lights/noise_diode_night.webp" /><media:content medium="image" url="https://isopropyletherperoxide.github.io/assets/images/2026_three_lights/noise_diode_night.webp" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+</div>]]></content><author><name>me....</name></author><summary type="html"><![CDATA[Sometime back in the Winter of 2025 I have ordered a 25€ 1kW induction heating board off Aliexpress and put myself up to the task of closing my teenage gestalt of High Temperature Chemistry.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://isopropyletherperoxide.github.io/assets/images/2026_induction_heater_vol_1/success_heating.webp" /><media:content medium="image" url="https://isopropyletherperoxide.github.io/assets/images/2026_induction_heater_vol_1/success_heating.webp" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
