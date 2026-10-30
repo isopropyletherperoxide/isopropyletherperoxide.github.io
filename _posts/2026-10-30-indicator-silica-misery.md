@@ -42,7 +42,7 @@ Inorganic humidity indicators are most of the time salts or complexes of various
 
 <img src="/assets/images/2026_silica/humidity_indicators_inorg.png"><br>
 
-The more interesting mechanisms occur with the organic indicators, where the main role is played not by a ligand and geometry change but usually by the pH of the surface. Silica Gel by itself is quite acidic, so in a dry state, a dye like Phenolphtalein will have an orange colour corresponding to the fully protonated form, while with the increasing humidity it loses colour, indicative of the neutral form of the dye (similar to the less non-protonated pure neutral solid)
+The more interesting mechanisms occur with the organic indicators, where the main role is played not by a ligand and geometry change but usually by the pH of the surface. Silica Gel by itself is quite acidic, so in a dry state, a dye like Phenolphtalein will have an orange colour corresponding to the fully protonated form, while with the increasing humidity it loses colour, indicative of the neutral form of the dye (similar to the less non-protonated pure neutral solid). The phenolphthalein part is not concrete, but the color obtained on dry silica is more or less identical to color obtained in our experiments with dissolving phenolphthalein in concentrated sulfuric acid, but for proper proof we'd have to carry out a proper spectrometric investigation and we sadly aren't equipped to do so (YET.).
 
 <img src="/assets/images/2026_silica/humidity_indicators.png"><br>
 
