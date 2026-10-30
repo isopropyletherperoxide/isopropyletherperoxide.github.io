@@ -8,6 +8,8 @@ twittercard: summary_large_image
 toc: true
 ---
 
+Before the article, quick update: we now have a [ko-fi](https://ko-fi.com/aryl) for accepting donations that aren't in the of heroin sudokus. If you like our work and want to support the website & help cover the running costs, donations are much encouraged. That is [ko-fi.com/aryl](https://ko-fi.com/aryl). Greatest Thanks In Advance. 
+
 Back in June, currentyear we have decided to sweep through our lab on a mission to eliminate inefficiencies & sources of contamination after we'd almost ruined our entire stock of Cesium Carbonate by leaving it in an iodine-contaminated desiccator. In the process of decontamination, the vessel in question was emptied of its old calcium chloride drying agent and thoroughly washed in order to remove all traces of halogens. But then our task at hand was interrupted by the fact that the big jar of calcium chloride (our favourite desiccant) exploded in storage, leaving us with two giant shards of glass and a big moist lump of CaCl2 we did not feel like dealing with. 
 
 The reason why Calcium Chloride and not silica gel is our favourite desiccant is that calcium chloride comes with its own built in saturation indicator in the form of deliquescence. Spent CaCl2 will form a big chunk or even a puddle on saturation, while silica gel retains its mechanical structure over the whole range of humidity, unless you suddenly hit it with an excessive amount of moisture. This is advantageous for things like food storage or for its applications in the shipping industry, but which does us no service in our desiccators. This flaw is rectified by some industries by the application of Indicator Silica.  
@@ -72,7 +74,7 @@ The best results we personally got were by adding a bunch of extra hydrochloric 
 
 The obtained beads were pretty ugly and did not tolerate drying very well. At some point we got into an unpleasant groove of going to university to do chromatography (great, even more fucking silica gel) and then going home to do more silica chemistry in the time when the power outage schedules even allowed us to. This was then compounded by the grueling 6/1 university schedule to the point where the latter half of october was turned into an utterly joyless, occasionally soul-crushing period of time with next to no reprieve. Not a way to live and not even the recently upped to 30 mg dose of Mirtazapine helped us cope with the sheer amount of silicon dioxide in our lives. 
 
-If anyone considers improving on this, our suggestions are to keep the indicator load **very light** by w/w and to use a strong acid (our attempts to use 85% phosphoric acid as a pH adjusting agents were not very succesful) 
+If anyone considers improving on this, our suggestions are to keep the indicator load **very light** by w/w and to use a strong acid (our attempts to use 85% phosphoric acid as a pH adjusting agent were not very succesful). We are really not sure how to square this with the results we obtained in phenolphthalein! Chemistry is weird and hard and as of right now the amount of working spectrometric equipment in the entire city is close to 0 due to War Reasons so we sadly cannot probe much further.
 
 ### Bonus: CuCl2 
 Not something you'd really encounter as a commercial desiccant, although ferric chloride based preparations seem to be used on occasion. (but we have a horrible bias against iron as an element so we won't be making it this time).
