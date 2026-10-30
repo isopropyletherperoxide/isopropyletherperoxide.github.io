@@ -8,7 +8,7 @@ twittercard: summary_large_image
 toc: true
 ---
 
-Before the article, quick update: we now have a [ko-fi](https://ko-fi.com/aryl) for accepting donations that aren't in the form of heroin sudokus. If you like our work and want to support the website & help cover the running costs, donations are much encouraged. That is [ko-fi.com/aryl](https://ko-fi.com/aryl). Greatest Thanks In Advance. 
+// Before the article, quick update: we now have a [ko-fi](https://ko-fi.com/aryl) for accepting donations that aren't in the form of heroin sudokus. If you like our work and want to support the website & help cover the running costs, donations are much encouraged. That is [ko-fi.com/aryl](https://ko-fi.com/aryl). Greatest Thanks In Advance.  
 
 Back in June, currentyear we have decided to sweep through our lab on a mission to eliminate inefficiencies & sources of contamination after we'd almost ruined our entire stock of Cesium Carbonate by leaving it in an iodine-contaminated desiccator. In the process of decontamination, the vessel in question was emptied of its old calcium chloride drying agent and thoroughly washed in order to remove all traces of halogens. But then our task at hand was interrupted by the fact that the big jar of calcium chloride (our favourite desiccant) exploded in storage, leaving us with two giant shards of glass and a big moist lump of CaCl2 we did not feel like dealing with. 
 
