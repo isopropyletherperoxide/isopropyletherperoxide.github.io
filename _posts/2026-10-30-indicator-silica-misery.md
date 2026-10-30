@@ -26,7 +26,7 @@ Silica gel is a highly porous material that holds water by the mechanism of Phys
 
 The difference between them is that **absorption** involves the entire bulk solid holding onto moisture (happens with fibrous/filamentous materials like cloth, for example), while **adsorption** only happens at or near the surface of our solid. There is also a third category that is Ion Exchange, but the ion exchange resin masterpost will have to wait a few more years so don't bother with it yet. Surface adsorption is the defining mechanism of how silica gel and other common desiccants like molecular sieves or alumina work in everyday humidity control applications. **Physical** Adsorption means that our substrate does not actually react chemically with the adsorbate (in this case water) and that it is held in there purely by weaker forces like van der Waals or hydrogen bonds. In contrast, chemical adsorption happens in things like automotive catalytic converters where the nanoparticles of precious metals actually react with the harmful nitrogen oxides and form intermediary chemical compounds.
 
-The way physical chemistry describes this is by the application of an Adsorption Isotherm[^3] - a plot of amount of adsorbed adsorbate with regards to the relative vapour pressure of the adsorbed substance. (the exact coordinates for the plot may vary but they usually have the y axis set to amount of adsorbate (be it in a percentage or mass or something similar) on the surface and the x axis to some form of concentration of the adsorbate in the atmosphere)
+The way physical chemistry describes this is by the application of an Adsorption Isotherm[^3] - a plot of amount of adsorbed adsorbate with regards to the relative vapour pressure of the adsorbed substance. The exact coordinates for the plot may vary but they as a rule have the y axis set to amount of adsorbate (be it in a percentage or mass or something similar) on the surface and the x axis to some form of concentration of the adsorbate in the atmosphere
 
 There exist many different models for this, such as Henry, BET, Langmuir, Freundlich and other isotherms, all differing in complexities, scope and applications. We will not focus on any model in particular and instead just look at the adsorption isotherms in general. Regardless of the model, IUPAC gives us 8 "model-agnostic" (mostly) adsorption isotherm shapes. So, for example, something like silica gel any other similar good drying agents/adsorbants will have a Type I isotherm.[^4]
 
@@ -57,7 +57,7 @@ This one came out slightly wrong because of a few missteps. The most likely mist
 Because of this mistake we don't get a colour change as intense as we would've wanted, and instead on addition of water our desiccant desaturated and went towards more so a demure purple-lilac rather than a cobalt pink. 
 
 ### Phenolphtalein
-As lightly less often encountered kind of non-cobalt containing silica gel, however it was well described in a patent[^7] we found while doing research for this article.
+As lightly less often encountered kind of non cobalt-containing silica gel, however it was well described in a patent[^7] we found while doing research for this article.
 
 <img src="/assets/images/2026_silica/different_phenolp_silicas.webp"><br>
 
