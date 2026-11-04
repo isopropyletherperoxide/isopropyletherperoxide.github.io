@@ -32,7 +32,7 @@ There exist many different models for this, such as Henry, BET, Langmuir, Freund
 
 <img src="/assets/images/2026_silica/isotherm1.png" class="bw"><br>
 
-Interestingly, these models are useful enough to describe **bulk** absorption in something like for example, 3D printing filament. According to this[^5] paper, PLA has a linear (Henry) isotherm, while ABS and the infamously hygroscopic Nylon have a Type III Isotherm that can be described by BET. The actual mechanisms are quite different in polymeric substances though, with it being treated more like standard diffusion with calculation done via Fick's Law rather than with any of the surface adsorption models.
+Interestingly, these models are useful enough to describe **bulk** absorption in something like for example, 3D printing filament. According to this[^5] paper, PLA has a linear (Henry) isotherm, while ABS and the infamously hygroscopic Nylon have a Type III Isotherm that can be described by the aforementioned BET Model. The actual mechanisms are quite different in polymeric substances though, with it being treated more like standard diffusion with calculation done via Fick's Law rather than with any of the surface adsorption models.
 
 <img src="/assets/images/2026_silica/isotherm3.png" class="bw"><br>
 
@@ -81,7 +81,7 @@ Not something you'd really encounter as a commercial desiccant, although ferric 
 
 <img src="/assets/images/2026_silica/bad_cucl2_silica.webp"><br>
 
-And it is not something you often encounter for good reason. A very disappointing indicator. When dry, the green-brown-black colours make the indicator resemble some form of obscure pea-based dish that you'd probably see served in a Wetherspoons situated inside of a His Majesty's Prison Service Facility. Although it is a pretty nice "baby green" when saturated with moisture so maybe its really not all that bad. Not recommended. 
+And it is not something you often encounter for good reason. A very disappointing indicator. When dry, the green-brown-black colours make the indicator resemble some form of obscure pea-based dish that you'd probably see served in a Wetherspoons situated inside of a His Majesty's Prison Service facility. Although it is a pretty nice "baby green" when saturated with moisture so maybe its really not all that bad. Not recommended. 
 
 <img src="/assets/images/2026_silica/cucl2_silica_wet.webp"><br>
 
